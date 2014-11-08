@@ -1,0 +1,23 @@
+# Archivos de bootstrap (compilan las clases más usadas en Symfony2)
+app/bootstrap*
+
+# Directorios de Symfony
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+web/css/*
+web/js/*
+
+# Archivos de configuración
+# app/config/parameters.ini
+# app/config/parameters.yml
+# /composer.phar
+
+# Archivos de entornos de desarrollo y editores de texto
+.buildpath
+.idea
+.project
+.settings
+.tm_properties

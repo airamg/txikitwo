@@ -1,0 +1,3 @@
+personalizacion_index:
+    path:     /{genero}
+    defaults: { _controller: PersonalizacionBundle:Default:index }

@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Busqueda avanzada{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+                   '@WebBundle/Resources/public/css/frontend.css'
+                   '@PersonalizacionBundle/Resources/public/css/personalizacion.css'
+                   '@ArticuloBundle/Resources/public/css/busqueda.css'
+        output='css/busqueda.css' %}
+        <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    {% include ':includes:header.html.twig' %}
+
+    {% include ':includes:footer.html.twig' %}
+{% endblock %}

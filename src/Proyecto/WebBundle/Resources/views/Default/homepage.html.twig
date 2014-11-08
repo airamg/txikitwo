@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Proyecto{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+    '@WebBundle/Resources/public/css/frontend.css'
+    output='css/homepage.css' %}
+    <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    {% include ':includes:header.html.twig' %}
+    <div class="container content">
+        <div class="row">
+            <div class="description body">
+                <h2>Titulo descripcion</h2>
+                <p>Texto descripcion</p>
+            </div>
+        </div>
+    </div>
+    <div class="container content">
+        <div data-role="content">
+            <div data-role="collapsible-set">
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3></h3>
+                    <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                        <div class="boxA">
+                            <h3>Paso 1</h3>
+                            <!-- incluir foto -->
+                            <p>Descripcion paso 1</p>
+                        </div>
+                        <div class="boxB">
+                            <h3>Paso 2</h3>
+                            <!-- incluir foto -->
+                            <p>Descripcion paso 2</p>
+                        </div>
+                        <div class="boxC">
+                            <h3>Paso 3</h3>
+                            <!-- incluir foto -->
+                            <p>Descripcion paso 3</p>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include ':includes:footer.html.twig' %}
+{% endblock %}

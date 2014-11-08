@@ -1,0 +1,13 @@
+# src/Proyecto/WebBundle/Resources/config/routing.yml
+
+web_homepage:
+    path:     /
+    defaults: { _controller: WebBundle:Default:homepage }
+
+web_guiatallas:
+    path:     /guiatallas
+    defaults: { _controller: WebBundle:Default:guiatallas }
+
+web_guiacompra:
+    path:     /guiacompra
+    defaults: { _controller: WebBundle:Default:guiacompra }

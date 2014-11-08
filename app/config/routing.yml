@@ -1,0 +1,27 @@
+almacen:
+    resource: "@AlmacenBundle/Resources/config/routing.yml"
+    prefix:   /
+
+web:
+    resource: "@WebBundle/Resources/config/routing.yml"
+    prefix:   /
+
+usuario:
+    resource: "@UsuarioBundle/Resources/config/routing.yml"
+    prefix:   /usuario
+
+articulo:
+    resource: "@ArticuloBundle/Resources/config/routing.yml"
+    prefix:   /
+
+personalizacion:
+    resource: "@PersonalizacionBundle/Resources/config/routing.yml"
+    prefix:   /personalizacion
+
+compra:
+    resource: "@CompraBundle/Resources/config/routing.yml"
+    prefix:   /compra
+
+backend:
+    resource: "@BackendBundle/Resources/config/routing.yml"
+    prefix:   /backend

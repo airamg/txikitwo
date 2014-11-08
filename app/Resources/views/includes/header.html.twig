@@ -1,0 +1,24 @@
+<div class="container header">
+    <div class="row"> <!-- cambiar diseño row para foto fondo -->
+        <a href="{{ path('web_homepage') }}">Inicio</a> <!-- incluir logo y fondo transparente difuminado -->
+        <div id="carrito-compra">
+            <!-- carrito cuenta -->
+        </div>
+        <div id="menu1">
+            <ul>
+                <!-- hacer ifs segun este o no logeado el usuario: mi cuenta / cerrar sesion -->
+                <li><a href="#">Iniciar sesión</a></li>
+                <li><a href="#">Registro</a>
+            </ul>
+        </div>
+        <div id="menu2">
+            <ul>
+                <li><a href="{{ path('personalizacion_index', { 'genero': "nina" }) }}">Niña</a></li>
+                <li><a href="{{ path('personalizacion_index', { 'genero': "nino" }) }}">Niño</a></li>
+                <li><a href="{{ path('web_guiatallas') }}">Guía de tallas</a></li>
+                <li><a href="{{ path('web_guiacompra') }}">Guía de compra</a></li>
+                <li><a href="{{ path('busqueda') }}">Búsqueda avanzada</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

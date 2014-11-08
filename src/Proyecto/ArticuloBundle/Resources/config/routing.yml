@@ -1,0 +1,7 @@
+articulo_homepage:
+    path:     /hello/
+    defaults: { _controller: ArticuloBundle:Default:index }
+
+busqueda:
+    path:     /busqueda
+    defaults: { _controller: ArticuloBundle:Default:busquedaindex }

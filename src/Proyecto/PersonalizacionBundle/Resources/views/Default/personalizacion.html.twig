@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Personalizacion{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+    '@WebBundle/Resources/public/css/frontend.css'
+    '@PersonalizacionBundle/Resources/public/css/personalizacion.css'
+    output='css/personalizacion.css' %}
+    <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    {% include ':includes:header.html.twig' %}
+    <div id="page" class="container">
+        <div id="headerMenu">
+            <div id="logoMenu">
+                <img src="" alt="" />
+                <h1><a href="#">Titulo</a></h1>
+            </div>
+            {% if name == "nina" %}
+                <div id="menu">
+                    <ul>
+                        <li class="current_page_item"><a href="#">Una</a></li>
+                        <li><a href="#">Dos</a></li>
+                        <li><a href="#">Tres</a></li>
+                        <li><a href="#">Cuatro</a></li>
+                        <li><a href="#">Cinco</a></li>
+                    </ul>
+                </div>
+            {%  else %}
+                <div id="menu">
+                    <ul>
+                        <li class="current_page_item"><a href="#">Uno</a></li>
+                        <li><a href="#">Dos</a></li>
+                        <li><a href="#">Tres</a></li>
+                        <li><a href="#">Cuatro</a></li>
+                        <li><a href="#">Cinco</a></li>
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+        <div id="main">
+            <p>Texto de <strong>prueba</strong>.</p>
+        </div>
+    </div>
+    {% include ':includes:footer.html.twig' %}
+{% endblock %}

@@ -1,0 +1,238 @@
+body {
+    margin: 0;
+}
+
+.header{
+    width: 100%;
+    height: 140px;
+    margin-bottom: 50px;
+    padding-top: 20px;
+}
+
+img, object, embed {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+.image
+{
+    display: inline-block;
+}
+
+.image img
+{
+    display: block;
+    width: 100%;
+}
+
+.image-full
+{
+    display: block;
+    width: 100%;
+    margin: 0 0 2em 0;
+}
+
+.image-left
+{
+    float: left;
+    margin: 0 2em 2em 0;
+}
+
+.image-centered
+{
+    display: block;
+    margin: 0 0 2em 0;
+}
+
+.image-centered img
+{
+    margin: 0 auto;
+    width: auto;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+}
+
+p {
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+a {
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    padding: 1em 2em 1em 2em;
+    text-decoration: none;
+    font-size: 20px;
+    color: rgba(0,0,0,.8);
+}
+
+a:hover {
+    font-weight:bold;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* li {
+    float: left;
+} */
+
+ul a {
+    display: block;
+    padding-right: 32px;
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 16px;
+}
+
+h1 a {
+    text-decoration: none;
+}
+
+h2 {
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 24px;
+}
+
+h1 {
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 32px;
+}
+
+#menu1
+{
+    position: absolute;
+    top: 0.8em;
+    right: 0;
+}
+
+#menu1 ul
+{
+    display: inline-block;
+}
+
+#menu1 li
+{
+    display: block;
+    float: left;
+    text-align: center;
+    border-right: 1px solid #9B9A9A;
+}
+
+#menu1 li a, #menu1 li span
+{
+    padding: 0em 1.5em;
+    text-decoration: none;
+    font-weight: 300;
+    color: rgba(0,0,0,.8);
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+#menu1 a:hover
+{
+    text-decoration: none;
+    font-weight:bold;
+}
+
+#menu1 li:last-child {
+    border-right:none;
+}
+
+#menu2
+{
+    position: absolute;
+    top: 5em;
+    right: 0;
+    padding-right: 20px;
+}
+
+#menu2 ul
+{
+    display: inline-block;
+}
+
+#menu2 li
+{
+    display: block;
+    float: left;
+    text-align: center;
+    background: #3498DB;
+    border-radius: 50px;
+}
+
+#menu2 li a, #menu2 li span
+{
+    padding: 1em 1.5em;
+    text-decoration: none;
+    font-weight: 300;
+    color: rgba(0,0,0,.8);
+}
+
+#menu2 a:hover
+{
+    color: #FFF;
+}
+
+.footer {
+    padding-top: 50px;
+    width: 100%;
+}
+
+#footer
+{
+    overflow: hidden;
+    padding: 2em 0em;
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+#footer p
+{
+    letter-spacing: 0.20em;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.80em;
+    color: rgba(0,0,0,0.6);
+}
+
+#footer a
+{
+    text-decoration: none;
+    color: rgba(0,0,0,0.8);
+}
+
+#carrito-compra {
+    right: 16em;
+    position: absolute;
+    top: 0.9em;
+}
+
+#carrito-compra ul
+{
+    display: inline-block;
+}
+
+#carrito-compra li {
+    display: block;
+    float: left;
+    text-align: center;
+}
+
+#carrito-compra li a {
+    padding: 0em 1.5em;
+    text-decoration: none;
+    color: rgba(0,0,0,.8);
+    font-size: 10px;
+}
+
+#carrito-compra a:hover {
+
+}
