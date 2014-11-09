@@ -1,7 +1,3 @@
-almacen:
-    resource: "@AlmacenBundle/Resources/config/routing.yml"
-    prefix:   /
-
 web:
     resource: "@WebBundle/Resources/config/routing.yml"
     prefix:   /
@@ -21,6 +17,10 @@ personalizacion:
 compra:
     resource: "@CompraBundle/Resources/config/routing.yml"
     prefix:   /compra
+
+almacen:
+    resource: "@AlmacenBundle/Resources/config/routing.yml"
+    prefix:   /almacen
 
 backend:
     resource: "@BackendBundle/Resources/config/routing.yml"
