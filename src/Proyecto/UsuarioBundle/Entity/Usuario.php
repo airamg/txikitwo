@@ -72,6 +72,16 @@ class Usuario
     protected $salt;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    private $rutaFoto;
+
+    /**
+     * @Assert\Image(maxSize = "900k")
+     */
+    private $foto;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="direccion", type="text")
@@ -82,38 +92,30 @@ class Usuario
     /**
      * @var string
      *
-     * @ORM\Column(name="codigo_postal", type="string", length=5)
+     * @ORM\Column(name="codigoPostal", type="string", length=5)
      * @Assert\NotBlank(message = "Es necesario introducir un valor.")
      * @Assert\Length(min = 5)
      */
-    private $codigo_postal;
+    private $codigoPostal;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="compras_realizadas", type="string", length=5)
+     * @ORM\Column(name="comprasRealizadas", type="string", length=5)
      */
-    private $compras_realizadas;
+    private $comprasRealizadas;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="compras_pendientes", type="string", length=2)
+     * @ORM\Column(name="comprasPendientes", type="string", length=2)
      */
-    private $compras_pendientes;
-
-    /**
-     * @var integer $compra
-     *
-     * @ORM\ManyToOne(targetEntity="Proyecto\CompraBundle\Entity\Compra", inversedBy="usuarios")
-     * @Assert\Type("Proyecto\CompraBundle\Entity\Compra")
-     */
-    private $compra;
+    private $comprasPendientes;
 
 
     public function __construct()
     {
-        /* hacer que role sea el de user */
+        $this->setRole("user");
     }
 
     public function __toString()
@@ -265,6 +267,49 @@ class Usuario
     }
 
     /**
+     * Set rutaFoto
+     *
+     * @param string $rutaFoto
+     * @return Articulo
+     */
+    public function setRutaFoto($rutaFoto)
+    {
+        $this->rutaFoto = $rutaFoto;
+
+        return $this;
+    }
+
+    /**
+     * Get rutaFoto
+     *
+     * @return string
+     */
+    public function getRutaFoto()
+    {
+        return $this->rutaFoto;
+    }
+
+    /**
+     * Set foto.
+     *
+     * @param UploadedFile $foto
+     */
+    public function setFoto(UploadedFile $foto = null)
+    {
+        $this->foto = $foto;
+    }
+
+    /**
+     * Get foto.
+     *
+     * @return UploadedFile
+     */
+    public function getFoto()
+    {
+        return $this->foto;
+    }
+
+    /**
      * Set direccion
      *
      * @param string $direccion
@@ -288,87 +333,72 @@ class Usuario
     }
 
     /**
-     * Set codigo_postal
+     * Set codigoPostal
      *
-     * @param string $codigo_postal
+     * @param string $codigoPostal
      * @return Usuario
      */
-    public function setCodigo_postal($codigo_postal)
+    public function setCodigoPostal($codigoPostal)
     {
-        $this->codigo_postal = $codigo_postal;
+        $this->codigoPostal = $codigoPostal;
 
         return $this;
     }
 
     /**
-     * Get codigo_postal
+     * Get codigoPostal
      *
      * @return string
      */
-    public function getCodigo_postal()
+    public function getCodigoPostal()
     {
-        return $this->codigo_postal;
+        return $this->codigoPostal;
     }
 
     /**
-     * Set compras_realizadas
+     * Set comprasRealizadas
      *
-     * @param string $compras_realizadas
+     * @param string $comprasRealizadas
      * @return Usuario
      */
-    public function setCompras_realizadas($compras_realizadas)
+    public function setComprasRealizadas($comprasRealizadas)
     {
-        $this->compras_realizadas = $compras_realizadas;
+        $this->comprasRealizadas = $comprasRealizadas;
 
         return $this;
     }
 
     /**
-     * Get compras_realizadas
+     * Get comprasRealizadas
      *
      * @return string
      */
-    public function getCompras_realizadas()
+    public function getComprasRealizadas()
     {
-        return $this->compras_realizadas;
+        return $this->comprasRealizadas;
     }
 
     /**
-     * Set compras_pendientes
+     * Set comprasPendientes
      *
-     * @param string $compras_pendientes
+     * @param string $comprasPendientes
      * @return Usuario
      */
-    public function setCompras_pendientes($compras_pendientes)
+    public function setComprasPendientes($comprasPendientes)
     {
-        $this->compras_pendientes = $compras_pendientes;
+        $this->comprasPendientes = $comprasPendientes;
 
         return $this;
     }
 
     /**
-     * Get compras_pendientes
+     * Get comprasPendientes
      *
      * @return string
      */
-    public function getCompras_pendientes()
+    public function getComprasPendientes()
     {
-        return $this->compras_pendientes;
+        return $this->comprasPendientes;
     }
 
-    /**
-     * Set compra
-     */
-    public function setCompra(\Proyecto\CompraBundle\Entity\Compra $compra)
-    {
-        $this->compra = $compra;
-    }
-
-    /**
-     * Get compra
-     */
-    public function getCompra()
-    {
-        return $this->compra;
-    }
 }

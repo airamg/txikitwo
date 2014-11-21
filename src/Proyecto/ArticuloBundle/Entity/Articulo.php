@@ -73,10 +73,10 @@ class Articulo
     /**
      * @var string
      *
-     * @ORM\Column(name="veces_comprado", type="string")
+     * @ORM\Column(name="vecesPersonalizado", type="string")
      * @Assert\NotBlank()
      */
-    private $vecesComprado;
+    private $vecesPersonalizado;
 
     /**
      * @var string
@@ -95,12 +95,24 @@ class Articulo
     private $genero;
 
     /**
-     * @var integer $accesorio
+     * @var integer $tejido
      *
-     * @ORM\OneToMany(targetEntity="Proyecto\ArticuloBundle\Entity\Accesorio", mappedBy="articulos")
-     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Accesorio")
+     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Tejido", inversedBy="articulos")
+     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Tejido")
      */
-    private $accesorio;
+    private $tejido;
+
+
+    public function __construct()
+    {
+        $this->setVecesPersonalizado(0);
+    }
+
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
+
 
     /**
      * Get id
@@ -268,26 +280,26 @@ class Articulo
     }
 
     /**
-     * Set vecesComprado
+     * Set vecesPersonalizado
      *
-     * @param string $vecesComprado
+     * @param string $vecesPersonalizado
      * @return Articulo
      */
-    public function setVecesComprado($vecesComprado)
+    public function setVecesPersonalizado($vecesPersonalizado)
     {
-        $this->vecesComprado = $vecesComprado;
+        $this->vecesPersonalizado = $vecesPersonalizado;
 
         return $this;
     }
 
     /**
-     * Get vecesComprado
+     * Get vecesPersonalizado
      *
      * @return string 
      */
-    public function getVecesComprado()
+    public function getVecesPersonalizado()
     {
-        return $this->vecesComprado;
+        return $this->vecesPersonalizado;
     }
 
     /**
@@ -337,12 +349,18 @@ class Articulo
     }
 
     /**
-     * Get accesorio
-     *
-     * @return string 
+     * Set tejido
      */
-    public function getAccesorio()
+    public function setTejido(\Proyecto\ArticuloBundle\Entity\Tejido $tejido)
     {
-        return $this->accesorio;
+        $this->tejido = $tejido;
+    }
+
+    /**
+     * Get tejido
+     */
+    public function getTejido()
+    {
+        return $this->tejido;
     }
 }

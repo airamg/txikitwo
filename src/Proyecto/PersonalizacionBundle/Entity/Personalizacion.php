@@ -24,28 +24,51 @@ class Personalizacion
     private $id;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    private $rutaFoto;
+
+    /**
+     * @Assert\Image(maxSize = "900k")
+     */
+    private $foto;
+
+    /**
+     * @ORM\Column(type="decimal", scale=2)
+     * @Assert\Range(min = 0)
+     */
+    private $precio;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="talla", type="string", length=255)
+     * @ORM\Column(name="talla", type="string")
      * @Assert\NotBlank()
      */
     private $talla;
 
     /**
-     * @var string
+     * @var integer $articulo
      *
-     * @ORM\Column(name="color", type="string", length=255)
-     * @Assert\NotBlank()
+     * @ORM\OneToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Articulo")
+     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Articulo")
      */
-    private $color;
+    private $articulo;
 
     /**
-     * @var string
+     * @var integer $compra
      *
-     * @ORM\Column(name="tejido", type="string", length=255)
-     * @Assert\NotBlank()
+     * @ORM\ManyToOne(targetEntity="Proyecto\CompraBundle\Entity\Compra", inversedBy="personalizaciones")
+     * @Assert\Type("Proyecto\CompraBundle\Entity\Compra")
      */
-    private $tejido;
+    private $compra;
+
+
+    public function __construct()
+    {
+
+    }
+
 
     /**
      * Get id
@@ -55,6 +78,69 @@ class Personalizacion
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set rutaFoto
+     *
+     * @param string $rutaFoto
+     * @return Articulo
+     */
+    public function setRutaFoto($rutaFoto)
+    {
+        $this->rutaFoto = $rutaFoto;
+
+        return $this;
+    }
+
+    /**
+     * Get rutaFoto
+     *
+     * @return string
+     */
+    public function getRutaFoto()
+    {
+        return $this->rutaFoto;
+    }
+
+    /**
+     * Set foto.
+     *
+     * @param UploadedFile $foto
+     */
+    public function setFoto(UploadedFile $foto = null)
+    {
+        $this->foto = $foto;
+    }
+
+    /**
+     * Get foto.
+     *
+     * @return UploadedFile
+     */
+    public function getFoto()
+    {
+        return $this->foto;
+    }
+
+    /**
+     * Set precio
+     *
+     * @param decimal $precio
+     */
+    public function setPrecio($precio)
+    {
+        $this->precio = $precio;
+    }
+
+    /**
+     * Get precio
+     *
+     * @return decimal
+     */
+    public function getPrecio()
+    {
+        return $this->precio;
     }
 
     /**
@@ -73,7 +159,7 @@ class Personalizacion
     /**
      * Get talla
      *
-     * @return string 
+     * @return string
      */
     public function getTalla()
     {
@@ -81,48 +167,35 @@ class Personalizacion
     }
 
     /**
-     * Set color
-     *
-     * @param string $color
-     * @return Personalizacion
+     * Set articulo
      */
-    public function setColor($color)
+    public function setArticulo(\Proyecto\ArticuloBundle\Entity\Articulo $articulo)
     {
-        $this->color = $color;
-
-        return $this;
+        $this->articulo = $articulo;
     }
 
     /**
-     * Get color
-     *
-     * @return string 
+     * Get articulo
      */
-    public function getColor()
+    public function getArticulo()
     {
-        return $this->color;
+        return $this->articulo;
     }
 
     /**
-     * Set tejido
-     *
-     * @param string $tejido
-     * @return Personalizacion
+     * Set compra
      */
-    public function setTejido($tejido)
+    public function setCompra(\Proyecto\CompraBundle\Entity\Compra $compra)
     {
-        $this->tejido = $tejido;
-
-        return $this;
+        $this->compra = $compra;
     }
 
     /**
-     * Get tejido
-     *
-     * @return string 
+     * Get compra
      */
-    public function getTejido()
+    public function getCompra()
     {
-        return $this->tejido;
+        return $this->compra;
     }
+
 }

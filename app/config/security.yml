@@ -10,3 +10,12 @@ security:
 
         default:
             anonymous: ~
+
+    encoders:
+            Symfony\Component\Security\Core\User\User: plaintext
+            Proyecto\ArticuloBundle\Entity\Accesorio: plaintext
+            Proyecto\ArticuloBundle\Entity\Articulo: plaintext
+            Proyecto\ArticuloBundle\Entity\Tejido: plaintext
+            Proyecto\CompraBundle\Entity\Compra: plaintext
+            Proyecto\PersonalizacionBundle\Entity\Personalizacion: plaintext
+            Proyecto\UsuarioBundle\Entity\Usuario: plaintext

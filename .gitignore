@@ -10,7 +10,6 @@ web/css/*
 
 # Archivos de configuración
 # app/config/parameters.yml
-# /composer.phar
 
 # Archivos de entornos de desarrollo y editores de texto
 .buildpath

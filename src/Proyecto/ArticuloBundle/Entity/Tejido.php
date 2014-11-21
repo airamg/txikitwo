@@ -7,12 +7,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 
 /**
- * Proyecto\ArticuloBundle\Entity\Accesorio
+ * Proyecto\ArticuloBundle\Entity\Tejido
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Proyecto\ArticuloBundle\Entity\AccesorioRepository")
+ * @ORM\Entity(repositoryClass="Proyecto\ArticuloBundle\Entity\TejidoRepository")
  */
-class Accesorio
+class Tejido
 {
     /**
      * @var integer
@@ -27,7 +27,6 @@ class Accesorio
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
-     * @Assert\NotBlank()
      */
     private $nombre;
 
@@ -39,16 +38,23 @@ class Accesorio
     private $slug;
 
     /**
-     * @ORM\Column(type="decimal", scale=2)
-     * @Assert\Range(min = 0)
+     * @var string
+     *
+     * @ORM\Column(name="estampado", type="string", length=255)
      */
-    private $precio;
+    private $estampado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="color", type="string", length=255)
+     */
+    private $color;
 
     /**
      * @var string
      *
      * @ORM\Column(name="genero", type="string", length=255)
-     * @Assert\NotBlank()
      */
     private $genero;
 
@@ -61,14 +67,6 @@ class Accesorio
      * @Assert\Image(maxSize = "900k")
      */
     private $foto;
-
-    /**
-     * @var integer $articulo
-     *
-     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Articulo", inversedBy="accesorios")
-     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Articulo")
-     */
-    private $articulo;
 
 
     public function __toString()
@@ -91,7 +89,7 @@ class Accesorio
      * Set nombre
      *
      * @param string $nombre
-     * @return Accesorio
+     * @return Tejido
      */
     public function setNombre($nombre)
     {
@@ -114,7 +112,7 @@ class Accesorio
      * Set slug
      *
      * @param string $slug
-     * @return Accesorio
+     * @return Tejido
      */
     public function setSlug($slug)
     {
@@ -131,6 +129,75 @@ class Accesorio
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set estampado
+     *
+     * @param string $estampado
+     * @return Tejido
+     */
+    public function setEstampado($estampado)
+    {
+        $this->estampado = $estampado;
+
+        return $this;
+    }
+
+    /**
+     * Get estampado
+     *
+     * @return string 
+     */
+    public function getEstampado()
+    {
+        return $this->estampado;
+    }
+
+    /**
+     * Set color
+     *
+     * @param string $color
+     * @return Tejido
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    /**
+     * Get color
+     *
+     * @return string 
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * Set genero
+     *
+     * @param string $genero
+     * @return Tejido
+     */
+    public function setGenero($genero)
+    {
+        $this->genero = $genero;
+
+        return $this;
+    }
+
+    /**
+     * Get genero
+     *
+     * @return string 
+     */
+    public function getGenero()
+    {
+        return $this->genero;
     }
 
     /**
@@ -174,64 +241,5 @@ class Accesorio
     public function getFoto()
     {
         return $this->foto;
-    }
-
-    /**
-     * Set precio
-     *
-     * @param decimal $precio
-     */
-    public function setPrecio($precio)
-    {
-        $this->precio = $precio;
-    }
-
-    /**
-     * Get precio
-     *
-     * @return decimal
-     */
-    public function getPrecio()
-    {
-        return $this->precio;
-    }
-
-    /**
-     * Set genero
-     *
-     * @param string $genero
-     * @return Articulo
-     */
-    public function setGenero($genero)
-    {
-        $this->genero = $genero;
-
-        return $this;
-    }
-
-    /**
-     * Get genero
-     *
-     * @return string
-     */
-    public function getGenero()
-    {
-        return $this->genero;
-    }
-
-    /**
-     * Set articulo
-     */
-    public function setArticulo(\Proyecto\ArticuloBundle\Entity\Articulo $articulo)
-    {
-        $this->articulo = $articulo;
-    }
-
-    /**
-     * Get articulo
-     */
-    public function getArticulo()
-    {
-        return $this->articulo;
     }
 }

@@ -48,25 +48,17 @@ class Compra
     private $fecha;
 
     /**
-     * @var string
+     * @var integer $usuario
      *
-     * @ORM\Column(name="num_articulos", type="string", length=2)
-     * @Assert\NotBlank()
+     * @ORM\ManyToOne(targetEntity="Proyecto\UsuarioBundle\Entity\Usuario", inversedBy="compras")
+     * @Assert\Type("Proyecto\UsuarioBundle\Entity\Usuario")
      */
-    private $num_articulos;
-
-    /**
-     * @var integer $articulo
-     *
-     * @ORM\OneToMany(targetEntity="Proyecto\ArticuloBundle\Entity\Articulo", mappedBy="compras")
-     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Articulo")
-     */
-    private $articulo;
+    private $usuario;
 
 
     public function __construct()
     {
-
+        $this->fecha = new \DateTime();
     }
 
 
@@ -142,7 +134,7 @@ class Compra
     /**
      * Get fecha
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFecha()
     {
@@ -150,35 +142,19 @@ class Compra
     }
 
     /**
-     * Set num_articulos
-     *
-     * @param string
-     * @return Compra
+     * Set usuario
      */
-    public function setNum_articulos($num_articulos)
+    public function setUsuario(\Proyecto\UsuarioBundle\Entity\Usuario $usuario)
     {
-        $this->num_articulos = $num_articulos;
-
-        return $this;
+        $this->usuario = $usuario;
     }
 
     /**
-     * Get num_articulos
-     *
-     * @return string
+     * Get usuario
      */
-    public function getNum_articulos()
+    public function getUsuario()
     {
-        return $this->num_articulos;
+        return $this->usuario;
     }
 
-    /**
-     * Get articulo
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getArticulo()
-    {
-        return $this->articulo;
-    }
 }
