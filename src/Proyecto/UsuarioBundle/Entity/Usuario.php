@@ -3,12 +3,15 @@
 namespace Proyecto\UsuarioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 
 /**
- * Usuario
+ * Proyecto\UsuarioBundle\Entity\Usuario
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Proyecto\UsuarioBundle\Entity\UsuarioRepository")
+ * @DoctrineAssert\UniqueEntity("email")
  */
 class Usuario
 {
@@ -25,6 +28,7 @@ class Usuario
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=100)
+     * @Assert\NotBlank()
      */
     private $nombre;
 
@@ -32,20 +36,15 @@ class Usuario
      * @var string
      *
      * @ORM\Column(name="apellidos", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $apellidos;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre_usuario", type="string", length=25)
-     */
-    private $nombreUsuario;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @Assert\Email()
      */
     private $email;
 
@@ -53,35 +52,80 @@ class Usuario
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 6)
      */
     private $password;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="dni", type="string", length=9)
+     * @ORM\Column(name="role", type="string", length=5)
      */
-    private $dni;
+    private $role;
+
+    /**
+     * @var string salt
+     *
+     * @ORM\Column(name="salt", type="string", length=255)
+     */
+    protected $salt;
 
     /**
      * @var string
      *
      * @ORM\Column(name="direccion", type="text")
+     * @Assert\NotBlank()
      */
     private $direccion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="compras_realizadas", type="string", length=4)
+     * @ORM\Column(name="codigo_postal", type="string", length=5)
+     * @Assert\NotBlank(message = "Es necesario introducir un valor.")
+     * @Assert\Length(min = 5)
      */
-    private $comprasRealizadas;
+    private $codigo_postal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="compras_realizadas", type="string", length=5)
+     */
+    private $compras_realizadas;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="compras_pendientes", type="string", length=2)
+     */
+    private $compras_pendientes;
+
+    /**
+     * @var integer $compra
+     *
+     * @ORM\ManyToOne(targetEntity="Proyecto\CompraBundle\Entity\Compra", inversedBy="usuarios")
+     * @Assert\Type("Proyecto\CompraBundle\Entity\Compra")
+     */
+    private $compra;
+
+
+    public function __construct()
+    {
+        /* hacer que role sea el de user */
+    }
+
+    public function __toString()
+    {
+        return $this->getNombre().' '.$this->getApellidos();
+    }
 
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -104,7 +148,7 @@ class Usuario
     /**
      * Get nombre
      *
-     * @return string 
+     * @return string
      */
     public function getNombre()
     {
@@ -127,34 +171,11 @@ class Usuario
     /**
      * Get apellidos
      *
-     * @return string 
+     * @return string
      */
     public function getApellidos()
     {
         return $this->apellidos;
-    }
-
-    /**
-     * Set nombreUsuario
-     *
-     * @param string $nombreUsuario
-     * @return Usuario
-     */
-    public function setNombreUsuario($nombreUsuario)
-    {
-        $this->nombreUsuario = $nombreUsuario;
-
-        return $this;
-    }
-
-    /**
-     * Get nombreUsuario
-     *
-     * @return string 
-     */
-    public function getNombreUsuario()
-    {
-        return $this->nombreUsuario;
     }
 
     /**
@@ -173,7 +194,7 @@ class Usuario
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -196,7 +217,7 @@ class Usuario
     /**
      * Get password
      *
-     * @return string 
+     * @return string
      */
     public function getPassword()
     {
@@ -204,26 +225,43 @@ class Usuario
     }
 
     /**
-     * Set dni
+     * Set role
      *
-     * @param string $dni
-     * @return Usuario
+     * @param string $role
      */
-    public function setDni($dni)
+    public function setRole($role)
     {
-        $this->dni = $dni;
-
-        return $this;
+        $this->role = $role;
     }
 
     /**
-     * Get dni
+     * Get role
      *
-     * @return string 
+     * @return string
      */
-    public function getDni()
+    public function getRole()
     {
-        return $this->dni;
+        return $this->role;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string
+     */
+    public function getSalt()
+    {
+        return $this->salt;
     }
 
     /**
@@ -242,7 +280,7 @@ class Usuario
     /**
      * Get direccion
      *
-     * @return string 
+     * @return string
      */
     public function getDireccion()
     {
@@ -250,25 +288,87 @@ class Usuario
     }
 
     /**
-     * Set comprasRealizadas
+     * Set codigo_postal
      *
-     * @param string $comprasRealizadas
+     * @param string $codigo_postal
      * @return Usuario
      */
-    public function setComprasRealizadas($comprasRealizadas)
+    public function setCodigo_postal($codigo_postal)
     {
-        $this->comprasRealizadas = $comprasRealizadas;
+        $this->codigo_postal = $codigo_postal;
 
         return $this;
     }
 
     /**
-     * Get comprasRealizadas
+     * Get codigo_postal
      *
-     * @return string 
+     * @return string
      */
-    public function getComprasRealizadas()
+    public function getCodigo_postal()
     {
-        return $this->comprasRealizadas;
+        return $this->codigo_postal;
+    }
+
+    /**
+     * Set compras_realizadas
+     *
+     * @param string $compras_realizadas
+     * @return Usuario
+     */
+    public function setCompras_realizadas($compras_realizadas)
+    {
+        $this->compras_realizadas = $compras_realizadas;
+
+        return $this;
+    }
+
+    /**
+     * Get compras_realizadas
+     *
+     * @return string
+     */
+    public function getCompras_realizadas()
+    {
+        return $this->compras_realizadas;
+    }
+
+    /**
+     * Set compras_pendientes
+     *
+     * @param string $compras_pendientes
+     * @return Usuario
+     */
+    public function setCompras_pendientes($compras_pendientes)
+    {
+        $this->compras_pendientes = $compras_pendientes;
+
+        return $this;
+    }
+
+    /**
+     * Get compras_pendientes
+     *
+     * @return string
+     */
+    public function getCompras_pendientes()
+    {
+        return $this->compras_pendientes;
+    }
+
+    /**
+     * Set compra
+     */
+    public function setCompra(\Proyecto\CompraBundle\Entity\Compra $compra)
+    {
+        $this->compra = $compra;
+    }
+
+    /**
+     * Get compra
+     */
+    public function getCompra()
+    {
+        return $this->compra;
     }
 }
