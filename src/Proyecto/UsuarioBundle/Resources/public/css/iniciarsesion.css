@@ -1,0 +1,38 @@
+#formularioiniciosesion
+{
+    float: left;
+    width: 600px;
+    padding-left: 4em;
+    border-right: 2px solid #CCC;
+    padding-top: 5em;
+    display: block;
+}
+
+#formularioiniciosesion label
+{
+    font-size: 20px;
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+#formularioiniciosesion input[type="text"], #formularioiniciosesion input[type="password"]
+{
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 0.5em;
+    cursor: pointer;
+    width: 300px;
+}
+
+#formularioiniciosesion li
+{
+    padding-bottom: 1em;
+}
+
+#linkregistro
+{
+    float: left;
+    width: 500px;
+    padding: 5px 5px;
+    padding-top: 5em;
+    text-align: center;
+}

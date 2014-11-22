@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Inicia sesión - Txikitwo{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+        '@WebBundle/Resources/public/css/frontend.css'
+        '@UsuarioBundle/Resources/public/css/iniciarsesion.css'
+        '@PersonalizacionBundle/Resources/public/css/personalizacion.css'
+        output='css/iniciarsesion.css' %}
+    <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+   {% include ':includes:header.html.twig' %}
+    <div id="contenido">
+        <div id="formularioiniciosesion">
+            <form action="{{ path('web_homepage') }}" method="post">
+                <ul>
+                    <li><label for="email">Email</label></li>
+                    <li><input type="text" id="email" name="_email"/></li>
+                    <li><label for="password">Contraseña</label></li>
+                    <li><input type="password" id="password" name="_password" /></li>
+                    <li><input type="checkbox" id="remember_me" name="_remember_me" checked />
+                        <label for="remember_me">No cerrar sesión</label></li>
+                    <li><input class="boton" type="submit" name="login" value="Entrar" /></li>
+                </ul>
+            </form>
+        </div>
+        <div id="linkregistro">
+            <h1><a href="{{ path('usuario_registro') }}">Registro</a></h1>
+        </div>
+    </div>
+    {% include ':includes:footer.html.twig' %}
+{% endblock %}

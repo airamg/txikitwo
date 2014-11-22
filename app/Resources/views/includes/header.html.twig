@@ -1,18 +1,25 @@
+{% image output="images/web/carrito.png"
+    '@WebBundle/Resources/public/images/carrito.png'
+    %}
 <div id="carrito-compra">
-    <!-- carrito cuenta -->
+    <ul>
+        <li><a href="#"><img src="{{ asset_url }}" alt=""/></a></li>
+    </ul>
 </div>
+{% endimage %}
+
 <div id="menu1">
     <ul>
-        <!-- hacer ifs segun este o no logeado el usuario: mi cuenta / cerrar sesion -->
-        <li><a href="#">Iniciar sesión</a></li>
-        <li><a href="#">Registro</a>
+        <!-- hacer ifs segun este o no logeado el usuario -> mi cuenta: nombre usuario / cerrar sesion -->
+        <li><a href="{{ path('usuario_iniciarsesion') }}">Iniciar sesión</a></li>
+        <li><a href="{{ path('usuario_registro') }}">Registro</a>
     </ul>
 </div>
 <div id="menu2">
     <ul>
         <li><a href="{{ path('personalizacion_index', { 'genero': "nina" }) }}">niña</a></li>
         <li><a href="{{ path('personalizacion_index', { 'genero': "nino" }) }}">niño</a></li>
-        <li><a href="{{ path('almacen_index') }}">almacen</a></li>
+        <li><a href="{{ path('almacen_index') }}">almacén</a></li>
         <li><a href="{{ path('web_guiatallas') }}">guía de tallas</a></li>
         <li><a href="{{ path('web_guiacompra') }}">guía de compra</a></li>
     </ul>

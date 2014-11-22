@@ -112,10 +112,18 @@ class Usuario
      */
     private $comprasPendientes;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="online", type="string", length=1)
+     */
+    private $online;
+
 
     public function __construct()
     {
-        $this->setRole("user");
+        $this->setRole('user');
+        $this->setOnline('0');
     }
 
     public function __toString()
@@ -399,6 +407,29 @@ class Usuario
     public function getComprasPendientes()
     {
         return $this->comprasPendientes;
+    }
+
+    /**
+     * Set online
+     *
+     * @param string $online
+     * @return Usuario
+     */
+    public function setOnline($online)
+    {
+        $this->online = $online;
+
+        return $this;
+    }
+
+    /**
+     * Get online
+     *
+     * @return string
+     */
+    public function getOnline()
+    {
+        return $this->online;
     }
 
 }

@@ -8,6 +8,7 @@ class DefaultController extends Controller
 {
     public function homepageAction()
     {
+        /* incluir busqueda en base de datos para pasar lista de usuarios logeados */
         return $this->render('WebBundle:Default:homepage.html.twig');
     }
 

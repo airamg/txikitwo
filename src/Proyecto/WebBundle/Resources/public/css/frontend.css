@@ -55,6 +55,7 @@ h1 {
     margin-right: 20px;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 10em;
 }
 
 #menu1
@@ -150,10 +151,12 @@ h1 {
     width: 100%;
 }
 
-#carrito-compra {
-    right: 16em;
-    position: absolute;
-    top: 0.9em;
+#carrito-compra
+{
+    right: 15em;
+    position: fixed;
+    top: 0.4em;
+    z-index: 999;
 }
 
 #carrito-compra ul
@@ -167,13 +170,12 @@ h1 {
     text-align: center;
 }
 
-#carrito-compra li a {
-    padding: 0em 1.5em;
-    text-decoration: none;
-    color: rgba(0,0,0,.8);
-    font-size: 10px;
+#carrito-compra li img, #carrito-compra li a {
+     width: 1.8em;
+     padding: 0em 1.5em;
+     height: 1.8em;
 }
 
 #carrito-compra a:hover {
-
+ /* que aparezca circulo con numero articulos */
 }
