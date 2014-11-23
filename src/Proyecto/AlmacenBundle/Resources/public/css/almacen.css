@@ -1,0 +1,13 @@
+#mainfotos
+{
+    float: left;
+    /* width: auto; */
+    width: 950px;
+    padding: 5px 5px;
+    text-align: right;
+}
+
+#cuadrobusqueda
+{
+    padding-bottom: 2em;
+}

@@ -4,7 +4,7 @@ namespace Proyecto\ArticuloBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
-class TejidoRepository extends EntityRepository
+class ColorRepository extends EntityRepository
 {
 
 }

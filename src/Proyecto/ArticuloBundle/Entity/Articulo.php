@@ -105,7 +105,8 @@ class Articulo
 
     public function __construct()
     {
-        $this->setVecesPersonalizado(0);
+        $this->setVecesPersonalizado('0');
+        $this->setDisponible('1');
     }
 
     public function __toString()

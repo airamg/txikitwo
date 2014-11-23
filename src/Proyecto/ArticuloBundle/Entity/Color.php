@@ -7,12 +7,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 
 /**
- * Proyecto\ArticuloBundle\Entity\Accesorio
+ * Color
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Proyecto\ArticuloBundle\Entity\AccesorioRepository")
+ * @ORM\Entity(repositoryClass="Proyecto\ArticuloBundle\Entity\ColorRepository")
  */
-class Accesorio
+class Color
 {
     /**
      * @var integer
@@ -27,7 +27,6 @@ class Accesorio
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
-     * @Assert\NotBlank()
      */
     private $nombre;
 
@@ -39,20 +38,6 @@ class Accesorio
     private $slug;
 
     /**
-     * @ORM\Column(type="decimal", scale=2)
-     * @Assert\Range(min = 0)
-     */
-    private $precio;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="genero", type="string", length=255)
-     * @Assert\NotBlank()
-     */
-    private $genero;
-
-    /**
      * @ORM\Column(type="string")
      */
     private $rutaFoto;
@@ -61,12 +46,6 @@ class Accesorio
      * @Assert\Image(maxSize = "900k")
      */
     private $foto;
-
-
-    public function __toString()
-    {
-        return $this->getNombre();
-    }
 
 
     /**
@@ -83,7 +62,7 @@ class Accesorio
      * Set nombre
      *
      * @param string $nombre
-     * @return Accesorio
+     * @return Color
      */
     public function setNombre($nombre)
     {
@@ -106,7 +85,7 @@ class Accesorio
      * Set slug
      *
      * @param string $slug
-     * @return Accesorio
+     * @return Color
      */
     public function setSlug($slug)
     {
@@ -167,48 +146,4 @@ class Accesorio
     {
         return $this->foto;
     }
-
-    /**
-     * Set precio
-     *
-     * @param decimal $precio
-     */
-    public function setPrecio($precio)
-    {
-        $this->precio = $precio;
-    }
-
-    /**
-     * Get precio
-     *
-     * @return decimal
-     */
-    public function getPrecio()
-    {
-        return $this->precio;
-    }
-
-    /**
-     * Set genero
-     *
-     * @param string $genero
-     * @return Articulo
-     */
-    public function setGenero($genero)
-    {
-        $this->genero = $genero;
-
-        return $this;
-    }
-
-    /**
-     * Get genero
-     *
-     * @return string
-     */
-    public function getGenero()
-    {
-        return $this->genero;
-    }
-
 }

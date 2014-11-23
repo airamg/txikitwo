@@ -1,0 +1,57 @@
+#formularioregistro1
+{
+    float: left;
+    width: 500px;
+    padding-left: 3em;
+    padding-top: 0.5em;
+    display: block;
+}
+
+#formularioregistro1 label
+{
+    font-size: 20px;
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+#formularioregistro1 input[type="text"], #formularioregistro1 input[type="password"]
+{
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 0.5em;
+    cursor: pointer;
+    width: 400px;
+}
+
+#formularioregistro1 li
+{
+    padding-bottom: 1em;
+}
+
+#formularioregistro2
+{
+    float: left;
+    width: 500px;
+    padding-left: 3em;
+    padding-top: 0.5em;
+    display: block;
+}
+
+#formularioregistro2 label
+{
+    font-size: 20px;
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+#formularioregistro2 input[type="text"], #formularioregistro2 input[type="password"]
+{
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 0.5em;
+    cursor: pointer;
+    width: 400px;
+}
+
+#formularioregistro2 li
+{
+    padding-bottom: 1em;
+}

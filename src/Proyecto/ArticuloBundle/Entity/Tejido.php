@@ -45,9 +45,10 @@ class Tejido
     private $estampado;
 
     /**
-     * @var string
+     * @var integer $color
      *
-     * @ORM\Column(name="color", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Color", inversedBy="tejidos")
+     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Color")
      */
     private $color;
 
@@ -156,21 +157,14 @@ class Tejido
 
     /**
      * Set color
-     *
-     * @param string $color
-     * @return Tejido
      */
-    public function setColor($color)
+    public function setColor(\Proyecto\ArticuloBundle\Entity\Color $color)
     {
         $this->color = $color;
-
-        return $this;
     }
 
     /**
      * Get color
-     *
-     * @return string 
      */
     public function getColor()
     {

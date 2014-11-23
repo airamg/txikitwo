@@ -48,6 +48,13 @@ class Personalizacion
     private $talla;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="listaAccesorios", type="text")
+     */
+    private $listaAccesorios;
+
+    /**
      * @var integer $articulo
      *
      * @ORM\OneToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Articulo")
@@ -164,6 +171,29 @@ class Personalizacion
     public function getTalla()
     {
         return $this->talla;
+    }
+
+    /**
+     * Set listaAccesorios
+     *
+     * @param string $listaAccesorios
+     * @return Personalizacion
+     */
+    public function setListaAccesorios($listaAccesorios)
+    {
+        $this->listaAccesorios = $listaAccesorios;
+
+        return $this;
+    }
+
+    /**
+     * Get listaAccesorios
+     *
+     * @return string
+     */
+    public function getListaAccesorios()
+    {
+        return $this->listaAccesorios;
     }
 
     /**

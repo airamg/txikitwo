@@ -10,11 +10,7 @@
 {% endblock %}
 
 {% block body %}
-    {% image output="images/web/prueba.png"
-        '@WebBundle/Resources/public/images/prueba.png'
-        %}
-        <div id="full"><img src="{{ asset_url }}" alt=""/></div>
-    {% endimage %}
+    <!-- imagen de fondo -->
     {% include ':includes:header.html.twig' %}
     <div id="contenido">
         <div id="description">

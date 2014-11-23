@@ -2,14 +2,50 @@
 
 {% block title %}Almacén - Txikitwo{% endblock %}
 {% block stylesheets %}
-    {% stylesheets '@WebBundle/Resources/public/css/frontend.css'
-        output='css/almacen.css' %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+                    '@WebBundle/Resources/public/css/frontend.css'
+                    '@PersonalizacionBundle/Resources/public/css/personalizacion.css'
+                    '@AlmacenBundle/Resources/public/css/almacen.css'
+        output='css/personalizacion.css' %}
     <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
     {% endstylesheets %}
 {% endblock %}
 
 {% block body %}
     {% include ':includes:header.html.twig' %}
-    <!-- incluir input de busqueda bonito -->
+    <div id="contenido">
+        <!-- incluir input de busqueda bonito -->
+        <div id="menu">
+            <ul>
+                <li><a href="#">Articulos</a></li>
+                <li><a href="#">Colores</a></li>
+                <li><a href="#">Estampados</a></li>
+                <li><a href="#">Tejidos</a></li>
+            </ul>
+        </div>
+        <div id="mainfotos">
+            <ul>
+                <div id="cuadrobusqueda">
+                    <label for="email">Busqueda</label>
+                    <input type="text" id="email" name="_email"/>
+                </div>
+                <div class="boxA">
+                   <h3>Foto 2</h3>
+                </div>
+                <div class="boxA">
+                    <h3>Foto 3</h3>
+                </div>
+                <div class="boxA">
+                    <h3>Foto 4</h3>
+                </div>
+                <div class="boxA">
+                    <h3>Foto 5</h3>
+                </div>
+                <div class="boxA">
+                    <h3>Foto 6</h3>
+                </div>
+            </ul>
+        </div>
+    </div>
     {% include ':includes:footer.html.twig' %}
 {% endblock %}
