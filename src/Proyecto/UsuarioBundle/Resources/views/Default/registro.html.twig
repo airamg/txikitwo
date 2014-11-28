@@ -5,7 +5,7 @@
     {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
     '@WebBundle/Resources/public/css/frontend.css'
     '@UsuarioBundle/Resources/public/css/registro.css'
-    output='css/iniciarsesion.css' %}
+    output='css/registro.css' %}
     <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
     {% endstylesheets %}
 {% endblock %}
@@ -14,25 +14,32 @@
     {% include ':includes:header.html.twig' %}
     <div id="contenido">
         <div id="formularioregistro1">
-            <form action="{{ path('web_homepage') }}" method="post">
+            <form action="{{ path('usuario_registro') }}" method="post" {{ form_enctype(formulario) }} >
                 <ul>
-                    <li><label for="email">Nombre</label></li>
-                    <li><input type="text" id="email" name="_email"/></li>
-                    <li><label for="email">Email</label></li>
-                    <li><input type="text" id="email" name="_email"/></li>
-                    <li><label for="password">Contraseña</label></li>
-                    <li><input type="password" id="password" name="_password" /></li>
+                    <li>{{ form_widget(formulario.nombre) }}</li>
+                    <li>{{ form_widget(formulario.apellidos) }}</li>
+
+                    <li>{{ form_widget(formulario.email) }}</li>
+                    <li>{{ form_widget(formulario.password) }}</li>
+
                 </ul>
+                {{ form_rest(formulario) }}
+                <!-- <ul>
+                    <li><input type="text" id="nombre" name="_nombre" placeholder="Nombre"/></li>
+                    <li><input type="text" id="apellido1" name="_apellido1" placeholder="Primer apellido"/></li>
+                    <li><input type="text" id="apellido2" name="_apellido2" placeholder="Segundo apellido"/></li>
+                    <li><input type="text" id="email" name="_email" placeholder="Email"/></li>
+                    <li><input type="password" id="password" name="_password" placeholder="Contraseña"/></li>
+                    <li><input type="password" id="repeatpassword" name="_repeatpassword" placeholder="Repetir contraseña"/></li>
+                </ul> -->
             </form>
         </div>
         <div id="formularioregistro2">
             <form action="{{ path('web_homepage') }}" method="post">
                 <ul>
-                    <li><label for="email">Direccion</label></li>
-                    <li><input type="text" id="email" name="_email"/></li>
-                    <li><label for="password">Código postal</label></li>
-                    <li><input type="password" id="password" name="_password" /></li>
-                    <li><input class="boton" type="submit" name="login" value="Finalizar" /></li>
+                    <li><textarea name="textarea" rows="3" cols="48" id="direccion" name="_direccion" placeholder="Dirección"></textarea></li>
+                    <li><input type="text" id="codigopostal" name="_codigopostal" placeholder="Código postal"/></li>
+                    <li><input class="boton" type="submit" name="registro" value="finalizar" /></li>
                 </ul>
             </form>
         </div>

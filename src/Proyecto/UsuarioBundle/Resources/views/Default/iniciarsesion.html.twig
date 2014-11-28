@@ -4,7 +4,7 @@
 {% block stylesheets %}
     {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
         '@WebBundle/Resources/public/css/frontend.css'
-        '@UsuarioBundle/Resources/public/css/iniciarsesion.css'
+        '@UsuarioBundle/Resources/public/css/registro.css'
         output='css/iniciarsesion.css' %}
     <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
     {% endstylesheets %}
@@ -14,20 +14,31 @@
    {% include ':includes:header.html.twig' %}
     <div id="contenido">
         <div id="formularioiniciosesion">
-            <form action="{{ path('web_homepage') }}" method="post">
+            <form action="{{ path('usuario_iniciarsesion') }}" method="post">
                 <ul>
-                    <li><label for="email">Email</label></li>
-                    <li><input type="text" id="email" name="_email"/></li>
-                    <li><label for="password">Contraseña</label></li>
-                    <li><input type="password" id="password" name="_password" /></li>
-                    <li><input type="checkbox" id="remember_me" name="_remember_me" checked />
-                        <label for="remember_me">No cerrar sesión</label></li>
-                    <li><input class="boton" type="submit" name="login" value="Entrar" /></li>
+                    <li><p>tengo una cuenta</p></li>
+                    <li><input type="text" id="email" name="_email" placeholder="Email"/></li>
+                    <li><input type="password" id="password" name="_password" placeholder="Contraseña"/></li>
+                    <li><input class="boton" type="submit" name="login" value="entrar" /></li>
+                    <!-- falta recordar contraseña crear div -->
                 </ul>
             </form>
         </div>
-        <div id="linkregistro">
-            <h1><a href="{{ path('usuario_registro') }}">Registro</a></h1>
+        <div id="formularioregistro">
+            <form action="{{ path('usuario_registro') }}" method="post">
+                <ul>
+                    <li><p>crear una cuenta</p></li>
+                    <li><input type="text" id="nombre" name="_nombre" placeholder="Nombre"/></li>
+                    <li><input type="text" id="apellido1" name="_apellido1" placeholder="Primer apellido"/></li>
+                    <li><input type="text" id="apellido2" name="_apellido2" placeholder="Segundo apellido"/></li>
+                    <li><input type="text" id="email" name="_email" placeholder="Email"/></li>
+                    <li><input type="password" id="password" name="_password" placeholder="Contraseña"/></li>
+                    <li><input type="password" id="repeatpassword" name="_repeatpassword" placeholder="Repetir contraseña"/></li>
+                    <li><textarea name="textarea" rows="3" cols="48" id="direccion" name="_direccion" placeholder="Dirección"></textarea></li>
+                    <li><input type="text" id="codigopostal" name="_codigopostal" placeholder="Código postal"/></li>
+                    <li><input class="boton" type="submit" name="registro" value="finalizar" /></li>
+                </ul>
+            </form>
         </div>
     </div>
     {% include ':includes:footer.html.twig' %}

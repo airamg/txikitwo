@@ -1,17 +1,21 @@
 {% image output="images/web/carrito.png"
     '@WebBundle/Resources/public/images/carrito.png'
     %}
-<div id="carrito-compra">
-    <ul>
-        <li><a href="#"><img src="{{ asset_url }}" alt=""/></a></li>
-    </ul>
+<div class="carrito-compra">
+    <div class="first"><img src="{{ asset_url }}" alt=""/></div>
+    <div class="second">
+        <ul>
+            <li>Total: 0 artículos</li>
+            <li><a href="#">pedido</a></li>
+        </ul>
+    </div>
 </div>
 {% endimage %}
 
 <div id="menu1">
     <ul>
-        <!-- hacer ifs segun este o no logeado el usuario -> mi cuenta: nombre usuario / cerrar sesion -->
-        <li><a href="{{ path('usuario_iniciarsesion') }}">Iniciar sesión</a></li>
+        <!-- hacer ifs segun este o no logeado el usuario -> mi cuenta (path cuentausuario) / cerrar sesion -->
+        <li><a href="{{ path('usuario_iniciarsesion') }}">Mi cuenta</a></li>
         <li><a href="{{ path('usuario_registro') }}">Registro</a>
     </ul>
 </div>

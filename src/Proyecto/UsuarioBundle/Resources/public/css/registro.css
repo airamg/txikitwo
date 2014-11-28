@@ -1,3 +1,77 @@
+#formularioiniciosesion
+{
+    float: left;
+    width: 500px;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 0.5em;
+    padding-bottom: 3em;
+    display: block;
+}
+
+#formularioiniciosesion input[type="text"], #formularioiniciosesion input[type="email"], #formularioiniciosesion input[type="password"]
+{
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 400px;
+}
+
+#formularioiniciosesion input[type="submit"]
+{
+    color: #FFF;
+}
+
+#formularioiniciosesion li
+{
+    padding-bottom: 1em;
+}
+
+#formularioiniciosesion li p
+{
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 1em;
+}
+
+#formularioregistro
+{
+    float: left;
+    width: 500px;
+    padding-left: 3em;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+    display: block;
+    border-left: 2px solid #9B9A9A;
+}
+
+#formularioregistro input[type="text"], #formularioregistro input[type="email"], #formularioregistro input[type="password"]
+{
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 400px;
+}
+
+#formularioregistro input[type="submit"]
+{
+    color: #FFF;
+}
+
+#formularioregistro li
+{
+    padding-bottom: 1em;
+}
+
+#formularioregistro li p
+{
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 1em;
+}
+
 #formularioregistro1
 {
     float: left;
@@ -7,19 +81,18 @@
     display: block;
 }
 
-#formularioregistro1 label
-{
-    font-size: 20px;
-    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
-#formularioregistro1 input[type="text"], #formularioregistro1 input[type="password"]
+#formularioregistro1 input[type="text"], #formularioregistro1 input[type="email"], #formularioregistro1 input[type="password"]
 {
     padding: 10px;
     margin-top: 5px;
-    font-size: 0.5em;
+    font-size: 1em;
     cursor: pointer;
     width: 400px;
+}
+
+#formularioregistro1 input[type="submit"]
+{
+    color: #FFF;
 }
 
 #formularioregistro1 li
@@ -36,22 +109,50 @@
     display: block;
 }
 
-#formularioregistro2 label
-{
-    font-size: 20px;
-    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
-#formularioregistro2 input[type="text"], #formularioregistro2 input[type="password"]
+#formularioregistro2 input[type="text"], #formularioregistro2 input[type="email"], #formularioregistro2 input[type="password"]
 {
     padding: 10px;
     margin-top: 5px;
-    font-size: 0.5em;
+    font-size: 1em;
     cursor: pointer;
     width: 400px;
+}
+
+#formularioregistro2 input[type="submit"]
+{
+    color: #FFF;
 }
 
 #formularioregistro2 li
 {
     padding-bottom: 1em;
+}
+
+label
+{
+    font-size: 14px;
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+input.boton {
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1em;
+    width: 425px;
+    cursor: pointer;
+    background: #000;
+}
+
+input[type="submit"]:hover
+{
+    font-weight: bold;
+}
+
+textarea
+{
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1em;
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    cursor: pointer;
 }
