@@ -149,16 +149,6 @@ class Accesorio
     }
 
     /**
-     * Set foto.
-     *
-     * @param UploadedFile $foto
-     */
-    public function setFoto(UploadedFile $foto = null)
-    {
-        $this->foto = $foto;
-    }
-
-    /**
      * Get foto.
      *
      * @return UploadedFile

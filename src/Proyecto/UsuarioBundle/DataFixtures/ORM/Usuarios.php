@@ -17,7 +17,8 @@ class Usuarios extends AbstractFixture
         $usuario = new Usuario();
 
         $usuario->setNombre('Usuario');
-        $usuario->setApellidos('Prueba');
+        $usuario->setApellido1('Prueba1');
+        $usuario->setApellido2('Prueba2');
         $usuario->setEmail('usuario@prueba.com');
         $usuario->setRutaFoto('foto1.jpg');
         $usuario->setSalt(base_convert(sha1(uniqid(mt_rand(), true)), 16, 36));

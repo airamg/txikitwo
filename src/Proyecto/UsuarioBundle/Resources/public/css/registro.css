@@ -155,4 +155,6 @@ textarea
     font-size: 1em;
     font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
     cursor: pointer;
+    height: 60px;
+    width: 400px;
 }

@@ -35,10 +35,18 @@ class Usuario
     /**
      * @var string
      *
-     * @ORM\Column(name="apellidos", type="string", length=255)
+     * @ORM\Column(name="apellido1", type="string", length=255)
      * @Assert\NotBlank()
      */
-    private $apellidos;
+    private $apellido1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apellido2", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $apellido2;
 
     /**
      * @var string
@@ -123,13 +131,13 @@ class Usuario
     public function __construct()
     {
         $this->setRole('user');
-        $this->setOnline('0');
+        $this->setOnline('1');
         $this->setRutaFoto('defaultuser.jpg');
     }
 
     public function __toString()
     {
-        return $this->getNombre().' '.$this->getApellidos();
+        return $this->getNombre().' '.$this->getApellido1(). ' ' .$this->getApellido2();
     }
 
 
@@ -167,26 +175,49 @@ class Usuario
     }
 
     /**
-     * Set apellidos
+     * Set apellido1
      *
-     * @param string $apellidos
+     * @param string $apellido1
      * @return Usuario
      */
-    public function setApellidos($apellidos)
+    public function setApellido1($apellido1)
     {
-        $this->apellidos = $apellidos;
+        $this->apellido1 = $apellido1;
 
         return $this;
     }
 
     /**
-     * Get apellidos
+     * Get apellido1
      *
      * @return string
      */
-    public function getApellidos()
+    public function getApellido1()
     {
-        return $this->apellidos;
+        return $this->apellido1;
+    }
+
+    /**
+     * Set apellido2
+     *
+     * @param string $apellido2
+     * @return Usuario
+     */
+    public function setApellido2($apellido2)
+    {
+        $this->apellido2 = $apellido2;
+
+        return $this;
+    }
+
+    /**
+     * Get apellido2
+     *
+     * @return string
+     */
+    public function getApellido2()
+    {
+        return $this->apellido2;
     }
 
     /**

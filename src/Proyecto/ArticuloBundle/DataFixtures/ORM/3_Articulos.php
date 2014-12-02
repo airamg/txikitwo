@@ -47,6 +47,8 @@ class Articulos extends AbstractFixture implements ContainerAwareInterface
             $articulo->setNombre($nombre);
 
             //tejidos (buscar el tejido base de prueba) FALTA DE HACER
+            $tejido = $tejidos[array_rand($tejidos)];
+            $articulo->setTejido($tejido);
 
             // generos
             if($nombre=='Blusas' || $nombre=='Faldas' || $nombre=='Leotardos' || $nombre=='Vestidos') {
