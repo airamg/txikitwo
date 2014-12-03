@@ -35,6 +35,7 @@ class DefaultController extends Controller
         $formulario->handleRequest($peticion);
 
         if ($formulario->isValid()) {
+            /* controlar quien esta online y cambiar al anterior (falta metodo) */
             $em->persist($usuario);
             $em->flush();
             return $this->redirect($this->generateUrl('usuario_cuenta'));

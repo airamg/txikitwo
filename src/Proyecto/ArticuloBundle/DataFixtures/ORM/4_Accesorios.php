@@ -19,7 +19,6 @@ class Accesorios extends AbstractFixture
             'Botones',
             'Cremallera',
             'Cuellos',
-            'Goma',
             'Lazos',
             'Larguras',
             'Mangas',
@@ -31,10 +30,69 @@ class Accesorios extends AbstractFixture
         foreach ($accesorios as $nombre) {
             $accesorio = new Accesorio();
             $accesorio->setNombre($nombre);
-            $accesorio->setGenero('ambos');
-            $accesorio->setRutaFoto('foto.jpg');
-            $accesorio->setSlug($nombre);
-            $accesorio->setPrecio(number_format(rand(100, 10000)/100, 2));
+
+            switch($nombre) {
+                case 'Bolsillos':
+                    $accesorio->setGenero('ambos');
+                    $accesorio->setRutaFoto('bolsillo.jpg');
+                    $accesorio->setSlug('bolsillos');
+                    $accesorio->setPrecio(2.50);
+                    break;
+                case 'Botones':
+                    $accesorio->setGenero('ambos');
+                    $accesorio->setRutaFoto('botones.jpg');
+                    $accesorio->setSlug('botones');
+                    $accesorio->setPrecio(1.30);
+                    break;
+                case 'Cremallera':
+                    $accesorio->setGenero('ambos');
+                    $accesorio->setRutaFoto('cremallera.jpg');
+                    $accesorio->setSlug('cremallera');
+                    $accesorio->setPrecio(3.90);
+                    break;
+                case 'Cuellos':
+                    $accesorio->setGenero('ambos');
+                    $accesorio->setRutaFoto('blank.jpg');
+                    $accesorio->setSlug('cuellos');
+                    $accesorio->setPrecio(0.00);
+                    break;
+                case 'Lazos':
+                    $accesorio->setGenero('niña');
+                    $accesorio->setRutaFoto('lazo.jpg');
+                    $accesorio->setSlug('');
+                    $accesorio->setPrecio(1.20);
+                    break;
+                case 'Larguras':
+                    $accesorio->setGenero('ambos');
+                    $accesorio->setRutaFoto('blank.jpg');
+                    $accesorio->setSlug('larguras');
+                    $accesorio->setPrecio(0.00);
+                    break;
+                case 'Mangas':
+                    $accesorio->setGenero('ambos');
+                    $accesorio->setRutaFoto('bolsillo.jpg');
+                    $accesorio->setSlug('bolsillos');
+                    $accesorio->setPrecio(2.50);
+                    break;
+                case 'Nombres bordados':
+                    $accesorio->setGenero('ambos');
+                    $accesorio->setRutaFoto('bolsillo.jpg');
+                    $accesorio->setSlug('bolsillos');
+                    $accesorio->setPrecio(2.50);
+                    break;
+                case 'Velcro':
+                    $accesorio->setGenero('ambos');
+                    $accesorio->setRutaFoto('bolsillo.jpg');
+                    $accesorio->setSlug('bolsillos');
+                    $accesorio->setPrecio(2.50);
+                    break;
+                case 'Volantes':
+                    $accesorio->setGenero('ambos');
+                    $accesorio->setRutaFoto('bolsillo.jpg');
+                    $accesorio->setSlug('bolsillos');
+                    $accesorio->setPrecio(2.50);
+                    break;
+            }
 
             $manager->persist($accesorio);
         }

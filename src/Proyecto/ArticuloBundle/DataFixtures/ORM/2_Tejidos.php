@@ -26,8 +26,8 @@ class Tejidos extends AbstractFixture implements ContainerAwareInterface
         $colores = $manager->getRepository('ArticuloBundle:Color')->findAll();
 
         $tejidos = array(
+
             'Base',
-            'Prueba',
         );
 
         foreach ($tejidos as $nombre) {
