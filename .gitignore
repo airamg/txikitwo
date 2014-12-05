@@ -7,6 +7,7 @@ vendor/*
 */cache/*
 web/bundles/*
 web/css/*
+web/images/*
 
 # Archivos de configuración
 # app/config/parameters.yml
