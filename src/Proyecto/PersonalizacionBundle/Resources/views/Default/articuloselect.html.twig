@@ -26,13 +26,19 @@
         {% endif %}
         <div id="main">
             <!-- hacer include para que no sea tan largo el menu -->
-            {% if name == "nina" and names == "abrigo" %} <!-- PRUEBA -->
-                <p><strong>ABRIGO</strong>.</p>
+            {% if name == "nina" and names == "abrigo" %}
+                {% image output="images/web/abrigo.png"
+                    '@PersonalizacionBundle/Resources/public/images/abrigo.png'
+                %}
+                <div id="selects">
+                    <img src="{{ asset_url }}" alt=""/>
+                </div>
+            {% endimage %}
             {%  else %}
                 <p>Texto de <strong>prueba</strong>.</p>
             {% endif %}
+
         </div>
-        <!-- incluir otro menu select para ropa mostrar en dibujo de main -->
     </div>
     {% include ':includes:footer.html.twig' %}
 {% endblock %}
