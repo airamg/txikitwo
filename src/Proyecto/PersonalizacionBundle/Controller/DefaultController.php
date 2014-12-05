@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('PersonalizacionBundle:Default:personalizacion.html.twig', array('name' => $genero));
     }
+
+    public function articuloselectAction($genero, $articulo)
+    {
+        return $this->render('PersonalizacionBundle:Default:articuloselect.html.twig', array('name' => $genero, 'names' => $articulo));
+    }
 }

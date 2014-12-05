@@ -15,41 +15,19 @@
     <div id="contenido">
         {% if name == "nina" %}
         <div id="menu">
-            <ul>
-                <li class="current_page_item"><a href="#">Abrigos</a></li>
-                <li><a href="#">Bañadores</a></li>
-                <li><a href="#">Batas</a></li>
-                <li><a href="#">Blusas</a></li>
-                <li><a href="#">Camisas</a></li>
-                <li><a href="#">Camisetas</a></li>
-                <li><a href="#">Faldas</a></li>
-                <li><a href="#">Jerseis</a></li>
-                <li><a href="#">Pantalones</a></li>
-                <li><a href="#">Pijamas</a></li>
-                <li><a href="#">Vestidos</a></li>
-                <!-- incluir otro apartado para complementos: calcetines, leotardos, gorros -->
-            </ul>
+            {% include ':includes:selectspersonalizacion_nina.html.twig' %}
+            <!-- incluir otro apartado para complementos: calcetines, leotardos, gorros -->
         </div>
         {%  else %}
         <div id="menu">
-            <ul>
-                <li class="current_page_item"><a href="#">Abrigos</a></li>
-                <li><a href="#">Bañadores</a></li>
-                <li><a href="#">Batas</a></li>
-                <li><a href="#">Camisas</a></li>
-                <li><a href="#">Camisetas / Polos</a></li>
-                <li><a href="#">Chalecos</a></li>
-                <li><a href="#">Jerseis</a></li>
-                <li><a href="#">Pantalones</a></li>
-                <li><a href="#">Pijamas</a></li>
-                <!-- incluir otro apartado para complementos: calcetines, gorros -->
-            </ul>
+            {% include ':includes:selectspersonalizacion_nino.html.twig' %}
+            <!-- incluir otro apartado para complementos: calcetines, leotardos, gorros -->
         </div>
         {% endif %}
         <div id="main">
             <p>Texto de <strong>prueba</strong>.</p>
         </div>
-        <!-- incluir otro menu select para ropa mostrar en dibujo de main -->
+        <!-- INCLUIR MENU CON TODAS LAS FOTOS DE LOS ARTICULOS DISPONIBLES EN NIÑA Y NIÑO SEPARADO -->
     </div>
     {% include ':includes:footer.html.twig' %}
 {% endblock %}

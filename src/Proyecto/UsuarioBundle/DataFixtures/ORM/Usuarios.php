@@ -17,10 +17,10 @@ class Usuarios extends AbstractFixture
         $usuario = new Usuario();
 
         $usuario->setNombre('Usuario');
-        $usuario->setApellido1('Prueba1');
-        $usuario->setApellido2('Prueba2');
-        $usuario->setEmail('usuario@prueba.com');
-        $usuario->setRutaFoto('foto1.jpg');
+        $usuario->setApellido1('Prueba');
+        $usuario->setApellido2('Txikitwo');
+        $usuario->setEmail('usuarioprueba@txikitwo.com');
+        $usuario->setRutaFoto('defaultuser.png');
         $usuario->setSalt(base_convert(sha1(uniqid(mt_rand(), true)), 16, 36));
         $usuario->setPassword('usuarioprueba');
         $usuario->setDireccion('Av. Txikitwo, 123, 1A. Prueba.');

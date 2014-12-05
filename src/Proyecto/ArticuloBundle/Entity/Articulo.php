@@ -95,12 +95,12 @@ class Articulo
     private $genero;
 
     /**
-     * @var integer $tejido
+     * @var integer $estampado
      *
-     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Tejido", inversedBy="articulos")
-     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Tejido")
+     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Estampado", inversedBy="articulos")
+     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Estampado")
      */
-    private $tejido;
+    private $estampado;
 
 
     public function __construct()
@@ -350,18 +350,18 @@ class Articulo
     }
 
     /**
-     * Set tejido
+     * Set estampado
      */
-    public function setTejido(\Proyecto\ArticuloBundle\Entity\Tejido $tejido)
+    public function setEstampado(\Proyecto\ArticuloBundle\Entity\Estampado $estampado)
     {
-        $this->tejido = $tejido;
+        $this->estampado = $estampado;
     }
 
     /**
-     * Get tejido
+     * Get estampado
      */
-    public function getTejido()
+    public function getEstampado()
     {
-        return $this->tejido;
+        return $this->estampado;
     }
 }

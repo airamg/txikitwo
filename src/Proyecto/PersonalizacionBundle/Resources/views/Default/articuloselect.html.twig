@@ -1,0 +1,38 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Personalización - Txikitwo{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+        '@WebBundle/Resources/public/css/frontend.css'
+        '@PersonalizacionBundle/Resources/public/css/personalizacion.css'
+        output='css/selectspersonalizacion.css' %}
+    <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    {% include ':includes:header.html.twig' %}
+    <div id="contenido">
+        {% if name == "nina" %}
+            <div id="menu">
+                {% include ':includes:selectspersonalizacion_nina.html.twig' %}
+                <!-- incluir otro apartado para complementos: calcetines, leotardos, gorros -->
+            </div>
+        {%  else %}
+            <div id="menu">
+                {% include ':includes:selectspersonalizacion_nino.html.twig' %}
+                <!-- incluir otro apartado para complementos: calcetines, leotardos, gorros -->
+            </div>
+        {% endif %}
+        <div id="main">
+            <!-- hacer include para que no sea tan largo el menu -->
+            {% if name == "nina" and names == "abrigo" %} <!-- PRUEBA -->
+                <p><strong>ABRIGO</strong>.</p>
+            {%  else %}
+                <p>Texto de <strong>prueba</strong>.</p>
+            {% endif %}
+        </div>
+        <!-- incluir otro menu select para ropa mostrar en dibujo de main -->
+    </div>
+    {% include ':includes:footer.html.twig' %}
+{% endblock %}

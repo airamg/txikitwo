@@ -23,7 +23,7 @@ class Articulos extends AbstractFixture implements ContainerAwareInterface
 
     public function load(ObjectManager $manager)
     {
-        $tejidos = $manager->getRepository('ArticuloBundle:Tejido')->findAll();
+        $estampados = $manager->getRepository('ArticuloBundle:Estampado')->findAll();
 
         $articulos = array(
             'Abrigos',
@@ -35,7 +35,7 @@ class Articulos extends AbstractFixture implements ContainerAwareInterface
             'Chalecos',
             'Faldas',
             'Gorros',
-            'Jerseis',
+            'Jerséis',
             'Leotardos',
             'Pantalones',
             'Pijamas',
@@ -46,9 +46,9 @@ class Articulos extends AbstractFixture implements ContainerAwareInterface
             $articulo = new Articulo();
             $articulo->setNombre($nombre);
 
-            //tejidos (buscar el tejido base de prueba) FALTA DE HACER
-            $tejido = $tejidos[array_rand($tejidos)];
-            $articulo->setTejido($tejido);
+            //estampados
+            $estampado = $estampados[array_rand($estampados)];
+            $articulo->setEstampado($estampado);
 
             // generos
             if($nombre=='Blusas' || $nombre=='Faldas' || $nombre=='Leotardos' || $nombre=='Vestidos') {
@@ -69,87 +69,87 @@ class Articulos extends AbstractFixture implements ContainerAwareInterface
             // descripción, foto, precio y slug
             switch($nombre) {
                 case 'Abrigos':
-                    $articulo->setRutaFoto('abrigo.jpg');
+                    $articulo->setRutaFoto('abrigo.png');
                     $articulo->setDescripcion('Ropa formal');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(20.00);
                     $articulo->setSlug('abrigo');
                     break;
                 case 'Batas':
-                    $articulo->setRutaFoto('bata.jpg');
+                    $articulo->setRutaFoto('bata.png');
                     $articulo->setDescripcion('Ropa para el colegio');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(18.00);
                     $articulo->setSlug('bata');
                     break;
                 case 'Blusas':
-                    $articulo->setRutaFoto('blusa.jpg');
+                    $articulo->setRutaFoto('blusa.png');
                     $articulo->setDescripcion('Ropa formal');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(10.00);
                     $articulo->setSlug('blusa');
                     break;
                 case 'Calcetines':
-                    $articulo->setRutaFoto('calcetin.jpg');
+                    $articulo->setRutaFoto('calcetin.png');
                     $articulo->setDescripcion('Complemento');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(4.00);
                     $articulo->setSlug('calcetin');
                     break;
                 case 'Camisas':
-                    $articulo->setRutaFoto('camisa.jpg');
+                    $articulo->setRutaFoto('camisa.png');
                     $articulo->setDescripcion('Ropa formal');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(12.00);
                     $articulo->setSlug('camisa');
                     break;
                 case 'Camisetas':
-                    $articulo->setRutaFoto('camiseta.jpg');
+                    $articulo->setRutaFoto('camiseta.png');
                     $articulo->setDescripcion('Ropa informal');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(7.00);
                     $articulo->setSlug('camiseta');
                     break;
                 case 'Chalecos':
-                    $articulo->setRutaFoto('chaleco.jpg');
+                    $articulo->setRutaFoto('chaleco.png');
                     $articulo->setDescripcion('Ropa formal');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(15.00);
                     $articulo->setSlug('chaleco');
                     break;
                 case 'Faldas':
-                    $articulo->setRutaFoto('falda.jpg');
+                    $articulo->setRutaFoto('falda.png');
                     $articulo->setDescripcion('Ropa formal');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(11.00);
                     $articulo->setSlug('falda');
                     break;
                 case 'Gorros':
-                    $articulo->setRutaFoto('gorro.jpg');
+                    $articulo->setRutaFoto('gorro.png');
                     $articulo->setDescripcion('Complemento');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(5.00);
                     $articulo->setSlug('gorro');
                     break;
-                case 'Jerseis':
-                    $articulo->setRutaFoto('jersey.jpg');
+                case 'Jerséis':
+                    $articulo->setRutaFoto('jersey.png');
                     $articulo->setDescripcion('Ropa informal');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(12.00);
                     $articulo->setSlug('jersey');
                     break;
                 case 'Leotardos':
-                    $articulo->setRutaFoto('leotardos.jpg');
+                    $articulo->setRutaFoto('leotardos.png');
                     $articulo->setDescripcion('Complemento');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(9.00);
                     $articulo->setSlug('leotardos');
                     break;
                 case 'Pantalones':
-                    $articulo->setRutaFoto('pantalon.jpg');
+                    $articulo->setRutaFoto('pantalon.png');
                     $articulo->setDescripcion('Ropa informal');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(19.00);
                     $articulo->setSlug('pantalon');
                     break;
                 case 'Pijamas':
-                    $articulo->setRutaFoto('pijama.jpg');
+                    $articulo->setRutaFoto('pijama.png');
                     $articulo->setDescripcion('Ropa para dormir');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(22.00);
                     $articulo->setSlug('pijama');
                     break;
                 case 'Vestidos':
-                    $articulo->setRutaFoto('vestido.jpg');
+                    $articulo->setRutaFoto('vestido.png');
                     $articulo->setDescripcion('Ropa formal');
-                    $articulo->setPrecio(number_format(rand(100, 10000)/100, 2));
+                    $articulo->setPrecio(23.00);
                     $articulo->setSlug('vestido');
                     break;
             }

@@ -38,48 +38,16 @@ class Tejido
     private $slug;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="estampado", type="string", length=255)
+     * @ORM\Column(type="decimal", scale=2)
+     * @Assert\Range(min = 0)
      */
-    private $estampado;
-
-    /**
-     * @var integer $color
-     *
-     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Color", inversedBy="tejidos")
-     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Color")
-     */
-    private $color;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="genero", type="string", length=255)
-     */
-    private $genero;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $rutaFoto;
-
-    /**
-     * @Assert\Image(maxSize = "900k")
-     */
-    private $foto;
-
-
-    public function __toString()
-    {
-        return $this->getNombre();
-    }
+    private $precio;
 
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -90,7 +58,7 @@ class Tejido
      * Set nombre
      *
      * @param string $nombre
-     * @return Tejido
+     * @return Estampado
      */
     public function setNombre($nombre)
     {
@@ -102,7 +70,7 @@ class Tejido
     /**
      * Get nombre
      *
-     * @return string 
+     * @return string
      */
     public function getNombre()
     {
@@ -125,7 +93,7 @@ class Tejido
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -133,97 +101,22 @@ class Tejido
     }
 
     /**
-     * Set estampado
+     * Set precio
      *
-     * @param string $estampado
-     * @return Tejido
+     * @param decimal $precio
      */
-    public function setEstampado($estampado)
+    public function setPrecio($precio)
     {
-        $this->estampado = $estampado;
-
-        return $this;
+        $this->precio = $precio;
     }
 
     /**
-     * Get estampado
+     * Get precio
      *
-     * @return string 
+     * @return decimal
      */
-    public function getEstampado()
+    public function getPrecio()
     {
-        return $this->estampado;
-    }
-
-    /**
-     * Set color
-     */
-    public function setColor(\Proyecto\ArticuloBundle\Entity\Color $color)
-    {
-        $this->color = $color;
-    }
-
-    /**
-     * Get color
-     */
-    public function getColor()
-    {
-        return $this->color;
-    }
-
-    /**
-     * Set genero
-     *
-     * @param string $genero
-     * @return Tejido
-     */
-    public function setGenero($genero)
-    {
-        $this->genero = $genero;
-
-        return $this;
-    }
-
-    /**
-     * Get genero
-     *
-     * @return string 
-     */
-    public function getGenero()
-    {
-        return $this->genero;
-    }
-
-    /**
-     * Set rutaFoto
-     *
-     * @param string $rutaFoto
-     * @return Articulo
-     */
-    public function setRutaFoto($rutaFoto)
-    {
-        $this->rutaFoto = $rutaFoto;
-
-        return $this;
-    }
-
-    /**
-     * Get rutaFoto
-     *
-     * @return string
-     */
-    public function getRutaFoto()
-    {
-        return $this->rutaFoto;
-    }
-
-    /**
-     * Get foto.
-     *
-     * @return UploadedFile
-     */
-    public function getFoto()
-    {
-        return $this->foto;
+        return $this->precio;
     }
 }

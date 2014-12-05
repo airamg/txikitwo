@@ -132,7 +132,7 @@ class Usuario
     {
         $this->setRole('user');
         $this->setOnline('1');
-        $this->setRutaFoto('defaultuser.jpg');
+        $this->setRutaFoto('defaultuser.png');
     }
 
     public function __toString()
