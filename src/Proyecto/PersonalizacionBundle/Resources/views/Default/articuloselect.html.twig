@@ -25,19 +25,7 @@
             </div>
         {% endif %}
         <div id="main">
-            <!-- hacer include para que no sea tan largo el menu -->
-            {% if name == "nina" and names == "abrigo" %}
-                {% image output="images/personalizacion/abrigo.png"
-                    '@PersonalizacionBundle/Resources/public/images/abrigo.png'
-                %}
-                <div id="selects">
-                    <img src="{{ asset_url }}" alt=""/>
-                </div>
-            {% endimage %}
-            {%  else %}
-                <p>Texto de <strong>prueba</strong>.</p>
-            {% endif %}
-
+            {% include ':includes:selectspersonalizacion.html.twig' %}
         </div>
     </div>
     {% include ':includes:footer.html.twig' %}
