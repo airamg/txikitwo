@@ -9,6 +9,20 @@
     <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
     {% endstylesheets %}
 {% endblock %}
+{% block javascripts %}
+    {% javascripts '@PersonalizacionBundle/Resources/public/js/*' output='js/personalizacion/personalizacion.js' %}
+        <script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('input[type="checkbox"]').click(function(){
+                if($(this).attr("value")=="verfoto"){
+                    $(".prueba").toggle();
+                }
+            });
+        });
+    </script>
+{% endblock %}
 
 {% block body %}
     {% include ':includes:header.html.twig' %}
@@ -24,8 +38,11 @@
                 <!-- incluir otro apartado para complementos: calcetines, leotardos, gorros -->
             </div>
         {% endif %}
-        <div id="main">
+        <div class="main">
             {% include ':includes:selectspersonalizacion.html.twig' %}
+        </div>
+        <div class="options-selects">
+            <label><input type="checkbox" name="prueba" value="verfoto">Ver foto - prueba</label>
         </div>
     </div>
     {% include ':includes:footer.html.twig' %}

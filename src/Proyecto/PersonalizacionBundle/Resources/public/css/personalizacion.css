@@ -22,12 +22,6 @@
     color: rgba(0,0,0,.8);
 }
 
-#menu .current_page_item a
-{
-    background: #FFF;
-    color: rgba(0,0,0,1);
-}
-
 #main
 {
     float: left;
@@ -36,7 +30,15 @@
     text-align: right;
 }
 
-#selects
+.main
+{
+    float: left;
+    width: 500px;
+    padding: 5px 5px;
+    text-align: right;
+}
+
+.selects
 {
     width: 400px;
     height: 500px;
@@ -45,17 +47,20 @@
     text-align: center;
 }
 
-#selects img
+.selects img
 {
     width: 400px;
     height: 400px;
     padding: 5px 5px;
 }
 
-#main
+.options-selects
 {
     float: left;
-    width: 500px;
+    width: 150px;
     padding: 5px 5px;
-    text-align: right;
+    padding-left: 50px;
+    text-align: left;
 }
+
+.prueba{ display: none; }
