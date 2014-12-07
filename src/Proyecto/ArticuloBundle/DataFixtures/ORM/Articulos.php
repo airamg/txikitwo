@@ -4,27 +4,16 @@ namespace Proyecto\ArticuloBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Proyecto\ArticuloBundle\Entity\Articulo;
 
 /**
  * Fixtures de la entidad Articulo
  * Crea todos los articulos que podrá haber disponibles en la aplicación
  */
-class Articulos extends AbstractFixture implements ContainerAwareInterface
+class Articulos extends AbstractFixture
 {
-    private $container;
-
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
-
     public function load(ObjectManager $manager)
     {
-        $estampados = $manager->getRepository('ArticuloBundle:Estampado')->findAll();
-
         $articulos = array(
             'Abrigos',
             'Batas',
@@ -45,10 +34,6 @@ class Articulos extends AbstractFixture implements ContainerAwareInterface
         foreach ($articulos as $nombre) {
             $articulo = new Articulo();
             $articulo->setNombre($nombre);
-
-            //estampados
-            $estampado = $estampados[array_rand($estampados)];
-            $articulo->setEstampado($estampado);
 
             // generos
             if($nombre=='Blusas' || $nombre=='Faldas' || $nombre=='Leotardos' || $nombre=='Vestidos') {

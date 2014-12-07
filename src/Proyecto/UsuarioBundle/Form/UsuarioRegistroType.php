@@ -17,8 +17,8 @@ class UsuarioRegistroType extends AbstractType
             ->add('password', 'repeated', array(
                 'type' => 'password',
                 'invalid_message' => 'Las dos contraseñas deben coincidir',
-                'first_options'   => array('label' => ' ', 'attr' => array('placeholder' => 'Contraseña')),
-                'second_options'  => array('label' => ' ', 'attr' => array('placeholder' => 'Repite contraseña')),
+                'first_options'   => array('label' => false, 'attr' => array('placeholder' => 'Contraseña')),
+                'second_options'  => array('label' => false, 'attr' => array('placeholder' => 'Repite contraseña')),
                 'required'        => false
             ))
             ->add('direccion', 'textarea', array('attr' => array('placeholder' => 'Dirección')))

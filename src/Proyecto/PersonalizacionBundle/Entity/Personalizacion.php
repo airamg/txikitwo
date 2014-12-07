@@ -29,23 +29,10 @@ class Personalizacion
     private $rutaFoto;
 
     /**
-     * @Assert\Image(maxSize = "900k")
-     */
-    private $foto;
-
-    /**
      * @ORM\Column(type="decimal", scale=2)
      * @Assert\Range(min = 0)
      */
     private $precio;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="talla", type="string")
-     * @Assert\NotBlank()
-     */
-    private $talla;
 
     /**
      * @var string
@@ -55,26 +42,60 @@ class Personalizacion
     private $listaAccesorios;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="realizada", type="string", length=1)
+     * @Assert\NotBlank()
+     */
+    private $realizada;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pendiente", type="string", length=1)
+     * @Assert\NotBlank()
+     */
+    private $pendiente;
+
+    /**
      * @var integer $articulo
      *
-     * @ORM\OneToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Articulo")
+     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Articulo", inversedBy="personalizaciones")
      * @Assert\Type("Proyecto\ArticuloBundle\Entity\Articulo")
      */
     private $articulo;
 
     /**
-     * @var integer $compra
+     * @var integer $talla
      *
-     * @ORM\ManyToOne(targetEntity="Proyecto\CompraBundle\Entity\Compra", inversedBy="personalizaciones")
-     * @Assert\Type("Proyecto\CompraBundle\Entity\Compra")
+     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Talla", inversedBy="personalizaciones")
+     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Talla")
      */
-    private $compra;
+    private $talla;
 
+    /**
+     * @var integer $tejido
+     *
+     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Tejido", inversedBy="personalizaciones")
+     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Tejido")
+     */
+    private $tejido;
 
-    public function __construct()
-    {
+    /**
+     * @var integer $estampado
+     *
+     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Estampado", inversedBy="personalizaciones")
+     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Estampado")
+     */
+    private $estampado;
 
-    }
+    /**
+     * @var integer $color
+     *
+     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Color", inversedBy="personalizaciones")
+     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Color")
+     */
+    private $color;
 
 
     /**
@@ -111,69 +132,6 @@ class Personalizacion
     }
 
     /**
-     * Set foto.
-     *
-     * @param UploadedFile $foto
-     */
-    public function setFoto(UploadedFile $foto = null)
-    {
-        $this->foto = $foto;
-    }
-
-    /**
-     * Get foto.
-     *
-     * @return UploadedFile
-     */
-    public function getFoto()
-    {
-        return $this->foto;
-    }
-
-    /**
-     * Set precio
-     *
-     * @param decimal $precio
-     */
-    public function setPrecio($precio)
-    {
-        $this->precio = $precio;
-    }
-
-    /**
-     * Get precio
-     *
-     * @return decimal
-     */
-    public function getPrecio()
-    {
-        return $this->precio;
-    }
-
-    /**
-     * Set talla
-     *
-     * @param string $talla
-     * @return Personalizacion
-     */
-    public function setTalla($talla)
-    {
-        $this->talla = $talla;
-
-        return $this;
-    }
-
-    /**
-     * Get talla
-     *
-     * @return string
-     */
-    public function getTalla()
-    {
-        return $this->talla;
-    }
-
-    /**
      * Set listaAccesorios
      *
      * @param string $listaAccesorios
@@ -197,6 +155,72 @@ class Personalizacion
     }
 
     /**
+     * Set realizada
+     *
+     * @param string $realizada
+     * @return Compra
+     */
+    public function setRealizada($realizada)
+    {
+        $this->realizada = $realizada;
+
+        return $this;
+    }
+
+    /**
+     * Get realizada
+     *
+     * @return string
+     */
+    public function getRealizada()
+    {
+        return $this->realizada;
+    }
+
+    /**
+     * Set pendiente
+     *
+     * @param string $pendiente
+     * @return Compra
+     */
+    public function setPendiente($pendiente)
+    {
+        $this->pendiente = $pendiente;
+
+        return $this;
+    }
+
+    /**
+     * Get pendiente
+     *
+     * @return string
+     */
+    public function getPendiente()
+    {
+        return $this->pendiente;
+    }
+
+    /**
+     * Set precio
+     *
+     * @param decimal $precio
+     */
+    public function setPrecio($precio)
+    {
+        $this->precio = $precio;
+    }
+
+    /**
+     * Get precio
+     *
+     * @return decimal
+     */
+    public function getPrecio()
+    {
+        return $this->precio;
+    }
+
+    /**
      * Set articulo
      */
     public function setArticulo(\Proyecto\ArticuloBundle\Entity\Articulo $articulo)
@@ -213,19 +237,69 @@ class Personalizacion
     }
 
     /**
-     * Set compra
+     * Set talla
      */
-    public function setCompra(\Proyecto\CompraBundle\Entity\Compra $compra)
+    public function setTalla(\Proyecto\ArticuloBundle\Entity\Talla $talla)
     {
-        $this->compra = $compra;
+        $this->talla = $talla;
+
+        return $this;
     }
 
     /**
-     * Get compra
+     * Get talla
      */
-    public function getCompra()
+    public function getTalla()
     {
-        return $this->compra;
+        return $this->talla;
+    }
+
+    /**
+     * Set tejido
+     */
+    public function setTejido(\Proyecto\ArticuloBundle\Entity\Tejido $tejido)
+    {
+        $this->tejido = $tejido;
+    }
+
+    /**
+     * Get tejido
+     */
+    public function getTejido()
+    {
+        return $this->tejido;
+    }
+
+    /**
+     * Set estampado
+     */
+    public function setEstampado(\Proyecto\ArticuloBundle\Entity\Estampado $estampado)
+    {
+        $this->estampado = $estampado;
+    }
+
+    /**
+     * Get estampado
+     */
+    public function getEstampado()
+    {
+        return $this->estampado;
+    }
+
+    /**
+     * Set color
+     */
+    public function setColor(\Proyecto\ArticuloBundle\Entity\Color $color)
+    {
+        $this->color = $color;
+    }
+
+    /**
+     * Get color
+     */
+    public function getColor()
+    {
+        return $this->color;
     }
 
 }

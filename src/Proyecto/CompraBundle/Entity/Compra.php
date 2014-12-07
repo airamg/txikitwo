@@ -24,22 +24,6 @@ class Compra
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="realizada", type="string", length=1)
-     * @Assert\NotBlank()
-     */
-    private $realizada;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pendiente", type="string", length=1)
-     * @Assert\NotBlank()
-     */
-    private $pendiente;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha", type="date")
@@ -54,6 +38,14 @@ class Compra
      * @Assert\Type("Proyecto\UsuarioBundle\Entity\Usuario")
      */
     private $usuario;
+
+    /**
+     * @var integer $personalizacion
+     *
+     * @ORM\ManyToOne(targetEntity="Proyecto\PersonalizacionBundle\Entity\Personalizacion", inversedBy="compras")
+     * @Assert\Type("Proyecto\PersonalizacionBundle\Entity\Personalizacion")
+     */
+    private $personalizacion;
 
 
     public function __construct()
@@ -70,52 +62,6 @@ class Compra
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set realizada
-     *
-     * @param string $realizada
-     * @return Compra
-     */
-    public function setRealizada($realizada)
-    {
-        $this->realizada = $realizada;
-
-        return $this;
-    }
-
-    /**
-     * Get realizada
-     *
-     * @return string 
-     */
-    public function getRealizada()
-    {
-        return $this->realizada;
-    }
-
-    /**
-     * Set pendiente
-     *
-     * @param string $pendiente
-     * @return Compra
-     */
-    public function setPendiente($pendiente)
-    {
-        $this->pendiente = $pendiente;
-
-        return $this;
-    }
-
-    /**
-     * Get pendiente
-     *
-     * @return string 
-     */
-    public function getPendiente()
-    {
-        return $this->pendiente;
     }
 
     /**
@@ -155,6 +101,22 @@ class Compra
     public function getUsuario()
     {
         return $this->usuario;
+    }
+
+    /**
+     * Set personalizacion
+     */
+    public function setPersonalizacion(\Proyecto\PersonalizacionBundle\Entity\Personalizacion $personalizacion)
+    {
+        $this->personalizacion = $personalizacion;
+    }
+
+    /**
+     * Get personalizacion
+     */
+    public function getPersonalizacion()
+    {
+        return $this->personalizacion;
     }
 
 }

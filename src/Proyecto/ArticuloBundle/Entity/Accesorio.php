@@ -52,22 +52,6 @@ class Accesorio
      */
     private $genero;
 
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $rutaFoto;
-
-    /**
-     * @Assert\Image(maxSize = "900k")
-     */
-    private $foto;
-
-
-    public function __toString()
-    {
-        return $this->getNombre();
-    }
-
 
     /**
      * Get id
@@ -123,39 +107,6 @@ class Accesorio
     public function getSlug()
     {
         return $this->slug;
-    }
-
-    /**
-     * Set rutaFoto
-     *
-     * @param string $rutaFoto
-     * @return Articulo
-     */
-    public function setRutaFoto($rutaFoto)
-    {
-        $this->rutaFoto = $rutaFoto;
-
-        return $this;
-    }
-
-    /**
-     * Get rutaFoto
-     *
-     * @return string
-     */
-    public function getRutaFoto()
-    {
-        return $this->rutaFoto;
-    }
-
-    /**
-     * Get foto.
-     *
-     * @return UploadedFile
-     */
-    public function getFoto()
-    {
-        return $this->foto;
     }
 
     /**

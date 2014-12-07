@@ -24,7 +24,6 @@ class Colores extends AbstractFixture
             'Naranja',
             'Rosa',
             'Marrón',
-            'Base',
         );
 
         foreach ($colores as $nombre) {
@@ -67,10 +66,6 @@ class Colores extends AbstractFixture
                 case 'Marrón':
                     $color->setRutaFoto('marron.png');
                     $color->setSlug('marron');
-                    break;
-                case 'Base':
-                    $color->setRutaFoto('colorbase.png');
-                    $color->setSlug('base');
                     break;
             }
 

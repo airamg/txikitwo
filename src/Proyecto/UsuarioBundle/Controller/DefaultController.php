@@ -26,8 +26,6 @@ class DefaultController extends Controller
         $usuario = new Usuario();
         $usuario->setRole('user');
         $usuario->setOnline('1');
-        $usuario->setRutaFoto('defaultuser.jpg');
-        $usuario->setSalt(base_convert(sha1(uniqid(mt_rand(), true)), 16, 36));
         $usuario->setComprasRealizadas('0');
         $usuario->setComprasPendientes('0');
 

@@ -5,3 +5,7 @@ personalizacion_index:
 personalizacion_articulo:
     path:     /{genero}/{articulo}
     defaults: { _controller: PersonalizacionBundle:Default:articuloselect }
+
+personalizacion_selectsform:
+    path:     /
+    defaults: { _controller: PersonalizacionBundle:Default:selectsform }

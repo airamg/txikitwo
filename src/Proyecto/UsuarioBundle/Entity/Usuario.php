@@ -73,23 +73,6 @@ class Usuario
     private $role;
 
     /**
-     * @var string salt
-     *
-     * @ORM\Column(name="salt", type="string", length=255)
-     */
-    protected $salt;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $rutaFoto;
-
-    /**
-     * @Assert\Image(maxSize = "900k")
-     */
-    private $foto;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="direccion", type="text")
@@ -132,7 +115,6 @@ class Usuario
     {
         $this->setRole('user');
         $this->setOnline('1');
-        $this->setRutaFoto('defaultuser.png');
     }
 
     public function __toString()
@@ -284,69 +266,6 @@ class Usuario
     public function getRole()
     {
         return $this->role;
-    }
-
-    /**
-     * Set salt
-     *
-     * @param string $salt
-     */
-    public function setSalt($salt)
-    {
-        $this->salt = $salt;
-    }
-
-    /**
-     * Get salt
-     *
-     * @return string
-     */
-    public function getSalt()
-    {
-        return $this->salt;
-    }
-
-    /**
-     * Set rutaFoto
-     *
-     * @param string $rutaFoto
-     * @return Articulo
-     */
-    public function setRutaFoto($rutaFoto)
-    {
-        $this->rutaFoto = $rutaFoto;
-
-        return $this;
-    }
-
-    /**
-     * Get rutaFoto
-     *
-     * @return string
-     */
-    public function getRutaFoto()
-    {
-        return $this->rutaFoto;
-    }
-
-    /**
-     * Set foto.
-     *
-     * @param UploadedFile $foto
-     */
-    public function setFoto(UploadedFile $foto = null)
-    {
-        $this->foto = $foto;
-    }
-
-    /**
-     * Get foto.
-     *
-     * @return UploadedFile
-     */
-    public function getFoto()
-    {
-        return $this->foto;
     }
 
     /**

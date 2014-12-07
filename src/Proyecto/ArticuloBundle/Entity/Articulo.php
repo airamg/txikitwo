@@ -66,11 +66,6 @@ class Articulo
     private $rutaFoto;
 
     /**
-     * @Assert\Image(maxSize = "900k")
-     */
-    private $foto;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="vecesPersonalizado", type="string")
@@ -93,14 +88,6 @@ class Articulo
      * @Assert\NotBlank()
      */
     private $genero;
-
-    /**
-     * @var integer $estampado
-     *
-     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Estampado", inversedBy="articulos")
-     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Estampado")
-     */
-    private $estampado;
 
 
     public function __construct()
@@ -261,26 +248,6 @@ class Articulo
     }
 
     /**
-     * Set foto.
-     *
-     * @param UploadedFile $foto
-     */
-    public function setFoto(UploadedFile $foto = null)
-    {
-        $this->foto = $foto;
-    }
-
-    /**
-     * Get foto.
-     *
-     * @return UploadedFile
-     */
-    public function getFoto()
-    {
-        return $this->foto;
-    }
-
-    /**
      * Set vecesPersonalizado
      *
      * @param string $vecesPersonalizado
@@ -349,19 +316,4 @@ class Articulo
         return $this->genero;
     }
 
-    /**
-     * Set estampado
-     */
-    public function setEstampado(\Proyecto\ArticuloBundle\Entity\Estampado $estampado)
-    {
-        $this->estampado = $estampado;
-    }
-
-    /**
-     * Get estampado
-     */
-    public function getEstampado()
-    {
-        return $this->estampado;
-    }
 }

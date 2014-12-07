@@ -41,9 +41,25 @@
         <div class="main">
             {% include ':includes:selectspersonalizacion.html.twig' %}
         </div>
+
+    {% if name == "nina" and names == "abrigo" %}
         <div class="options-selects">
             <label><input type="checkbox" name="prueba" value="verfoto">Ver foto - prueba</label>
+            <form action="{{ path('personalizacion_selectsform') }}" method="post" {{ form_enctype(formulario) }} >
+
+                {{ form_widget(formulario.talla) }}
+                {{ form_widget(formulario.tejido) }}
+                {{ form_widget(formulario.estampado) }}
+                {{ form_widget(formulario.color) }}
+
+                {{ form_rest(formulario) }}
+
+            <!--<label><input type="checkbox" name="botones" value="verfoto">Botones</label>
+            <label><input type="checkbox" name="cuellos" value="verfoto">Cuellos</label>-->
+            </form>
         </div>
+    {% endif %}
+
     </div>
     {% include ':includes:footer.html.twig' %}
 {% endblock %}

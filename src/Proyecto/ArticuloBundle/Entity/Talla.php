@@ -7,12 +7,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 
 /**
- * Proyecto\ArticuloBundle\Entity\Estampado
+ * Proyecto\ArticuloBundle\Entity\Talla
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Proyecto\ArticuloBundle\Entity\EstampadoRepository")
+ * @ORM\Entity(repositoryClass="Proyecto\ArticuloBundle\Entity\TallaRepository")
  */
-class Estampado
+class Talla
 {
     /**
      * @var integer
@@ -37,18 +37,6 @@ class Estampado
      */
     private $slug;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="genero", type="string", length=255)
-     */
-    private $genero;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $rutaFoto;
-
 
     public function __toString()
     {
@@ -70,7 +58,7 @@ class Estampado
      * Set nombre
      *
      * @param string $nombre
-     * @return Tejido
+     * @return Estampado
      */
     public function setNombre($nombre)
     {
@@ -110,52 +98,6 @@ class Estampado
     public function getSlug()
     {
         return $this->slug;
-    }
-
-    /**
-     * Set genero
-     *
-     * @param string $genero
-     * @return Tejido
-     */
-    public function setGenero($genero)
-    {
-        $this->genero = $genero;
-
-        return $this;
-    }
-
-    /**
-     * Get genero
-     *
-     * @return string
-     */
-    public function getGenero()
-    {
-        return $this->genero;
-    }
-
-    /**
-     * Set rutaFoto
-     *
-     * @param string $rutaFoto
-     * @return Articulo
-     */
-    public function setRutaFoto($rutaFoto)
-    {
-        $this->rutaFoto = $rutaFoto;
-
-        return $this;
-    }
-
-    /**
-     * Get rutaFoto
-     *
-     * @return string
-     */
-    public function getRutaFoto()
-    {
-        return $this->rutaFoto;
     }
 
 }

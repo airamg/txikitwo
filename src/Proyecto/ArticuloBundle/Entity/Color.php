@@ -42,10 +42,11 @@ class Color
      */
     private $rutaFoto;
 
-    /**
-     * @Assert\Image(maxSize = "900k")
-     */
-    private $foto;
+
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
 
 
     /**
@@ -127,13 +128,4 @@ class Color
         return $this->rutaFoto;
     }
 
-    /**
-     * Get foto.
-     *
-     * @return UploadedFile
-     */
-    public function getFoto()
-    {
-        return $this->foto;
-    }
 }
