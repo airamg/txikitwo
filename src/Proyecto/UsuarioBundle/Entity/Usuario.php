@@ -92,20 +92,6 @@ class Usuario
     /**
      * @var string
      *
-     * @ORM\Column(name="comprasRealizadas", type="string", length=5)
-     */
-    private $comprasRealizadas;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="comprasPendientes", type="string", length=2)
-     */
-    private $comprasPendientes;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="online", type="string", length=1)
      */
     private $online;
@@ -312,52 +298,6 @@ class Usuario
     public function getCodigoPostal()
     {
         return $this->codigoPostal;
-    }
-
-    /**
-     * Set comprasRealizadas
-     *
-     * @param string $comprasRealizadas
-     * @return Usuario
-     */
-    public function setComprasRealizadas($comprasRealizadas)
-    {
-        $this->comprasRealizadas = $comprasRealizadas;
-
-        return $this;
-    }
-
-    /**
-     * Get comprasRealizadas
-     *
-     * @return string
-     */
-    public function getComprasRealizadas()
-    {
-        return $this->comprasRealizadas;
-    }
-
-    /**
-     * Set comprasPendientes
-     *
-     * @param string $comprasPendientes
-     * @return Usuario
-     */
-    public function setComprasPendientes($comprasPendientes)
-    {
-        $this->comprasPendientes = $comprasPendientes;
-
-        return $this;
-    }
-
-    /**
-     * Get comprasPendientes
-     *
-     * @return string
-     */
-    public function getComprasPendientes()
-    {
-        return $this->comprasPendientes;
     }
 
     /**

@@ -1,1 +1,39 @@
-¡Personalización añadida al carrito! Ahora puedes realizar la compra.
+{% extends '::base.html.twig' %}
+
+{% block title %}Compra - Txikitwo{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+        '@WebBundle/Resources/public/css/frontend.css'
+        output='css/compra.css' %}
+    <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    {% include ':includes:header.html.twig' %}
+    <div id="contenido">
+        ¡Personalización añadida al carrito! Ahora puedes realizar la compra.
+
+        {% for personalizacio in personalizacion %}
+            <div id="imagenpersonalizada">
+                <img alt="foto" src="{{ asset(directorio_imagenes ~ personalizacio.rutaFoto) }}">
+            </div>
+            <div id="datospesonalizacion">
+                {{ personalizacio.talla }}
+                {{ personalizacio.tejido }}
+                {{ personalizacio.pendiente }}
+                {{ personalizacio.articulo }}
+                {{ personalizacio.genero }}
+                {{ personalizacio.color }}
+                {{ personalizacio.accesorios }}
+                {{ personalizacio.usuario }}
+                ------
+            </div>
+        {% endfor %}
+
+    </div>
+    {% include ':includes:footer.html.twig' %}
+{% endblock %}
+
+
+

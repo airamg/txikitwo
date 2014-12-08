@@ -68,14 +68,6 @@ class Articulo
     /**
      * @var string
      *
-     * @ORM\Column(name="vecesPersonalizado", type="string")
-     * @Assert\NotBlank()
-     */
-    private $vecesPersonalizado;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="complemento", type="string", length=1)
      * @Assert\NotBlank()
      */
@@ -92,7 +84,6 @@ class Articulo
 
     public function __construct()
     {
-        $this->setVecesPersonalizado('0');
         $this->setDisponible('1');
     }
 
@@ -245,29 +236,6 @@ class Articulo
     public function getRutaFoto()
     {
         return $this->rutaFoto;
-    }
-
-    /**
-     * Set vecesPersonalizado
-     *
-     * @param string $vecesPersonalizado
-     * @return Articulo
-     */
-    public function setVecesPersonalizado($vecesPersonalizado)
-    {
-        $this->vecesPersonalizado = $vecesPersonalizado;
-
-        return $this;
-    }
-
-    /**
-     * Get vecesPersonalizado
-     *
-     * @return string 
-     */
-    public function getVecesPersonalizado()
-    {
-        return $this->vecesPersonalizado;
     }
 
     /**

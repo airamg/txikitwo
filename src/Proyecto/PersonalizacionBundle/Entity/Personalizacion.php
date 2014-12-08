@@ -31,14 +31,6 @@ class Personalizacion
     /**
      * @var string
      *
-     * @ORM\Column(name="realizada", type="string", length=1)
-     * @Assert\NotBlank()
-     */
-    private $realizada;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="pendiente", type="string", length=1)
      * @Assert\NotBlank()
      */
@@ -69,6 +61,14 @@ class Personalizacion
     private $color;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="accesorios", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $accesorios;
+
+    /**
      * @var integer $talla
      *
      * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Talla", inversedBy="personalizaciones")
@@ -83,6 +83,14 @@ class Personalizacion
      * @Assert\Type("Proyecto\ArticuloBundle\Entity\Tejido")
      */
     private $tejido;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="usuario", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $usuario;
 
 
     /**
@@ -116,29 +124,6 @@ class Personalizacion
     public function getRutaFoto()
     {
         return $this->rutaFoto;
-    }
-
-    /**
-     * Set realizada
-     *
-     * @param string $realizada
-     * @return Personalizacion
-     */
-    public function setRealizada($realizada)
-    {
-        $this->realizada = $realizada;
-
-        return $this;
-    }
-
-    /**
-     * Get realizada
-     *
-     * @return string
-     */
-    public function getRealizada()
-    {
-        return $this->realizada;
     }
 
     /**
@@ -233,6 +218,28 @@ class Personalizacion
         return $this->color;
     }
 
+    /**
+     * Set accesorios
+     *
+     * @param string $accesorios
+     * @return Personalizacion
+     */
+    public function setAccesorios($accesorios)
+    {
+        $this->accesorios = $accesorios;
+
+        return $this;
+    }
+
+    /**
+     * Get accesorios
+     *
+     * @return string
+     */
+    public function getAccesorios()
+    {
+        return $this->accesorios;
+    }
 
     /**
      * Set talla
@@ -266,6 +273,29 @@ class Personalizacion
     public function getTejido()
     {
         return $this->tejido;
+    }
+
+    /**
+     * Set usuario
+     *
+     * @param string $usuario
+     * @return Personalizacion
+     */
+    public function setUsuario($usuario)
+    {
+        $this->usuario = $usuario;
+
+        return $this;
+    }
+
+    /**
+     * Get usuario
+     *
+     * @return string
+     */
+    public function getUsuario()
+    {
+        return $this->usuario;
     }
 
 }

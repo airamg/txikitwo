@@ -26,8 +26,6 @@ class DefaultController extends Controller
         $usuario = new Usuario();
         $usuario->setRole('user');
         $usuario->setOnline('1');
-        $usuario->setComprasRealizadas('0');
-        $usuario->setComprasPendientes('0');
 
         $formulario = $this->createForm(new UsuarioRegistroType(), $usuario);
         $formulario->handleRequest($peticion);
