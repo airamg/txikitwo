@@ -26,14 +26,7 @@ class PersonalizacionType extends AbstractType
                             ->orderBy('c.nombre', 'ASC');
                     },
             ))
-            ->add('estampado', 'entity', array(
-                'class'         => 'Proyecto\\ArticuloBundle\\Entity\\Estampado',
-                'empty_value'   => 'Selecciona un estampado',
-                'query_builder' => function(EntityRepository $repositorio) {
-                        return $repositorio->createQueryBuilder('c')
-                            ->orderBy('c.nombre', 'ASC');
-                    },
-            ))
+            /* CAMBIAR ESTO POR CHECKBOXES DE COLORES CON FOTITOS CUADRADAS AL LADO */
             ->add('color', 'entity', array(
                 'class'         => 'Proyecto\\ArticuloBundle\\Entity\\Color',
                 'empty_value'   => 'Selecciona un color',

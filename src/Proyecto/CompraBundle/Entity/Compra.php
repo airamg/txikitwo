@@ -32,10 +32,16 @@ class Compra
     private $fecha;
 
     /**
-     * @var integer $usuario
+     * @ORM\Column(type="decimal", scale=2)
+     * @Assert\Range(min = 0)
+     */
+    private $precio;
+
+    /**
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Proyecto\UsuarioBundle\Entity\Usuario", inversedBy="compras")
-     * @Assert\Type("Proyecto\UsuarioBundle\Entity\Usuario")
+     * @ORM\Column(name="usuario", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $usuario;
 
@@ -88,15 +94,42 @@ class Compra
     }
 
     /**
-     * Set usuario
+     * Set precio
+     *
+     * @param decimal $precio
      */
-    public function setUsuario(\Proyecto\UsuarioBundle\Entity\Usuario $usuario)
+    public function setPrecio($precio)
+    {
+        $this->precio = $precio;
+    }
+
+    /**
+     * Get precio
+     *
+     * @return decimal
+     */
+    public function getPrecio()
+    {
+        return $this->precio;
+    }
+
+    /**
+     * Set usuario
+     *
+     * @param string $usuario
+     * @return Compra
+     */
+    public function setUsuario($usuario)
     {
         $this->usuario = $usuario;
+
+        return $this;
     }
 
     /**
      * Get usuario
+     *
+     * @return string
      */
     public function getUsuario()
     {

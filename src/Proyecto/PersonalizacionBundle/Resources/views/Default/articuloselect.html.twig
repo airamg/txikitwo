@@ -13,15 +13,38 @@
     {% javascripts '@PersonalizacionBundle/Resources/public/js/*' output='js/personalizacion/personalizacion.js' %}
         <script src="{{ asset_url }}" type="text/javascript"></script>
     {% endjavascripts %}
+
     <script type="text/javascript">
         $(document).ready(function(){
             $('input[type="checkbox"]').click(function(){
-                if($(this).attr("value")=="verfoto"){
-                    $(".prueba").toggle();
+                if($(this).attr("value")=="botones"){
+                    $(".botones").toggle();
+                    $(".index").toggle();
+                }
+                if($(this).attr("value")=="bolsillos"){
+                    $(".bolsillos").toggle();
+                    $(".index").toggle();
+                }
+                if($(this).attr("value")=="cremallera"){
+                    $(".cremallera").toggle();
+                    $(".index").toggle();
+                }
+                if($(this).attr("value")=="cuellos"){
+                    $(".cuellos").toggle();
+                    $(".index").toggle();
+                }
+                if($(this).attr("value")=="larguras"){
+                    $(".larguras").toggle();
+                    $(".index").toggle();
+                }
+                if($(this).attr("value")=="mangas"){
+                    $(".mangas").toggle();
+                    $(".index").toggle();
                 }
             });
         });
     </script>
+
 {% endblock %}
 
 {% block body %}
@@ -42,23 +65,7 @@
             {% include ':includes:selectspersonalizacion.html.twig' %}
         </div>
 
-    {% if name == "nina" and names == "abrigo" %}
-        <div class="options-selects">
-            <label><input type="checkbox" name="prueba" value="verfoto">Ver foto - prueba</label>
-            <form action="{{ path('personalizacion_selectsform') }}" method="post" {{ form_enctype(formulario) }} >
-
-                {{ form_widget(formulario.talla) }}
-                {{ form_widget(formulario.tejido) }}
-                {{ form_widget(formulario.estampado) }}
-                {{ form_widget(formulario.color) }}
-
-                {{ form_rest(formulario) }}
-
-            <!--<label><input type="checkbox" name="botones" value="verfoto">Botones</label>
-            <label><input type="checkbox" name="cuellos" value="verfoto">Cuellos</label>-->
-            </form>
-        </div>
-    {% endif %}
+        {% include ':includes:selectsform_personalizacion.html.twig' %}
 
     </div>
     {% include ':includes:footer.html.twig' %}

@@ -58,7 +58,7 @@ class Talla
      * Set nombre
      *
      * @param string $nombre
-     * @return Estampado
+     * @return Talla
      */
     public function setNombre($nombre)
     {
@@ -81,7 +81,7 @@ class Talla
      * Set slug
      *
      * @param string $slug
-     * @return Tejido
+     * @return Talla
      */
     public function setSlug($slug)
     {

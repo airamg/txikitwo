@@ -64,7 +64,7 @@ class Tejido
      * Set nombre
      *
      * @param string $nombre
-     * @return Estampado
+     * @return Tejido
      */
     public function setNombre($nombre)
     {

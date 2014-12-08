@@ -133,7 +133,7 @@ class Accesorio
      * Set genero
      *
      * @param string $genero
-     * @return Articulo
+     * @return Accesorio
      */
     public function setGenero($genero)
     {

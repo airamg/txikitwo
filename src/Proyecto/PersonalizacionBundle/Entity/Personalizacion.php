@@ -29,19 +29,6 @@ class Personalizacion
     private $rutaFoto;
 
     /**
-     * @ORM\Column(type="decimal", scale=2)
-     * @Assert\Range(min = 0)
-     */
-    private $precio;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="listaAccesorios", type="text")
-     */
-    private $listaAccesorios;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="realizada", type="string", length=1)
@@ -58,12 +45,13 @@ class Personalizacion
     private $pendiente;
 
     /**
-     * @var integer $articulo
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Articulo", inversedBy="personalizaciones")
-     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Articulo")
+     * @ORM\Column(name="articulo", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $articulo;
+
 
     /**
      * @var integer $talla
@@ -82,20 +70,15 @@ class Personalizacion
     private $tejido;
 
     /**
-     * @var integer $estampado
-     *
-     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Estampado", inversedBy="personalizaciones")
-     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Estampado")
-     */
-    private $estampado;
-
-    /**
      * @var integer $color
      *
      * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Color", inversedBy="personalizaciones")
      * @Assert\Type("Proyecto\ArticuloBundle\Entity\Color")
      */
     private $color;
+
+
+    /* AÑADIR METODO DE GENERO */
 
 
     /**
@@ -112,7 +95,7 @@ class Personalizacion
      * Set rutaFoto
      *
      * @param string $rutaFoto
-     * @return Articulo
+     * @return Personalizacion
      */
     public function setRutaFoto($rutaFoto)
     {
@@ -132,33 +115,10 @@ class Personalizacion
     }
 
     /**
-     * Set listaAccesorios
-     *
-     * @param string $listaAccesorios
-     * @return Personalizacion
-     */
-    public function setListaAccesorios($listaAccesorios)
-    {
-        $this->listaAccesorios = $listaAccesorios;
-
-        return $this;
-    }
-
-    /**
-     * Get listaAccesorios
-     *
-     * @return string
-     */
-    public function getListaAccesorios()
-    {
-        return $this->listaAccesorios;
-    }
-
-    /**
      * Set realizada
      *
      * @param string $realizada
-     * @return Compra
+     * @return Personalizacion
      */
     public function setRealizada($realizada)
     {
@@ -181,7 +141,7 @@ class Personalizacion
      * Set pendiente
      *
      * @param string $pendiente
-     * @return Compra
+     * @return Personalizacion
      */
     public function setPendiente($pendiente)
     {
@@ -201,40 +161,28 @@ class Personalizacion
     }
 
     /**
-     * Set precio
-     *
-     * @param decimal $precio
-     */
-    public function setPrecio($precio)
-    {
-        $this->precio = $precio;
-    }
-
-    /**
-     * Get precio
-     *
-     * @return decimal
-     */
-    public function getPrecio()
-    {
-        return $this->precio;
-    }
-
-    /**
      * Set articulo
+     *
+     * @param string $articulo
+     * @return Personalizacion
      */
-    public function setArticulo(\Proyecto\ArticuloBundle\Entity\Articulo $articulo)
+    public function setArticulo($articulo)
     {
         $this->articulo = $articulo;
+
+        return $this;
     }
 
     /**
      * Get articulo
+     *
+     * @return string
      */
     public function getArticulo()
     {
         return $this->articulo;
     }
+
 
     /**
      * Set talla
@@ -268,22 +216,6 @@ class Personalizacion
     public function getTejido()
     {
         return $this->tejido;
-    }
-
-    /**
-     * Set estampado
-     */
-    public function setEstampado(\Proyecto\ArticuloBundle\Entity\Estampado $estampado)
-    {
-        $this->estampado = $estampado;
-    }
-
-    /**
-     * Get estampado
-     */
-    public function getEstampado()
-    {
-        return $this->estampado;
     }
 
     /**

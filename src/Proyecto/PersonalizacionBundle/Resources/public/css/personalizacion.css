@@ -63,6 +63,30 @@
     text-align: left;
 }
 
-.prueba {
+.index {
+    display: block;
+}
+
+.botones {
+    display: none;
+}
+
+.bolsillos {
+    display: none;
+}
+
+.cremallera {
+    display: none;
+}
+
+.cuellos {
+    display: none;
+}
+
+.larguras {
+    display: none;
+}
+
+.mangas {
     display: none;
 }

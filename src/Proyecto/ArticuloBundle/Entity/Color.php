@@ -109,7 +109,7 @@ class Color
      * Set rutaFoto
      *
      * @param string $rutaFoto
-     * @return Articulo
+     * @return Color
      */
     public function setRutaFoto($rutaFoto)
     {

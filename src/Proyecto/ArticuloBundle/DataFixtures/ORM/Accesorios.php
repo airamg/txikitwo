@@ -19,12 +19,8 @@ class Accesorios extends AbstractFixture
             'Botones',
             'Cremallera',
             'Cuellos',
-            'Lazos',
             'Larguras',
             'Mangas',
-            'Nombres bordados',
-            'Velcro',
-            'Volantes',
         );
 
         foreach ($accesorios as $nombre) {
@@ -52,11 +48,6 @@ class Accesorios extends AbstractFixture
                     $accesorio->setSlug('cuellos');
                     $accesorio->setPrecio(0.00);
                     break;
-                case 'Lazos':
-                    $accesorio->setGenero('niña');
-                    $accesorio->setSlug('lazos');
-                    $accesorio->setPrecio(1.20);
-                    break;
                 case 'Larguras':
                     $accesorio->setGenero('ambos');
                     $accesorio->setSlug('larguras');
@@ -66,21 +57,6 @@ class Accesorios extends AbstractFixture
                     $accesorio->setGenero('ambos');
                     $accesorio->setSlug('mangas');
                     $accesorio->setPrecio(0.00);
-                    break;
-                case 'Nombres bordados':
-                    $accesorio->setGenero('ambos');
-                    $accesorio->setSlug('nombres-bordados');
-                    $accesorio->setPrecio(5.55);
-                    break;
-                case 'Velcro':
-                    $accesorio->setGenero('ambos');
-                    $accesorio->setSlug('velcro');
-                    $accesorio->setPrecio(2.95);
-                    break;
-                case 'Volantes':
-                    $accesorio->setGenero('niña');
-                    $accesorio->setSlug('volantes');
-                    $accesorio->setPrecio(0.20);
                     break;
             }
 

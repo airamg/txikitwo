@@ -1,0 +1,359 @@
+<!-- NIÑAS -->
+    {% if name == "nina" and names == "abrigo" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>ABRIGO</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "abrigo" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+                            <li><input type="checkbox" name="check_list[]" value="botones"><label>Botones</label></li>
+                            <li><input type="checkbox" name="check_list[]" value="prueba"><label>Prueba</label></li>
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                            {{ form_rest(formulario) }}
+
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% if name == "nina" and names == "bata" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>BATA</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "bata" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% if name == "nina" and names == "camisa" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>CAMISA / BLUSA</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "camisa" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% if name == "nina" and names == "camiseta" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>CAMISETA</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "camiseta" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% if name == "nina" and names == "falda" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>FALDA</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "falda" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% if name == "nina" and names == "jersey" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>JERSEY</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "jersey" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% if name == "nina" and names == "pantalon" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>PANTALON</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "pantalon" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% if name == "nina" and names == "pijama" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>PIJAMA</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "pijama" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.mangas) }}</li>
+                            <li>{{ form_widget(formulario.larguras) }}</li>
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% if name == "nina" and names == "vestido" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>VESTIDO</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "vestido" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+
+<!-- NIÑOS -->
+{% if name == "nino" and names == "abrigo" %}
+    <div class="options-selects">
+        <div id="descripcion">
+            <p>ABRIGO</p>
+            <p>fjdsjfhasjhfjsdhgajghjd</p>
+        </div>
+        <div id="opciones">
+            <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "abrigo" }) }}" method="post" {{ form_enctype(formulario) }} >
+                <div id="formularioopciones">
+                    <ul>
+
+                        <li>{{ form_widget(formulario.talla) }}</li>
+                        <li>{{ form_widget(formulario.tejido) }}</li>
+                        <li>{{ form_widget(formulario.color) }}</li>
+                        <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                    </ul>
+                    {{ form_rest(formulario) }}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endif %}
+    {% if name == "nino" and names == "bata" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>BATA</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "bata" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% if name == "nino" and names == "camisa" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>CAMISA</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "camisa" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% if name == "nino" and names == "camiseta" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>CAMISETA / POLO</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "camiseta" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% if name == "nino" and names == "jersey" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>JERSEY</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "jersey" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% if name == "nino" and names == "pantalon" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>PANTALON</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "pantalon" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% if name == "nino" and names == "pijama" %}
+        <div class="options-selects">
+            <div id="descripcion">
+                <p>PIJAMA</p>
+                <p>fjdsjfhasjhfjsdhgajghjd</p>
+            </div>
+            <div id="opciones">
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "pijama" }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="formularioopciones">
+                        <ul>
+
+                            <li>{{ form_widget(formulario.talla) }}</li>
+                            <li>{{ form_widget(formulario.tejido) }}</li>
+                            <li>{{ form_widget(formulario.color) }}</li>
+                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                        </ul>
+                        {{ form_rest(formulario) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}

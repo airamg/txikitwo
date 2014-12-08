@@ -70,7 +70,7 @@ class Estampado
      * Set nombre
      *
      * @param string $nombre
-     * @return Tejido
+     * @return Estampado
      */
     public function setNombre($nombre)
     {
@@ -93,7 +93,7 @@ class Estampado
      * Set slug
      *
      * @param string $slug
-     * @return Tejido
+     * @return Estampado
      */
     public function setSlug($slug)
     {
@@ -116,7 +116,7 @@ class Estampado
      * Set genero
      *
      * @param string $genero
-     * @return Tejido
+     * @return Estampado
      */
     public function setGenero($genero)
     {
@@ -139,7 +139,7 @@ class Estampado
      * Set rutaFoto
      *
      * @param string $rutaFoto
-     * @return Articulo
+     * @return Estampado
      */
     public function setRutaFoto($rutaFoto)
     {

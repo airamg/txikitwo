@@ -46,6 +46,7 @@ class DefaultController extends Controller
 
     public function cuentaAction()
     {
+
         return $this->render('UsuarioBundle:Default:micuenta.html.twig');
     }
 }

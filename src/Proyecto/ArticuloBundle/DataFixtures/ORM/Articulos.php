@@ -17,11 +17,9 @@ class Articulos extends AbstractFixture
         $articulos = array(
             'Abrigos',
             'Batas',
-            'Blusas',
             'Calcetines',
             'Camisas',
             'Camisetas',
-            'Chalecos',
             'Faldas',
             'Gorros',
             'Jerséis',
@@ -36,7 +34,7 @@ class Articulos extends AbstractFixture
             $articulo->setNombre($nombre);
 
             // generos
-            if($nombre=='Blusas' || $nombre=='Faldas' || $nombre=='Leotardos' || $nombre=='Vestidos') {
+            if($nombre=='Faldas' || $nombre=='Leotardos' || $nombre=='Vestidos') {
                 $articulo->setGenero('niña');
             }
             else {
@@ -65,12 +63,6 @@ class Articulos extends AbstractFixture
                     $articulo->setPrecio(18.00);
                     $articulo->setSlug('bata');
                     break;
-                case 'Blusas':
-                    $articulo->setRutaFoto('blusa.png');
-                    $articulo->setDescripcion('Ropa formal');
-                    $articulo->setPrecio(10.00);
-                    $articulo->setSlug('blusa');
-                    break;
                 case 'Calcetines':
                     $articulo->setRutaFoto('calcetin.png');
                     $articulo->setDescripcion('Complemento');
@@ -88,12 +80,6 @@ class Articulos extends AbstractFixture
                     $articulo->setDescripcion('Ropa informal');
                     $articulo->setPrecio(7.00);
                     $articulo->setSlug('camiseta');
-                    break;
-                case 'Chalecos':
-                    $articulo->setRutaFoto('chaleco.png');
-                    $articulo->setDescripcion('Ropa formal');
-                    $articulo->setPrecio(15.00);
-                    $articulo->setSlug('chaleco');
                     break;
                 case 'Faldas':
                     $articulo->setRutaFoto('falda.png');
