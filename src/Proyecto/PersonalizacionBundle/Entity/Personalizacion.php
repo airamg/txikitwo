@@ -52,6 +52,21 @@ class Personalizacion
      */
     private $articulo;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="genero", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $genero;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="color", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $color;
 
     /**
      * @var integer $talla
@@ -68,17 +83,6 @@ class Personalizacion
      * @Assert\Type("Proyecto\ArticuloBundle\Entity\Tejido")
      */
     private $tejido;
-
-    /**
-     * @var integer $color
-     *
-     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Color", inversedBy="personalizaciones")
-     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Color")
-     */
-    private $color;
-
-
-    /* AÑADIR METODO DE GENERO */
 
 
     /**
@@ -183,6 +187,52 @@ class Personalizacion
         return $this->articulo;
     }
 
+    /**
+     * Set genero
+     *
+     * @param string $genero
+     * @return Personalizacion
+     */
+    public function setGenero($genero)
+    {
+        $this->genero = $genero;
+
+        return $this;
+    }
+
+    /**
+     * Get genero
+     *
+     * @return string
+     */
+    public function getGenero()
+    {
+        return $this->genero;
+    }
+
+    /**
+     * Set color
+     *
+     * @param string $color
+     * @return Personalizacion
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    /**
+     * Get color
+     *
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
 
     /**
      * Set talla
@@ -216,22 +266,6 @@ class Personalizacion
     public function getTejido()
     {
         return $this->tejido;
-    }
-
-    /**
-     * Set color
-     */
-    public function setColor(\Proyecto\ArticuloBundle\Entity\Color $color)
-    {
-        $this->color = $color;
-    }
-
-    /**
-     * Get color
-     */
-    public function getColor()
-    {
-        return $this->color;
     }
 
 }

@@ -22,6 +22,8 @@ class DefaultController extends Controller
         $personalizacion->setPendiente(1);
         $personalizacion->setRealizada(0);
         $personalizacion->setArticulo($articulo);
+        $personalizacion->setGenero($genero);
+        $personalizacion->setColor('-');
 
         $formulario = $this->createForm(new PersonalizacionType(), $personalizacion);
         $formulario->handleRequest($peticion);
@@ -32,7 +34,11 @@ class DefaultController extends Controller
                 $select = $articulo;
                 foreach($_POST['check_list'] as $selected) {
                     $select .= '_'.$selected;
-                    $personalizacion->setRutaFoto($select.'.png');
+                    if(($selected == "color1") || ($selected == "color2")) /* incluir los colores */{
+                        $personalizacion->setColor($selected);
+                    } else {
+                        $personalizacion->setRutaFoto($select.'.png');
+                    }
                 }
             } else {
                 $personalizacion->setRutaFoto($articulo.'.png');
