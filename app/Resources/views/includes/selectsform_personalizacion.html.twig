@@ -15,10 +15,8 @@
                                 <input type="radio" name="check_list[]" value="blanco"><label>Blanco</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
-
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
                             {{ form_rest(formulario) }}
-
                         </ul>
                     </div>
                 </form>
@@ -35,13 +33,14 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "bata" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-
+                            <li><input type="checkbox" name="check_list[]" value="bolsillos"><label>Bolsillos</label></li>
+                            <li><input type="radio" name="check_list[]" value="rosa"><label>Rosa</label>
+                                <input type="radio" name="check_list[]" value="verde"><label>Verde</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
-
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                            {{ form_rest(formulario) }}
                         </ul>
-                        {{ form_rest(formulario) }}
                     </div>
                 </form>
             </div>
@@ -57,13 +56,12 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "camisa" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-
+                            <li><input type="checkbox" name="check_list[]" value="mangas"><label>Mangas</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
-
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                            {{ form_rest(formulario) }}
                         </ul>
-                        {{ form_rest(formulario) }}
                     </div>
                 </form>
             </div>
@@ -79,13 +77,14 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "camiseta" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-
+                            <li><input type="checkbox" name="check_list[]" value="mangas"><label>Mangas</label></li>
+                            <li><input type="radio" name="check_list[]" value="rosa"><label>Rosa</label>
+                                <input type="radio" name="check_list[]" value="azul"><label>Azul</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
-
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                            {{ form_rest(formulario) }}
                         </ul>
-                        {{ form_rest(formulario) }}
                     </div>
                 </form>
             </div>
@@ -101,13 +100,12 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "falda" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-
+                            <li><input type="checkbox" name="check_list[]" value="lazos"><label>Lazos</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
-
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                            {{ form_rest(formulario) }}
                         </ul>
-                        {{ form_rest(formulario) }}
                     </div>
                 </form>
             </div>
@@ -123,13 +121,12 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "jersey" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-
+                            <li><input type="checkbox" name="check_list[]" value="mangas"><label>Mangas</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
-
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                            {{ form_rest(formulario) }}
                         </ul>
-                        {{ form_rest(formulario) }}
                     </div>
                 </form>
             </div>
@@ -142,39 +139,17 @@
                 <p>fjdsjfhasjhfjsdhgajghjd</p>
             </div>
             <div id="opciones">
-                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "pantalon" }) }}" method="post" {{ form_enctype(formulario) }} >
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "bata" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-
+                            <li><input type="checkbox" name="check_list[]" value="larguras"><label>Larguras</label></li>
+                            <li><input type="radio" name="check_list[]" value="verde"><label>Verde</label>
+                                <input type="radio" name="check_list[]" value="rosa"><label>Rosa</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
-
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                            {{ form_rest(formulario) }}
                         </ul>
-                        {{ form_rest(formulario) }}
-                    </div>
-                </form>
-            </div>
-        </div>
-    {% endif %}
-    {% if name == "nina" and names == "pijama" %}
-        <div class="options-selects">
-            <div id="descripcion">
-                <p>PIJAMA</p>
-                <p>fjdsjfhasjhfjsdhgajghjd</p>
-            </div>
-            <div id="opciones">
-                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "pijama" }) }}" method="post" {{ form_enctype(formulario) }} >
-                    <div id="formularioopciones">
-                        <ul>
-
-
-                            <li>{{ form_widget(formulario.talla) }}</li>
-                            <li>{{ form_widget(formulario.tejido) }}</li>
-
-                            <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
-                        </ul>
-                        {{ form_rest(formulario) }}
                     </div>
                 </form>
             </div>
@@ -190,13 +165,15 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "vestido" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-
+                            <li><input type="checkbox" name="check_list[]" value="mangas"><label>Mangas</label></li>
+                            <li><input type="checkbox" name="check_list[]" value="lazos"><label>Lazos</label></li>
+                            <li><input type="radio" name="check_list[]" value="rosa"><label>Rosa</label>
+                                <input type="radio" name="check_list[]" value="verde"><label>Verde</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
-
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito y continuar" /></li>
+                            {{ form_rest(formulario) }}
                         </ul>
-                        {{ form_rest(formulario) }}
                     </div>
                 </form>
             </div>
