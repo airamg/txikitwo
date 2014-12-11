@@ -39,7 +39,7 @@ class DefaultController extends Controller
                 foreach($_POST['check_list'] as $selected) {
                     $select .= '_'.$selected;
                     $acces .= $selected.' ';
-                    if(($selected == "color1") || ($selected == "color2")) /* INCLUIR TODOS LOS COLORES */{
+                    if(($selected == "azul") || ($selected == "rojo") || ($selected == "verde") || ($selected == "blanco") || ($selected == "naranja") || ($selected == "rosa") || ($selected == "marron")) {
                         $personalizacion->setColor($selected);
                         $personalizacion->setAccesorios($acces);
                         $personalizacion->setRutaFoto('personalizacion/'.$genero.'/'.$select.'.png');
