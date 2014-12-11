@@ -19,8 +19,6 @@ class Colores extends AbstractFixture
             'Rojo',
             'Verde',
             'Blanco',
-            'Amarillo',
-            'Negro',
             'Naranja',
             'Rosa',
             'Marrón',
@@ -32,39 +30,31 @@ class Colores extends AbstractFixture
 
             switch($nombre) {
                 case 'Azul':
-                    $color->setRutaFoto('azul.png');
+                    $color->setRutaFoto('almacen/color/azul.png');
                     $color->setSlug('azul');
                     break;
                 case 'Rojo':
-                    $color->setRutaFoto('rojo.png');
+                    $color->setRutaFoto('almacen/color/rojo.png');
                     $color->setSlug('rojo');
                     break;
                 case 'Verde':
-                    $color->setRutaFoto('verde.png');
+                    $color->setRutaFoto('almacen/color/verde.png');
                     $color->setSlug('verde');
                     break;
                 case 'Blanco':
-                    $color->setRutaFoto('blanco.png');
+                    $color->setRutaFoto('almacen/color/blanco.png');
                     $color->setSlug('blanco');
                     break;
-                case 'Amarillo':
-                    $color->setRutaFoto('amarillo.png');
-                    $color->setSlug('amarillo');
-                    break;
-                case 'Negro':
-                    $color->setRutaFoto('negro.png');
-                    $color->setSlug('negro');
-                    break;
                 case 'Naranja':
-                    $color->setRutaFoto('naranja.png');
+                    $color->setRutaFoto('almacen/color/naranja.png');
                     $color->setSlug('naranja');
                     break;
                 case 'Rosa':
-                    $color->setRutaFoto('rosa.png');
+                    $color->setRutaFoto('almacen/color/rosa.png');
                     $color->setSlug('rosa');
                     break;
                 case 'Marrón':
-                    $color->setRutaFoto('marron.png');
+                    $color->setRutaFoto('almacen/color/marron.png');
                     $color->setSlug('marron');
                     break;
             }

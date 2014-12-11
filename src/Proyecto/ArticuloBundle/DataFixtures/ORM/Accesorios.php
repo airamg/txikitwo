@@ -17,10 +17,10 @@ class Accesorios extends AbstractFixture
        $accesorios = array(
             'Bolsillos',
             'Botones',
-            'Cremallera',
-            'Cuellos',
             'Larguras',
             'Mangas',
+            'Lazos',
+            'Dibujos',
         );
 
         foreach ($accesorios as $nombre) {
@@ -29,34 +29,28 @@ class Accesorios extends AbstractFixture
 
             switch($nombre) {
                 case 'Bolsillos':
-                    $accesorio->setGenero('ambos');
                     $accesorio->setSlug('bolsillos');
                     $accesorio->setPrecio(2.50);
                     break;
                 case 'Botones':
-                    $accesorio->setGenero('ambos');
                     $accesorio->setSlug('botones');
                     $accesorio->setPrecio(1.30);
                     break;
-                case 'Cremallera':
-                    $accesorio->setGenero('ambos');
-                    $accesorio->setSlug('cremallera');
-                    $accesorio->setPrecio(3.90);
-                    break;
-                case 'Cuellos':
-                    $accesorio->setGenero('ambos');
-                    $accesorio->setSlug('cuellos');
-                    $accesorio->setPrecio(0.00);
-                    break;
                 case 'Larguras':
-                    $accesorio->setGenero('ambos');
                     $accesorio->setSlug('larguras');
-                    $accesorio->setPrecio(0.00);
+                    $accesorio->setPrecio(0.20);
                     break;
                 case 'Mangas':
-                    $accesorio->setGenero('ambos');
                     $accesorio->setSlug('mangas');
-                    $accesorio->setPrecio(0.00);
+                    $accesorio->setPrecio(0.20);
+                    break;
+                case 'Lazos':
+                    $accesorio->setSlug('lazos');
+                    $accesorio->setPrecio(2.00);
+                    break;
+                case 'Dibujos':
+                    $accesorio->setSlug('dibujos');
+                    $accesorio->setPrecio(0.50);
                     break;
             }
 

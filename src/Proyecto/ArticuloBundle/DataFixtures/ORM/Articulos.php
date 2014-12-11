@@ -8,127 +8,198 @@ use Proyecto\ArticuloBundle\Entity\Articulo;
 
 /**
  * Fixtures de la entidad Articulo
- * Crea todos los articulos que podrá haber disponibles en la aplicación
+ * Crea todos los articulos que podrá haber disponibles en la aplicación según genero
  */
 class Articulos extends AbstractFixture
 {
     public function load(ObjectManager $manager)
     {
-        $articulos = array(
-            'Abrigos',
-            'Batas',
-            'Calcetines',
-            'Camisas',
-            'Camisetas',
-            'Faldas',
-            'Gorros',
-            'Jerséis',
-            'Leotardos',
-            'Pantalones',
-            'Pijamas',
-            'Vestidos',
-        );
 
-        foreach ($articulos as $nombre) {
-            $articulo = new Articulo();
-            $articulo->setNombre($nombre);
+        //niña
+        $articulo1 = new Articulo();
+        $articulo1->setNombre("Abrigo");
+        $articulo1->setSlug('abrigo');
+        $articulo1->setGenero('nina');
+        $articulo1->setRutaFoto('articulo/nina/abrigo.png');
+        $articulo1->setPrecio(30.00);
+        $articulo1->setDescripcion('Ropa formal');
+        $articulo1->setEstampado('-');
+        $articulo1->setComplemento('0');
 
-            // generos
-            if($nombre=='Faldas' || $nombre=='Leotardos' || $nombre=='Vestidos') {
-                $articulo->setGenero('niña');
-            }
-            else {
-                $articulo->setGenero('ambos');
-            }
+        $articulo2 = new Articulo();
+        $articulo2->setNombre("Bata");
+        $articulo2->setSlug('bata');
+        $articulo2->setGenero('nina');
+        $articulo2->setRutaFoto('articulo/nina/bata.png');
+        $articulo2->setPrecio(18.00);
+        $articulo2->setDescripcion('Ropa para el colegio');
+        $articulo2->setEstampado('cuadros');
+        $articulo2->setComplemento('0');
 
-            // complementos
-            if($nombre=='Calcetines' || $nombre=='Leotardos' || $nombre=='Gorros') {
-                $articulo->setComplemento('1');
-            }
-            else {
-                $articulo->setComplemento('0');
-            }
+        $articulo3 = new Articulo();
+        $articulo3->setNombre("Camisa");
+        $articulo3->setSlug('camisa');
+        $articulo3->setGenero('nina');
+        $articulo3->setRutaFoto('articulo/nina/camisa.png');
+        $articulo3->setPrecio(14.00);
+        $articulo3->setDescripcion('Ropa formal');
+        $articulo3->setEstampado('flores');
+        $articulo3->setComplemento('0');
 
-            // descripción, foto, precio y slug
-            switch($nombre) {
-                case 'Abrigos':
-                    $articulo->setRutaFoto('abrigo.png');
-                    $articulo->setDescripcion('Ropa formal');
-                    $articulo->setPrecio(20.00);
-                    $articulo->setSlug('abrigo');
-                    break;
-                case 'Batas':
-                    $articulo->setRutaFoto('bata.png');
-                    $articulo->setDescripcion('Ropa para el colegio');
-                    $articulo->setPrecio(18.00);
-                    $articulo->setSlug('bata');
-                    break;
-                case 'Calcetines':
-                    $articulo->setRutaFoto('calcetin.png');
-                    $articulo->setDescripcion('Complemento');
-                    $articulo->setPrecio(4.00);
-                    $articulo->setSlug('calcetin');
-                    break;
-                case 'Camisas':
-                    $articulo->setRutaFoto('camisa.png');
-                    $articulo->setDescripcion('Ropa formal');
-                    $articulo->setPrecio(12.00);
-                    $articulo->setSlug('camisa');
-                    break;
-                case 'Camisetas':
-                    $articulo->setRutaFoto('camiseta.png');
-                    $articulo->setDescripcion('Ropa informal');
-                    $articulo->setPrecio(7.00);
-                    $articulo->setSlug('camiseta');
-                    break;
-                case 'Faldas':
-                    $articulo->setRutaFoto('falda.png');
-                    $articulo->setDescripcion('Ropa formal');
-                    $articulo->setPrecio(11.00);
-                    $articulo->setSlug('falda');
-                    break;
-                case 'Gorros':
-                    $articulo->setRutaFoto('gorro.png');
-                    $articulo->setDescripcion('Complemento');
-                    $articulo->setPrecio(5.00);
-                    $articulo->setSlug('gorro');
-                    break;
-                case 'Jerséis':
-                    $articulo->setRutaFoto('jersey.png');
-                    $articulo->setDescripcion('Ropa informal');
-                    $articulo->setPrecio(12.00);
-                    $articulo->setSlug('jersey');
-                    break;
-                case 'Leotardos':
-                    $articulo->setRutaFoto('leotardos.png');
-                    $articulo->setDescripcion('Complemento');
-                    $articulo->setPrecio(9.00);
-                    $articulo->setSlug('leotardos');
-                    break;
-                case 'Pantalones':
-                    $articulo->setRutaFoto('pantalon.png');
-                    $articulo->setDescripcion('Ropa informal');
-                    $articulo->setPrecio(19.00);
-                    $articulo->setSlug('pantalon');
-                    break;
-                case 'Pijamas':
-                    $articulo->setRutaFoto('pijama.png');
-                    $articulo->setDescripcion('Ropa para dormir');
-                    $articulo->setPrecio(22.00);
-                    $articulo->setSlug('pijama');
-                    break;
-                case 'Vestidos':
-                    $articulo->setRutaFoto('vestido.png');
-                    $articulo->setDescripcion('Ropa formal');
-                    $articulo->setPrecio(23.00);
-                    $articulo->setSlug('vestido');
-                    break;
-            }
+        $articulo4 = new Articulo();
+        $articulo4->setNombre("Camiseta");
+        $articulo4->setSlug('camiseta');
+        $articulo4->setGenero('nina');
+        $articulo4->setRutaFoto('articulo/nina/camiseta.png');
+        $articulo4->setPrecio(9.00);
+        $articulo4->setDescripcion('Ropa informal');
+        $articulo4->setEstampado('estrellas');
+        $articulo4->setComplemento('0');
 
-            $manager->persist($articulo);
-        }
+        $articulo5 = new Articulo();
+        $articulo5->setNombre("Falda");
+        $articulo5->setSlug('falda');
+        $articulo5->setGenero('nina');
+        $articulo5->setRutaFoto('articulo/nina/falda.png');
+        $articulo5->setPrecio(12.00);
+        $articulo5->setDescripcion('Ropa informal');
+        $articulo5->setEstampado('lunares');
+        $articulo5->setComplemento('0');
+
+        $articulo6 = new Articulo();
+        $articulo6->setNombre("Jersey");
+        $articulo6->setSlug('jersey');
+        $articulo6->setGenero('nina');
+        $articulo6->setRutaFoto('articulo/nina/jersey.png');
+        $articulo6->setPrecio(13.00);
+        $articulo6->setDescripcion('Ropa informal');
+        $articulo6->setEstampado('rayas');
+        $articulo6->setComplemento('0');
+
+        $articulo7 = new Articulo();
+        $articulo7->setNombre("Pantalon");
+        $articulo7->setSlug('pantalon');
+        $articulo7->setGenero('nina');
+        $articulo7->setRutaFoto('articulo/nina/pantalon.png');
+        $articulo7->setPrecio(19.00);
+        $articulo7->setDescripcion('Ropa informal');
+        $articulo7->setEstampado('lunares');
+        $articulo7->setComplemento('0');
+
+        $articulo8 = new Articulo();
+        $articulo8->setNombre("Vestido");
+        $articulo8->setSlug('vestido');
+        $articulo8->setGenero('nina');
+        $articulo8->setRutaFoto('articulo/nina/vestido.png');
+        $articulo8->setPrecio(23.00);
+        $articulo8->setDescripcion('Ropa formal');
+        $articulo8->setEstampado('-');
+        $articulo8->setComplemento('0');
+
+
+        //niño
+        $articulo9 = new Articulo();
+        $articulo9->setNombre("Abrigo");
+        $articulo9->setSlug('abrigo');
+        $articulo9->setGenero('nino');
+        $articulo9->setRutaFoto('articulo/nino/abrigo.png');
+        $articulo9->setPrecio(31.00);
+        $articulo9->setDescripcion('Ropa formal');
+        $articulo9->setEstampado('-');
+        $articulo9->setComplemento('0');
+
+        $articulo10 = new Articulo();
+        $articulo10->setNombre("Bata");
+        $articulo10->setSlug('bata');
+        $articulo10->setGenero('nino');
+        $articulo10->setRutaFoto('articulo/nino/bata.png');
+        $articulo10->setPrecio(18.00);
+        $articulo10->setDescripcion('Ropa para el colegio');
+        $articulo10->setEstampado('cuadros');
+        $articulo10->setComplemento('0');
+
+        $articulo11 = new Articulo();
+        $articulo11->setNombre("Camisa");
+        $articulo11->setSlug('camisa');
+        $articulo11->setGenero('nino');
+        $articulo11->setRutaFoto('articulo/nino/camisa.png');
+        $articulo11->setPrecio(14.00);
+        $articulo11->setDescripcion('Ropa formal');
+        $articulo11->setEstampado('cuadros');
+        $articulo11->setComplemento('0');
+
+        $articulo12 = new Articulo();
+        $articulo12->setNombre("Camiseta");
+        $articulo12->setSlug('camiseta');
+        $articulo12->setGenero('nino');
+        $articulo12->setRutaFoto('articulo/nino/camiseta.png');
+        $articulo12->setPrecio(8.00);
+        $articulo12->setDescripcion('Ropa informal');
+        $articulo12->setEstampado('dibujos');
+        $articulo12->setComplemento('0');
+
+        $articulo13 = new Articulo();
+        $articulo13->setNombre("Jersey");
+        $articulo13->setSlug('jersey');
+        $articulo13->setGenero('nino');
+        $articulo13->setRutaFoto('articulo/nino/jersey.png');
+        $articulo13->setPrecio(13.00);
+        $articulo13->setDescripcion('Ropa informal');
+        $articulo13->setEstampado('rayas');
+        $articulo13->setComplemento('0');
+
+        $articulo14 = new Articulo();
+        $articulo14->setNombre("Pantalon");
+        $articulo14->setSlug('pantalon');
+        $articulo14->setGenero('nino');
+        $articulo14->setRutaFoto('articulo/nino/pantalon.png');
+        $articulo14->setPrecio(19.00);
+        $articulo14->setDescripcion('Ropa informal');
+        $articulo14->setEstampado('-');
+        $articulo14->setComplemento('0');
+
+
+        //complementos
+        $complemento1 = new Articulo();
+        $complemento1->setNombre("Calcetines");
+        $complemento1->setSlug('calcetin');
+        $complemento1->setGenero('ambos');
+        $complemento1->setRutaFoto('articulo/complemento/calcetin.png');
+        $complemento1->setPrecio(4.00);
+        $complemento1->setDescripcion('Complemento');
+        $complemento1->setEstampado('-');
+        $complemento1->setComplemento('1');
+
+        $complemento2 = new Articulo();
+        $complemento2->setNombre("Gorro");
+        $complemento2->setSlug('gorro');
+        $complemento2->setGenero('ambos');
+        $complemento2->setRutaFoto('articulo/complemento/gorro.png');
+        $complemento2->setPrecio(6.00);
+        $complemento2->setDescripcion('Complemento');
+        $complemento2->setEstampado('-');
+        $complemento2->setComplemento('1');
+
+
+        $manager->persist($articulo1);
+        $manager->persist($articulo2);
+        $manager->persist($articulo3);
+        $manager->persist($articulo4);
+        $manager->persist($articulo5);
+        $manager->persist($articulo6);
+        $manager->persist($articulo7);
+        $manager->persist($articulo8);
+        $manager->persist($articulo9);
+        $manager->persist($articulo10);
+        $manager->persist($articulo11);
+        $manager->persist($articulo12);
+        $manager->persist($articulo13);
+        $manager->persist($articulo14);
+        $manager->persist($complemento1);
+        $manager->persist($complemento2);
 
         $manager->flush();
+
     }
 
 }

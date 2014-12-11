@@ -38,13 +38,6 @@ class Estampado
     private $slug;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="genero", type="string", length=255)
-     */
-    private $genero;
-
-    /**
      * @ORM\Column(type="string")
      */
     private $rutaFoto;
@@ -110,29 +103,6 @@ class Estampado
     public function getSlug()
     {
         return $this->slug;
-    }
-
-    /**
-     * Set genero
-     *
-     * @param string $genero
-     * @return Estampado
-     */
-    public function setGenero($genero)
-    {
-        $this->genero = $genero;
-
-        return $this;
-    }
-
-    /**
-     * Get genero
-     *
-     * @return string
-     */
-    public function getGenero()
-    {
-        return $this->genero;
     }
 
     /**

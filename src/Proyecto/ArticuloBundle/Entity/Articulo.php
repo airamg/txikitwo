@@ -40,10 +40,38 @@ class Articulo
     private $slug;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="genero", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $genero;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $rutaFoto;
+
+    /**
      * @ORM\Column(type="decimal", scale=2)
      * @Assert\Range(min = 0)
      */
     private $precio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="text")
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estampado", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $estampado;
 
     /**
      * @var string
@@ -56,30 +84,10 @@ class Articulo
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="text")
-     */
-    private $descripcion;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $rutaFoto;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="complemento", type="string", length=1)
      * @Assert\NotBlank()
      */
     private $complemento;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="genero", type="string", length=255)
-     * @Assert\NotBlank()
-     */
-    private $genero;
 
 
     public function __construct()
@@ -282,6 +290,29 @@ class Articulo
     public function getGenero()
     {
         return $this->genero;
+    }
+
+    /**
+     * Set estampado
+     *
+     * @param string $estampado
+     * @return Articulo
+     */
+    public function setEstampado($estampado)
+    {
+        $this->estampado = $estampado;
+
+        return $this;
+    }
+
+    /**
+     * Get estampado
+     *
+     * @return string
+     */
+    public function getEstampado()
+    {
+        return $this->estampado;
     }
 
 }

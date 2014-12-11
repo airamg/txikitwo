@@ -44,14 +44,6 @@ class Accesorio
      */
     private $precio;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="genero", type="string", length=255)
-     * @Assert\NotBlank()
-     */
-    private $genero;
-
 
     /**
      * Get id
@@ -127,29 +119,6 @@ class Accesorio
     public function getPrecio()
     {
         return $this->precio;
-    }
-
-    /**
-     * Set genero
-     *
-     * @param string $genero
-     * @return Accesorio
-     */
-    public function setGenero($genero)
-    {
-        $this->genero = $genero;
-
-        return $this;
-    }
-
-    /**
-     * Get genero
-     *
-     * @return string
-     */
-    public function getGenero()
-    {
-        return $this->genero;
     }
 
 }
