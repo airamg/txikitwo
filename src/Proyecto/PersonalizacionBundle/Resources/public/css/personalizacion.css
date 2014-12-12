@@ -67,26 +67,14 @@
     display: block;
 }
 
-.botones {
+.botones, .bolsillos, .larguras, .mangas, .lazos, .dibujos {
     display: none;
 }
 
-.bolsillos {
+.azul, .rojo, .verde, .blanco, .naranja, .rosa, .marron {
     display: none;
 }
 
-.larguras {
-    display: none;
-}
-
-.mangas {
-    display: none;
-}
-
-.lazos {
-    display: none;
-}
-
-.dibujos {
+.botones_rosa, .botones_azul, .bolsillos_rosa, .mangas_rosa, .larguras_verde, .mangas_lazos, .bolsillos_verde, .bolsillos_mangas, .dibujos_azul, .larguras_azul {
     display: none;
 }
