@@ -55,18 +55,10 @@ class Personalizacion
     /**
      * @var string
      *
-     * @ORM\Column(name="color", type="string", length=255)
+     * @ORM\Column(name="caracteristicas", type="string", length=255)
      * @Assert\NotBlank()
      */
-    private $color;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="accesorios", type="string", length=255)
-     * @Assert\NotBlank()
-     */
-    private $accesorios;
+    private $caracteristicas;
 
     /**
      * @var integer $talla
@@ -196,49 +188,26 @@ class Personalizacion
     }
 
     /**
-     * Set color
+     * Set caracteristicas
      *
-     * @param string $color
+     * @param string $caracteristicas
      * @return Personalizacion
      */
-    public function setColor($color)
+    public function setCaracteristicas($caracteristicas)
     {
-        $this->color = $color;
+        $this->caracteristicas = $caracteristicas;
 
         return $this;
     }
 
     /**
-     * Get color
+     * Get caracteristicas
      *
      * @return string
      */
-    public function getColor()
+    public function getCaracteristicas()
     {
-        return $this->color;
-    }
-
-    /**
-     * Set accesorios
-     *
-     * @param string $accesorios
-     * @return Personalizacion
-     */
-    public function setAccesorios($accesorios)
-    {
-        $this->accesorios = $accesorios;
-
-        return $this;
-    }
-
-    /**
-     * Get accesorios
-     *
-     * @return string
-     */
-    public function getAccesorios()
-    {
-        return $this->accesorios;
+        return $this->caracteristicas;
     }
 
     /**

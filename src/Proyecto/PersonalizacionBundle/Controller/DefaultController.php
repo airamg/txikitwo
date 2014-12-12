@@ -24,9 +24,8 @@ class DefaultController extends Controller
         $personalizacion->setPendiente(1);
         $personalizacion->setArticulo($articulo);
         $personalizacion->setGenero($genero);
-        $personalizacion->setColor('-');
         $personalizacion->setUsuario('-');
-        $personalizacion->setAccesorios('-');
+        $personalizacion->setCaracteristicas('-');
 
         $formulario = $this->createForm(new PersonalizacionType(), $personalizacion);
         $formulario->handleRequest($peticion);
@@ -34,22 +33,35 @@ class DefaultController extends Controller
         if ($formulario->isValid()) {
 
             $select = $articulo;
-            $acces = '';
             if(!empty($_POST['check_list'])) {
                 foreach($_POST['check_list'] as $selected) {
                     $select .= '_'.$selected;
-                    $acces .= $selected.' ';
-                    if(($selected == "azul") || ($selected == "rojo") || ($selected == "verde") || ($selected == "blanco") || ($selected == "naranja") || ($selected == "rosa") || ($selected == "marron")) {
-                        $personalizacion->setColor($selected);
-                        $personalizacion->setAccesorios($acces);
-                        $personalizacion->setRutaFoto('personalizacion/'.$genero.'/'.$select.'.png');
-                    } else {
-                        $personalizacion->setAccesorios($acces);
-                        $personalizacion->setRutaFoto('personalizacion/'.$genero.'/'.$select.'.png');
+                    $buscar = "_";
+                    $resultado = strpos($selected, $buscar);
+                    if($resultado !== FALSE) //si la encuentra
+                    {
+                        if($selected == "index") {
+                            $personalizacion->setCaracteristicas('-');
+                            $personalizacion->setRutaFoto('articulo/'.$genero.'/'.$articulo.'.png');
+                        } else {
+                            $caract = explode("_", $selected);
+                            $personalizacion->setCaracteristicas($caract[0].', '.$caract[1]);
+                            $personalizacion->setRutaFoto('personalizacion/'.$genero.'/'.$select.'.png');
+                        }
+                    }
+                    else //si solo es una caracteristica
+                    {
+                        if($selected == "index") {
+                            $personalizacion->setCaracteristicas('-');
+                            $personalizacion->setRutaFoto('articulo/'.$genero.'/'.$articulo.'.png');
+                        } else {
+                            $personalizacion->setCaracteristicas($selected);
+                            $personalizacion->setRutaFoto('personalizacion/'.$genero.'/'.$select.'.png');
+                        }
                     }
                 }
             } else {
-                $personalizacion->setRutaFoto('articulo/'.$genero.'/'.$select.'.png');
+                $personalizacion->setRutaFoto('articulo/'.$genero.'/'.$articulo.'.png');
             }
 
             //comprobar que usuario ha iniciado sesion
