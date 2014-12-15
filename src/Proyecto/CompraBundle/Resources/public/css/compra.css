@@ -1,4 +1,61 @@
-#imagenpersonalizada img {
-    height: 20px;
-    width: 20px;
+#pedido-select {
+    padding-left: 4em;
 }
+
+#imagenpersonalizada
+{
+    float: left;
+    width: 150px;
+    padding-top: 1em;
+}
+
+#imagenpersonalizada img {
+    height: 100px;
+    width: 100px;
+}
+
+#datospersonalizacion
+{
+    float: left;
+    width: 300px;
+    padding-bottom: 2.5em;
+}
+
+#datospersonalizacion ul
+{
+    padding-left: 0em;
+}
+
+#enlacepedido
+{
+    float: left;
+    padding-top: 2.5em;
+}
+
+#enlacepedido input[type="submit"]
+{
+    color: #FFF;
+}
+
+input.boton {
+    padding: 10px;
+    font-size: 0.85em;
+    width: 140px;
+    cursor: pointer;
+    background: #000;
+}
+
+input[type="submit"]:hover
+{
+    font-weight: bold;
+}
+
+li {
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+}
+
+
+
+
+

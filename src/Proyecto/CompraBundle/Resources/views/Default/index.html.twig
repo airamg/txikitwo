@@ -4,6 +4,7 @@
 {% block stylesheets %}
     {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
         '@WebBundle/Resources/public/css/frontend.css'
+        '@CompraBundle/Resources/public/css/compra.css'
         output='css/compra.css' %}
     <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
     {% endstylesheets %}
@@ -13,23 +14,32 @@
     {% include ':includes:header.html.twig' %}
     <div id="contenido">
         {% for personalizacio in personalizacion %}
-            <div id="imagenpersonalizada">
-                <img alt="foto" src="{{ asset(directorio_imagenes ~ personalizacio.rutaFoto) }}">
-            </div>
-            <div id="datospesonalizacion">
-                {{ personalizacio.talla }}
-                {{ personalizacio.tejido }}
-                {{ personalizacio.pendiente }}
-                {{ personalizacio.articulo.precio }}
-                {{ personalizacio.genero }}
-                {{ personalizacio.caracteristicas }}
-                {{ personalizacio.usuario }}
-                {{ personalizacio.precioAccesorios }}
-                {%  set p = personalizacio.articulo.precio + personalizacio.precioAccesorios %}
-                PRECIO TOTAL {{ p }}
+            <div id="pedido-select">
+                <div id="imagenpersonalizada">
+                    <img alt="foto" src="{{ asset(directorio_imagenes ~ personalizacio.rutaFoto) }}">
+                </div>
+                <div id="datospersonalizacion">
+                    <ul>
+                        {% if personalizacio.genero == "nina" %}
+                            {% set g = "niña" %}
+                        {% else %}
+                            {% set g = "niño" %}
+                        {% endif %}
+                        <li><strong>Talla:</strong> {{ personalizacio.talla }} - {{ g }}</li>
+                        <li><strong>Tejido:</strong> {{ personalizacio.tejido }}</li>
+                        <li><strong>Estampado:</strong> {{ personalizacio.articulo.estampado }}</li>
+                        <li><strong>Características:</strong> {{ personalizacio.caracteristicas }}</li>
+                        {%  set p = personalizacio.articulo.precio + personalizacio.precioAccesorios %}
+                        <li><strong>Precio total:</strong> {{ p }}€ ({{ personalizacio.articulo.precio }}€ + {{ personalizacio.precioAccesorios }}€)*</li>
+                        <li>*precio de accesorios añadido al artículo</li>
+                    </ul>
+                </div>
+                <div id="enlacepedido">
+                    <!-- cambiar el input por un enlace normal con path conservando el estilo -->
+                    <input class="boton" type="submit" name="pedidoselectscompra" value="realizar pedido" />
+                </div>
             </div>
         {% endfor %}
-
     </div>
     {% include ':includes:footer.html.twig' %}
 {% endblock %}

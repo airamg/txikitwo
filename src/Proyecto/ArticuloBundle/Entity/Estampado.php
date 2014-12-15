@@ -45,7 +45,7 @@ class Estampado
 
     public function __toString()
     {
-        return $this->getNombre();
+        return $this->getSlug();
     }
 
 
