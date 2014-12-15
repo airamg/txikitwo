@@ -19,13 +19,14 @@
                 <img alt="foto" src="{{ asset(directorio_imagenes ~ personalizacio.rutaFoto) }}">
             </div>
             <div id="datospesonalizacion">
-                TALLA {{ personalizacio.talla.slug }}
+                {{ personalizacio.talla }}
                 {{ personalizacio.tejido }}
                 {{ personalizacio.pendiente }}
-                {{ personalizacio.articulo }}
+                {{ personalizacio.articulo.precio }}
                 {{ personalizacio.genero }}
                 {{ personalizacio.caracteristicas }}
                 {{ personalizacio.usuario }}
+                {{ personalizacio.precioAccesorios }}
                 ------
             </div>
         {% endfor %}

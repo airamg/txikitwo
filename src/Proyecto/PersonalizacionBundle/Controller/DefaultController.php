@@ -7,6 +7,8 @@ use Proyecto\PersonalizacionBundle\Form\PersonalizacionType;
 use Proyecto\PersonalizacionBundle\Entity\Personalizacion;
 use Proyecto\UsuarioBundle\Entity\Usuario;
 use Proyecto\UsuarioBundle\Entity\UsuarioRepository;
+use Proyecto\PersonalizacionBundle\Entity\Articulo;
+use Proyecto\PersonalizacionBundle\Entity\ArticuloRepository;
 
 class DefaultController extends Controller
 {
@@ -53,8 +55,11 @@ class DefaultController extends Controller
 
         $personalizacion = new Personalizacion();
         $personalizacion->setPendiente(1);
-        $personalizacion->setArticulo($articulo);
         $personalizacion->setGenero($genero);
+        //buscar articulo por nombre y genero
+        $articulo1 = $em->getRepository('ArticuloBundle:Articulo')->findBySlugAndGenero($articulo, $genero);
+        $personalizacion->setArticulo($articulo1);
+        $personalizacion->setPrecioAccesorios(0.00);
         $personalizacion->setUsuario('-');
         $personalizacion->setCaracteristicas('-');
 
@@ -64,6 +69,7 @@ class DefaultController extends Controller
         if ($formulario->isValid()) {
 
             $select = $articulo;
+            $precio = 0;
             if(!empty($_POST['check_list'])) {
                 foreach($_POST['check_list'] as $selected) {
                     $select .= '_'.$selected;
@@ -77,8 +83,23 @@ class DefaultController extends Controller
                         } else {
                             $caract = explode("_", $selected);
                             $personalizacion->setCaracteristicas($caract[0].', '.$caract[1]);
+                            //calcular precio de los accesorios seleccionados
+                            if(($caract[0] == "bolsillos") && ($caract[1] == "mangas")) {
+                                $precio = 2.50 + 0.20;
+                            } elseif (($caract[0] == "mangas") && ($caract[1] == "lazos")) {
+                                $precio = 0.20 + 2.00;
+                            } elseif ($caract[0] == "lazos") {
+                                $precio = 2.00;
+                            } elseif ($caract[0] == "bolsillos") {
+                                $precio = 2.50;
+                            } elseif ($caract[0] == "mangas") {
+                                $precio = 0.20;
+                            } else {
+                                $precio = 0.00;
+                            }
                             $personalizacion->setRutaFoto('personalizacion/'.$genero.'/'.$select.'.png');
                         }
+                        $personalizacion->setPrecioAccesorios($precio);
                     }
                     else //si solo es una caracteristica
                     {
@@ -87,8 +108,23 @@ class DefaultController extends Controller
                             $personalizacion->setRutaFoto('articulo/'.$genero.'/'.$articulo.'.png');
                         } else {
                             $personalizacion->setCaracteristicas($selected);
+                            //calcular precio de los accesorios seleccionados
+                            if($selected == "bolsillos") {
+                                $precio = 2.50;
+                            } elseif ($selected == "botones") {
+                                $precio = 1.30;
+                            } elseif (($selected == "larguras") || ($selected == "mangas")) {
+                                $precio = 0.20;
+                            } elseif ($selected == "lazos") {
+                                $precio = 2.00;
+                            } elseif ($selected == "dibujos") {
+                                $precio = 0.50;
+                            } else {
+                                $precio = 0.00;
+                            }
                             $personalizacion->setRutaFoto('personalizacion/'.$genero.'/'.$select.'.png');
                         }
+                        $personalizacion->setPrecioAccesorios($precio);
                     }
                 }
             } else {
@@ -108,9 +144,6 @@ class DefaultController extends Controller
                 return $this->redirect($this->generateUrl('compra_homepage'));
             }
         }
-
-        //buscar articulo por nombres y genero
-        //
 
         return $this->render('PersonalizacionBundle:Default:articuloselect.html.twig', array(
             'name' => $genero,

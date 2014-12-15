@@ -45,6 +45,12 @@ class Accesorio
     private $precio;
 
 
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
+
+
     /**
      * Get id
      *

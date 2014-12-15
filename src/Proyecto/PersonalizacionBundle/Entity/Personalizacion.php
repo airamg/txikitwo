@@ -37,10 +37,10 @@ class Personalizacion
     private $pendiente;
 
     /**
-     * @var string
+     * @var integer $articulo
      *
-     * @ORM\Column(name="articulo", type="string", length=255)
-     * @Assert\NotBlank()
+     * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Articulo", inversedBy="personalizaciones")
+     * @Assert\Type("Proyecto\ArticuloBundle\Entity\Articulo")
      */
     private $articulo;
 
@@ -83,6 +83,12 @@ class Personalizacion
      * @Assert\NotBlank()
      */
     private $usuario;
+
+    /**
+     * @ORM\Column(type="decimal", scale=2)
+     * @Assert\Range(min = 0)
+     */
+    private $precioAccesorios;
 
 
     /**
@@ -143,11 +149,8 @@ class Personalizacion
 
     /**
      * Set articulo
-     *
-     * @param string $articulo
-     * @return Personalizacion
      */
-    public function setArticulo($articulo)
+    public function setArticulo(\Proyecto\ArticuloBundle\Entity\Articulo $articulo)
     {
         $this->articulo = $articulo;
 
@@ -156,8 +159,6 @@ class Personalizacion
 
     /**
      * Get articulo
-     *
-     * @return string
      */
     public function getArticulo()
     {
@@ -265,6 +266,26 @@ class Personalizacion
     public function getUsuario()
     {
         return $this->usuario;
+    }
+
+    /**
+     * Set precioAccesorios
+     *
+     * @param decimal $precioAccesorios
+     */
+    public function setPrecioAccesorios($precioAccesorios)
+    {
+        $this->precioAccesorios = $precioAccesorios;
+    }
+
+    /**
+     * Get precioAccesorios
+     *
+     * @return decimal
+     */
+    public function getPrecioAccesorios()
+    {
+        return $this->precioAccesorios;
     }
 
 }
