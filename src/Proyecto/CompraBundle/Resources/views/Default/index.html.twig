@@ -12,8 +12,6 @@
 {% block body %}
     {% include ':includes:header.html.twig' %}
     <div id="contenido">
-        ¡Personalización añadida al carrito! Ahora puedes realizar la compra.
-        SI NO HAY NADIE ONLINE QUE SE MUESTRE: 0 COMPRAS PENDIENTES EN UNA LINEA SIN NADA MAS
         {% for personalizacio in personalizacion %}
             <div id="imagenpersonalizada">
                 <img alt="foto" src="{{ asset(directorio_imagenes ~ personalizacio.rutaFoto) }}">
@@ -27,7 +25,8 @@
                 {{ personalizacio.caracteristicas }}
                 {{ personalizacio.usuario }}
                 {{ personalizacio.precioAccesorios }}
-                ------
+                {%  set p = personalizacio.articulo.precio + personalizacio.precioAccesorios %}
+                PRECIO TOTAL {{ p }}
             </div>
         {% endfor %}
 

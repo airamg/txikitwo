@@ -6,7 +6,7 @@
     <div class="second">
         <ul>
             <li>Total: {{ num }} artículo(s)</li>
-            {% if (num > 0) or (online == 1) %}
+            {% if (num > 0) and (online == 1) %}
                 <li><a href="{{ path('compra_homepage') }}">pedido</a></li>
             {% endif %}
         </ul>

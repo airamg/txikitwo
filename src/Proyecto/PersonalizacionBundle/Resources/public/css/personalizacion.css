@@ -63,6 +63,44 @@
     text-align: left;
 }
 
+#descripcion p {
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+#formularioopciones ul {
+    padding-left: 0.5em;
+}
+
+#formularioopciones li {
+    padding-bottom: 0.6em;
+}
+
+#formularioopciones label {
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+}
+
+#formularioopciones input[type="submit"]
+{
+    color: #FFF;
+}
+
+input.boton {
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 0.9em;
+    width: 148px;
+    cursor: pointer;
+    background: #000;
+}
+
+input[type="submit"]:hover
+{
+    font-weight: bold;
+}
+
 .index {
     display: block;
 }
