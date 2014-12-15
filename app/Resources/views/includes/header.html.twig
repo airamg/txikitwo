@@ -5,19 +5,25 @@
     <div class="first"><img src="{{ asset_url }}" alt=""/></div>
     <div class="second">
         <ul>
-            <!-- CAMBIAR: link a lista articulos pendientes (buscar en personalizacion por email y pendiente 1) -->
-            <li>Total: 0 artículos</li>
-            <li><a href="#">pedido</a></li>
+            <li>Total: {{ num }} artículo(s)</li>
+            {% if (num > 0) or (online == 1) %}
+                <li><a href="{{ path('compra_homepage') }}">pedido</a></li>
+            {% endif %}
         </ul>
     </div>
 </div>
 {% endimage %}
+<!-- incluir numero de compras pendientes al lado con un circulo que desaparece si pasas, como imagen -->
 
 <div id="menu1">
     <ul>
-        <!-- hacer ifs segun este o no logeado el usuario -> mi cuenta (path cuentausuario) / cerrar sesion -->
-        <li><a href="{{ path('usuario_iniciarsesion') }}">Mi cuenta</a></li>
-        <li><a href="{{ path('usuario_registro') }}">Registro</a>
+        {% if online == 0 %}
+            <li><a href="{{ path('usuario_iniciarsesion') }}">Iniciar sesión</a></li>
+            <li><a href="{{ path('usuario_registro') }}">Registro</a></li>
+        {%  else %}
+            <li><a href="{{ path('usuario_cuenta') }}">Mi cuenta</a></li>
+            <li><a href="{{ path('usuario_cerrarsesion') }}">Cerrar sesión</a></li>
+        {%  endif %}
     </ul>
 </div>
 <div id="menu2">

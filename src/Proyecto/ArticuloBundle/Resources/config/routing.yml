@@ -1,3 +1,0 @@
-articulo_homepage:
-    path:     /hello/
-    defaults: { _controller: ArticuloBundle:Default:index }

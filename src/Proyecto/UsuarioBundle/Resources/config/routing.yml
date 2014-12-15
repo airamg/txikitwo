@@ -9,3 +9,7 @@ usuario_registro:
 usuario_cuenta:
     path:     /micuenta
     defaults: { _controller: UsuarioBundle:Default:cuenta }
+
+usuario_cerrarsesion:
+    path:     /cerrarsesion
+    defaults: { _controller: UsuarioBundle:Default:cerrarsesion }

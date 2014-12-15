@@ -12,13 +12,44 @@ class DefaultController extends Controller
 {
     public function indexAction($genero)
     {
-        return $this->render('PersonalizacionBundle:Default:personalizacion.html.twig', array('name' => $genero));
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
+        return $this->render('PersonalizacionBundle:Default:personalizacion.html.twig', array(
+            'name' => $genero,
+            'num' => $num,
+            'online' => $online
+        ));
     }
 
     public function articuloselectAction($genero, $articulo)
     {
         $peticion = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
+
+        $usuario1 = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario1) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion1 = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario1->getEmail());
+            foreach ($personalizacion1 as $pendiente) {
+                $num = $num + 1;
+            }
+        }
 
         $personalizacion = new Personalizacion();
         $personalizacion->setPendiente(1);
@@ -78,10 +109,15 @@ class DefaultController extends Controller
             }
         }
 
+        //buscar articulo por nombres y genero
+        //
+
         return $this->render('PersonalizacionBundle:Default:articuloselect.html.twig', array(
             'name' => $genero,
             'names' => $articulo,
-            'formulario' => $formulario->createView()
+            'formulario' => $formulario->createView(),
+            'num' => $num,
+            'online' => $online
         ));
     }
 

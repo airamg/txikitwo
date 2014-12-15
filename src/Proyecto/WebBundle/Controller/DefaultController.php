@@ -8,18 +8,65 @@ class DefaultController extends Controller
 {
     public function homepageAction()
     {
-        /* incluir busqueda en base de datos para pasar lista de usuarios logeados */
-        return $this->render('WebBundle:Default:homepage.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+        return $respuesta = $this->render('WebBundle:Default:homepage.html.twig', array(
+            'num' => $num,
+            'online' => $online
+        ));
     }
 
     public function guiatallasAction()
     {
-        return $this->render('WebBundle:Default:guiatallas.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+        return $respuesta = $this->render('WebBundle:Default:guiatallas.html.twig', array(
+            'num' => $num,
+            'online' => $online
+        ));
     }
 
     public function guiacompraAction()
     {
-        return $this->render('WebBundle:Default:guiacompra.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+        return $respuesta = $this->render('WebBundle:Default:guiacompra.html.twig', array(
+            'num' => $num,
+            'online' => $online
+        ));
     }
 
 }

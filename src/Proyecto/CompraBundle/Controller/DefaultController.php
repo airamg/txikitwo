@@ -14,20 +14,29 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        //visualizar personalizacion pendientes de cada usuario (buscar en personalizacion por usuario igual a online y pendiente 1)
-        // - si hay mas de una hacer otra pagina con todas para seleccionar (poner precio al lado)
-        // - si hay una ir directamente a pagina compra con precio calculado
-
         //CAMBIAR PARAMETRO PENDIENTE POR REALIZADA PERSONALIZACION AL ENVIAR FORM
 
         //buscar usuario online
+        $online = 0;
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
 
         //buscar las compras pendientes que tiene el usuario online
+        $num = 0;
         $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
 
+        if(!$usuario) {
+            $num = 0;
+        } else {
+            $online = 1;
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
         return $respuesta = $this->render('CompraBundle:Default:index.html.twig', array(
-            'personalizacion' => $personalizacion
+            'personalizacion' => $personalizacion,
+            'num' => $num,
+            'online' => $online
         ));
     }
 
