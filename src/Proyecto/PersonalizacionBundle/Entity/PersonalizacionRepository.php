@@ -20,4 +20,18 @@ class PersonalizacionRepository extends EntityRepository
 
         return $consulta->getResult();
     }
+
+    public function findWithoutUser()
+    {
+        $em = $this->getEntityManager();
+
+        $consulta = $em->createQuery('
+            SELECT p
+            FROM PersonalizacionBundle:Personalizacion p
+            WHERE p.usuario = :usuario
+        ');
+        $consulta->setParameter('usuario', "-");
+
+        return $consulta->getResult();
+    }
 }

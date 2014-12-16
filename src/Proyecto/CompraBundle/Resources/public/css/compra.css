@@ -26,6 +26,11 @@
     padding-left: 0em;
 }
 
+#datospersonalizacion li {
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+}
+
 #enlacepedido
 {
     float: left;
@@ -50,10 +55,6 @@ input[type="submit"]:hover
     font-weight: bold;
 }
 
-li {
-    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-size: 14px;
-}
 
 
 

@@ -27,24 +27,11 @@
                 <ul>
                     <li>{{ form_widget(formulario.direccion) }}</li>
                     <li>{{ form_widget(formulario.codigoPostal) }}</li>
-
                     <li><input class="boton" type="submit" name="registro" value="finalizar" /></li>
-
                 </ul>
                 {{ form_rest(formulario) }}
             </div>
         </form>
-        <!-- <ul>
-                <li><input type="text" id="nombre" name="_nombre" placeholder="Nombre"/></li>
-                <li><input type="text" id="apellido1" name="_apellido1" placeholder="Primer apellido"/></li>
-                <li><input type="text" id="apellido2" name="_apellido2" placeholder="Segundo apellido"/></li>
-                <li><input type="text" id="email" name="_email" placeholder="Email"/></li>
-                <li><input type="password" id="password" name="_password" placeholder="Contraseña"/></li>
-                <li><input type="password" id="repeatpassword" name="_repeatpassword" placeholder="Repetir contraseña"/></li>
-                <li><textarea name="textarea" rows="3" cols="48" id="direccion" name="_direccion" placeholder="Dirección"></textarea></li>
-                <li><input type="text" id="codigopostal" name="_codigopostal" placeholder="Código postal"/></li>
-                <li><input class="boton" type="submit" name="registro" value="finalizar" /></li>
-            </ul> -->
     </div>
     {% include ':includes:footer.html.twig' %}
 {% endblock %}

@@ -134,6 +134,12 @@ class DefaultController extends Controller
             //comprobar que usuario ha iniciado sesion
             $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
             if(!$usuario) {
+                //si encuentra alguna personalizacion sin usuario, borrarla antes de crear la actual
+                $deletedpersonalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findWithoutUser();
+                foreach($deletedpersonalizacion as $deleted) {
+                    $em->remove($deleted);
+                    $em->flush();
+                }
                 $em->persist($personalizacion);
                 $em->flush();
                 return $this->redirect($this->generateUrl('usuario_iniciarsesion'));

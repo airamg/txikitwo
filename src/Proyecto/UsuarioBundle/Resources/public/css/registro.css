@@ -128,6 +128,15 @@
     padding-bottom: 1em;
 }
 
+#registro_form_usuario_password li
+{
+    padding-left: 0em;
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #FF0000;
+    font-weight: bold;
+}
+
 label
 {
     font-size: 14px;

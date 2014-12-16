@@ -26,7 +26,7 @@
                             {% set g = "niño" %}
                         {% endif %}
                         <li><strong>Talla:</strong> {{ personalizacio.talla }} - {{ g }}</li>
-                        <li><strong>Tejido:</strong> {{ personalizacio.tejido }}</li>
+                        <li><strong>Tejido:</strong> {{ personalizacio.tejido.slug }}</li>
                         <li><strong>Estampado:</strong> {{ personalizacio.articulo.estampado }}</li>
                         <li><strong>Características:</strong> {{ personalizacio.caracteristicas }}</li>
                         {%  set p = personalizacio.articulo.precio + personalizacio.precioAccesorios %}
