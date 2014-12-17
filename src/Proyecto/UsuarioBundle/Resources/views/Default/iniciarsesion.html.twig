@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Inicia sesión - Txikitwo{% endblock %}
+{% block title %}Inicia sesión o regístrate - Txikitwo{% endblock %}
 {% block stylesheets %}
     {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
         '@WebBundle/Resources/public/css/frontend.css'
@@ -24,8 +24,8 @@
                 </ul>
             </form>
         </div>
-        <div id="formularioregistro"> <!-- quitar este form y poner enlace o hacer otro action -->
-            <form action="{{ path('usuario_iniciarsesion') }}" method="post" {{ form_enctype(formulario) }}>
+        <div id="formularioregistro">
+            <form action="{{ path('usuario_registrarse') }}" method="post" {{ form_enctype(formulario) }}>
                 <ul>
                     <li><p>crear una cuenta</p></li>
                     <li>{{ form_widget(formulario.nombre) }}</li>
@@ -35,7 +35,8 @@
                     <li>{{ form_widget(formulario.password) }}</li>
                     <li>{{ form_widget(formulario.direccion) }}</li>
                     <li>{{ form_widget(formulario.codigoPostal) }}</li>
-                    <li><input class="boton" type="submit" name="registro" value="finalizar" /></li>
+                    {{ form_rest(formulario) }}
+                    <li><input class="boton" type="submit" name="registrarse" value="finalizar" /></li>
                 </ul>
             </form>
         </div>
