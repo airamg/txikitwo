@@ -115,7 +115,7 @@ class DefaultController extends Controller
             }
         }
 
-        return $this->render('UsuarioBundle:Default:iniciarsesion.html.twig', array(
+        return $this->render('UsuarioBundle:Default:registro.html.twig', array(
             'formulario' => $formulario->createView(),
             'num' => $num,
             'online' => $online
