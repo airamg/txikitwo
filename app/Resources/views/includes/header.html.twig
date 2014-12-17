@@ -19,7 +19,11 @@
     <ul>
         {% if online == 0 %}
             <li><a href="{{ path('usuario_iniciarsesion') }}">Iniciar sesión</a></li>
+<<<<<<< HEAD
             <li><a href="{{ path('usuario_registrarse') }}">Registro</a></li>
+=======
+            <li><a href="{{ path('usuario_iniciarsesion') }}">Registro</a></li>
+>>>>>>> b87a3cdbdfa36d04af3a5092087fe53204dd0964
         {%  else %}
             <li><a href="{{ path('usuario_cuenta') }}">Mi cuenta</a></li>
             <li><a href="{{ path('usuario_cerrarsesion') }}">Cerrar sesión</a></li>
