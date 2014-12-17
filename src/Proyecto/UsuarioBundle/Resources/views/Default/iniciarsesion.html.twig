@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Inicia sesión - Txikitwo{% endblock %}
+{% block title %}Inicia sesión o regístrate - Txikitwo{% endblock %}
 {% block stylesheets %}
     {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
         '@WebBundle/Resources/public/css/frontend.css'
@@ -14,28 +14,25 @@
    {% include ':includes:header.html.twig' %}
     <div id="contenido">
         <div id="formularioiniciosesion">
-            <form action="{{ path('usuario_iniciarsesion') }}" method="post">
+            <form action="{{ path('usuario_iniciarsesion') }}" method="post" {{ form_enctype(formulario) }}>
                 <ul>
                     <li><p>tengo una cuenta</p></li>
-                    <li><input type="text" id="email" name="_email" placeholder="Email"/></li>
-                    <li><input type="password" id="password" name="_password" placeholder="Contraseña"/></li>
+                    <!-- anadir li para el erroremail que se pasa como parametro, si es distinto de - mostrar -->
+                    <!-- anadir li para el errorpass que se pasa como parametro, si es distinto de - mostrar -->
+                    <li><p>{{ erroremail }}</p></li> <!-- de prueba -->
+                    <li>{{ form_widget(formulario.email) }}</li>
+                    <li>{{ form_widget(formulario.password) }}</li>
+                    {{ form_rest(formulario) }}
                     <li><input class="boton" type="submit" name="login" value="entrar" /></li>
                     <!-- falta recordar contraseña crear div -->
                 </ul>
             </form>
         </div>
-        <div id="formularioregistro"> <!-- quitar este form y poner enlace o hacer otro action -->
-            <form action="{{ path('usuario_iniciarsesion') }}" method="post" {{ form_enctype(formulario) }}>
+        <div id="formularioregistro">
+            <form action="#" method="post">
                 <ul>
                     <li><p>crear una cuenta</p></li>
-                    <li>{{ form_widget(formulario.nombre) }}</li>
-                    <li>{{ form_widget(formulario.apellido1) }}</li>
-                    <li>{{ form_widget(formulario.apellido2) }}</li>
-                    <li>{{ form_widget(formulario.email) }}</li>
-                    <li>{{ form_widget(formulario.password) }}</li>
-                    <li>{{ form_widget(formulario.direccion) }}</li>
-                    <li>{{ form_widget(formulario.codigoPostal) }}</li>
-                    <li><input class="boton" type="submit" name="registro" value="finalizar" /></li>
+                    <li><input class="boton" type="submit" name="registrarse" value="finalizar" /></li>
                 </ul>
             </form>
         </div>

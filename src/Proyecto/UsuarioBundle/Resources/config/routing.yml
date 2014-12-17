@@ -2,9 +2,9 @@ usuario_iniciarsesion:
     path:     /iniciarsesion
     defaults: { _controller: UsuarioBundle:Default:iniciarsesion }
 
-usuario_registro:
+usuario_registrarse:
     path:     /registro
-    defaults: { _controller: UsuarioBundle:Default:registro }
+    defaults: { _controller: UsuarioBundle:Default:registrarse }
 
 usuario_cuenta:
     path:     /micuenta

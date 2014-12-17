@@ -13,7 +13,7 @@
 {% block body %}
     {% include ':includes:header.html.twig' %}
     <div id="contenido">
-        <form action="{{ path('usuario_registro') }}" method="post" {{ form_enctype(formulario) }} >
+        <form action="{{ path('usuario_registrarse') }}" method="post" {{ form_enctype(formulario) }} >
             <div id="formularioregistro1">
                 <ul>
                     <li>{{ form_widget(formulario.nombre) }}</li>
