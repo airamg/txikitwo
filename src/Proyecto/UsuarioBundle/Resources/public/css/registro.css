@@ -173,11 +173,12 @@ a:hover
     font-weight: bold;
 }
 
-p.error {
+h3.error {
     padding: 10px;
     margin-top: 5px;
     color: #FFF;
     font-size: 1em;
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
     width: 403px;
     background: #FF0000;
     border: 1px solid #999999;

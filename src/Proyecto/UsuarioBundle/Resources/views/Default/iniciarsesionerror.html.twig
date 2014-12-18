@@ -3,20 +3,21 @@
 {% block title %}Inicia sesión - Txikitwo{% endblock %}
 {% block stylesheets %}
     {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
-        '@WebBundle/Resources/public/css/frontend.css'
-        '@UsuarioBundle/Resources/public/css/registro.css'
-        output='css/iniciarsesion.css' %}
+    '@WebBundle/Resources/public/css/frontend.css'
+    '@UsuarioBundle/Resources/public/css/registro.css'
+    output='css/iniciarsesion.css' %}
     <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
     {% endstylesheets %}
 {% endblock %}
 
 {% block body %}
-   {% include ':includes:header.html.twig' %}
+    {% include ':includes:header.html.twig' %}
     <div id="contenido">
         <div id="formularioiniciosesion">
             <form action="{{ path('usuario_iniciarsesion') }}" method="post" {{ form_enctype(formulario) }}>
                 <ul>
                     <li><p>tengo una cuenta</p></li>
+                    <li><h3 class="error">email o contraseña no válidos</h3></li>
                     <li>{{ form_widget(formulario.email) }}</li>
                     <li>{{ form_widget(formulario.password) }}</li>
                     {{ form_rest(formulario) }}
