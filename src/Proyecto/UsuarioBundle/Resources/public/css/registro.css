@@ -7,6 +7,7 @@
     padding-top: 0.5em;
     padding-bottom: 3em;
     display: block;
+    border-right: 2px solid #9B9A9A;
 }
 
 #formularioiniciosesion input[type="text"], #formularioiniciosesion input[type="email"], #formularioiniciosesion input[type="password"]
@@ -43,7 +44,6 @@
     padding-top: 0.5em;
     padding-bottom: 1em;
     display: block;
-    border-left: 2px solid #9B9A9A;
 }
 
 #formularioregistro input[type="text"], #formularioregistro input[type="email"], #formularioregistro input[type="password"]
@@ -55,7 +55,7 @@
     width: 400px;
 }
 
-#formularioregistro input[type="submit"]
+#formularioregistro a
 {
     color: #FFF;
 }
@@ -155,6 +155,32 @@ input.boton {
 input[type="submit"]:hover
 {
     font-weight: bold;
+}
+
+a.boton {
+    padding: 10px;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 1em;
+    width: 425px;
+    cursor: pointer;
+    background: #000;
+    border: 2px solid #999999;
+}
+
+a:hover
+{
+    font-weight: bold;
+}
+
+p.error {
+    padding: 10px;
+    margin-top: 5px;
+    color: #FFF;
+    font-size: 1em;
+    width: 403px;
+    background: #FF0000;
+    border: 1px solid #999999;
 }
 
 textarea

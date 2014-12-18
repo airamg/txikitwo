@@ -17,9 +17,11 @@
             <form action="{{ path('usuario_iniciarsesion') }}" method="post" {{ form_enctype(formulario) }}>
                 <ul>
                     <li><p>tengo una cuenta</p></li>
-                    <!-- anadir li para el erroremail que se pasa como parametro, si es distinto de - mostrar -->
-                    <!-- anadir li para el errorpass que se pasa como parametro, si es distinto de - mostrar -->
-                    <li><p>{{ erroremail }}</p></li> <!-- de prueba -->
+                    {% if erroremail != "-" %}
+                        <li><p class="error">{{ erroremail }}</p></li>
+                    {% elseif errorpass != "-" %}
+                            <li><p class="error">{{ errorpass }}</p></li>
+                    {% endif %}
                     <li>{{ form_widget(formulario.email) }}</li>
                     <li>{{ form_widget(formulario.password) }}</li>
                     {{ form_rest(formulario) }}
@@ -32,7 +34,7 @@
             <form action="#" method="post">
                 <ul>
                     <li><p>crear una cuenta</p></li>
-                    <li><input class="boton" type="submit" name="registrarse" value="finalizar" /></li>
+                    <li><a class=boton href="{{ path('usuario_registrarse') }}">registro</a></li>
                 </ul>
             </form>
         </div>

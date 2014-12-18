@@ -30,12 +30,12 @@ class DefaultController extends Controller
             //comprobar que existe el email del usuario
             $user1 = $em->getRepository('UsuarioBundle:Usuario')->findUserByEmail($email);
             if(!$user1) {
-                $errormessage_email = 'El email no existe.';
+                $errormessage_email = 'el email no existe';
                 return $this->redirect($this->generateUrl('usuario_iniciarsesion'));
             } else {
                 //comprobar que la contraseña corresponde al email introducido
                 if($pass != $user1->getPassword()) {
-                    $errormessage_pass = 'Email o contraseña no válidos.';
+                    $errormessage_pass = 'email o contraseña no válidos';
                     return $this->redirect($this->generateUrl('usuario_iniciarsesion'));
                 } else {
                     $setpersonalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findWithoutUser();
