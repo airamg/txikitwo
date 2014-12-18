@@ -13,10 +13,10 @@
 {% block body %}
     {% include ':includes:header.html.twig' %}
     <div id="contenido">
-
-        <!-- CONTADOR PARA SABER CUANTAS COMPRAS PENDIENTES TIENE -->
-
+        {%  set cont = 0 %}
+        <div id="compraspendientes">
         {% for personalizacio in personalizacion %}
+            {%  set cont = cont + 1 %}
             <div id="pedido-select">
                 <div id="imagenpersonalizada">
                     <img alt="foto" src="{{ asset(directorio_imagenes ~ personalizacio.rutaFoto) }}">
@@ -47,10 +47,13 @@
                     </div>
                 </div>
             </div>
-
-            <!-- NUEVO DIV PARA PEDIDO DE TODAS LAS COMPRAS PENDIENTES -->
-
         {% endfor %}
+        </div>
+            {% if cont > 1 %}
+            <div id="contadorpendientes">
+                {{  cont }}
+            </div>
+        {% endif %}
     </div>
     {% include ':includes:footer.html.twig' %}
 {% endblock %}

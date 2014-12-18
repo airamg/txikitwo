@@ -54,6 +54,20 @@
     color: #FFF;
 }
 
+#compraspendientes
+{
+    float: left;
+    width: 663px;
+}
+
+#contadorpendientes
+{
+    float: left;
+    width: 350px;
+    padding-left: 5em;
+    padding-top: 1.5em;
+}
+
 input.boton {
     padding: 10px;
     font-size: 0.85em;
