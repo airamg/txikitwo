@@ -2,6 +2,23 @@
     padding-left: 4em;
 }
 
+#compraspendientes
+{
+    float: left;
+    width: 663px;
+    padding-right: 5em;
+}
+
+#contadorpendientes
+{
+    float: left;
+    width: 200px;
+    padding-left: 5em;
+    padding-top: 0em;
+    padding-bottom: 2em;
+    border-left: 2px solid #999999;
+}
+
 #imagenpersonalizada
 {
     float: left;
@@ -49,23 +66,26 @@
     padding-top: 1em;
 }
 
+#enlacepedido3
+{
+    padding: 10px;
+    background: #000;
+    border: 2px solid #999999;
+    width: 117px;
+
+}
+
 #enlacepedido input[type="submit"]
 {
     color: #FFF;
 }
 
-#compraspendientes
+#contadorpendientes p
 {
-    float: left;
-    width: 663px;
-}
-
-#contadorpendientes
-{
-    float: left;
-    width: 350px;
-    padding-left: 5em;
-    padding-top: 1.5em;
+    text-decoration: none;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 14px;
 }
 
 input.boton {

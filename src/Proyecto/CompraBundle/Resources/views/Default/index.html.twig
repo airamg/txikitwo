@@ -14,6 +14,7 @@
     {% include ':includes:header.html.twig' %}
     <div id="contenido">
         {%  set cont = 0 %}
+        {%  set totalprecio = 0 %}
         <div id="compraspendientes">
         {% for personalizacio in personalizacion %}
             {%  set cont = cont + 1 %}
@@ -35,23 +36,31 @@
                         {%  set p = personalizacio.articulo.precio + personalizacio.precioAccesorios %}
                         <li><strong>Precio total:</strong> {{ p }}€ ({{ personalizacio.articulo.precio }}€ + {{ personalizacio.precioAccesorios }}€)*</li>
                         <li>*precio de accesorios añadido al artículo</li>
+                        {%  set totalprecio = totalprecio + p %}
                     </ul>
                 </div>
                 <div id="enlacepedido">
                     <div id="enlacepedido1">
+                        <!-- PARAMETROS -->
                         <a class="boton" href="{{ path('compra_pedido') }}">realizar pedido</a>
                     </div>
                     <div id="enlacepedido2">
-                        <!-- CAMBIAR A ENLACE A, PASAR PARAMETROS A INPUT CON ID DE PERSONALIZACION -->
-                        <input class="boton" type="submit" name="pedidoselectscompra" value="eliminar del carrito" />
-                    </div>
+                        <form action="{{ path('compra_pendientes', { 'personalizacionid': personalizacio.id }) }}" method="post">
+                            <input class="boton" type="submit" name="pedidoselectscompra" value="eliminar del carrito" />
+                        </form>
+                     </div>
                 </div>
             </div>
         {% endfor %}
         </div>
             {% if cont > 1 %}
             <div id="contadorpendientes">
-                {{  cont }}
+                <p>Compras pendientes: <strong>{{  cont }}</strong></p>
+                <p>Total: <strong>{{ totalprecio }}€</strong></p>
+                <div id="enlacepedido3">
+                    <!-- PARAMETROS -->
+                    <a class="boton" href="{{ path('compra_pedido') }}">realizar pedido</a>
+                </div>
             </div>
         {% endif %}
     </div>

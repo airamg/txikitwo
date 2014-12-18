@@ -34,4 +34,19 @@ class PersonalizacionRepository extends EntityRepository
 
         return $consulta->getResult();
     }
+
+    public function findById($id)
+    {
+        $em = $this->getEntityManager();
+
+        $consulta = $em->createQuery('
+            SELECT p
+            FROM PersonalizacionBundle:Personalizacion p
+            WHERE p.id = :id
+        ');
+        $consulta->setMaxResults(1);
+        $consulta->setParameter('id', $id);
+
+        return $consulta->getOneOrNullResult();
+    }
 }

@@ -40,11 +40,75 @@ class DefaultController extends Controller
         ));
     }
 
+    public function pendientesAction($personalizacionid)
+    {
+        $request = $this->getRequest();
+        $em = $this->getDoctrine()->getManager();
+
+        if ($request->isMethod('POST')) {
+            $deletedpersonalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findById($personalizacionid);
+            if($deletedpersonalizacion) {
+                $em->remove($deletedpersonalizacion);
+                $em->flush();
+                return $this->redirect($this->generateUrl('compra_homepage'));
+            }
+        }
+
+        //buscar usuario online
+        $online = 0;
+        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+
+        //buscar las compras pendientes que tiene el usuario online
+        $num = 0;
+        $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
+
+        if(!$usuario) {
+            $num = 0;
+        } else {
+            $online = 1;
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
+        return $this->render('CompraBundle:Default:compraspendientes.html.twig', array(
+            'id' => $personalizacionid,
+            'personalizacion' => $personalizacion,
+            'num' => $num,
+            'online' => $online
+        ));
+    }
+
     public function pedidoAction()
     {
+        $em = $this->getDoctrine()->getManager();
 
 
-        return $this->render('CompraBundle:Default:pedido.html.twig');
+        //SIN HACER
+
+
+        //buscar usuario online
+        $online = 0;
+        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+
+        //buscar las compras pendientes que tiene el usuario online
+        $num = 0;
+        $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
+
+        if(!$usuario) {
+            $num = 0;
+        } else {
+            $online = 1;
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
+        return $this->render('CompraBundle:Default:pedido.html.twig', array(
+            'personalizacion' => $personalizacion,
+            'num' => $num,
+            'online' => $online
+        ));
     }
 
 }

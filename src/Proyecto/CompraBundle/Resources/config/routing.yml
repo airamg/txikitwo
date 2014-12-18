@@ -2,6 +2,10 @@ compra_homepage:
     path:     /
     defaults: { _controller: CompraBundle:Default:index }
 
+compra_pendientes:
+    path:     /{personalizacionid}
+    defaults: { _controller: CompraBundle:Default:pendientes }
+
 compra_pedido:
     path:     /pedido
     defaults: { _controller: CompraBundle:Default:pedido }
