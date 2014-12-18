@@ -203,26 +203,19 @@ class DefaultController extends Controller
 
     public function cerrarsesionAction()
     {
+        $request = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
-        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
-        $num = 0;
-        $online = 0;
-        if(!$usuario) {
-            $num = 0;
-        } else {
-            $online = 1;
-            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
-            foreach ($personalizacion as $pendiente) {
-                $num = $num + 1;
+
+        if ($request->isMethod('POST')) {
+            $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+            if($usuario) {
+                $usuario->setOnline('0');
+                $em->persist($usuario);
+                $em->flush();
+                return $this->redirect($this->generateUrl('web_homepage'));
             }
         }
 
-        //FALTA DE HACER: cambiar el parametro online de la bd de ese usuario de 1 a 0
-        //redirigir a pagina inicial
-
-        return $respuesta = $this->render('UsuarioBundle:Default:cerrarsesion.html.twig', array(
-            'num' => $num,
-            'online' => $online
-        ));
+        return $this->render('UsuarioBundle:Default:cerrarsesion.html.twig');
     }
 }

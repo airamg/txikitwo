@@ -1,1 +1,66 @@
-{{ id }}
+{% extends '::base.html.twig' %}
+
+{% block title %}Compra - Txikitwo{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+    '@WebBundle/Resources/public/css/frontend.css'
+    '@CompraBundle/Resources/public/css/compra.css'
+    output='css/compra.css' %}
+    <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    {% include ':includes:header.html.twig' %}
+    <div id="contenido">
+        {%  set cont = 0 %}
+        {%  set totalprecio = 0 %}
+        <div id="compraspendientes">
+            {% for personalizacio in personalizacion %}
+                {%  set cont = cont + 1 %}
+                <div id="pedido-select">
+                    <div id="imagenpersonalizada">
+                        <img alt="foto" src="{{ asset(directorio_imagenes ~ personalizacio.rutaFoto) }}">
+                    </div>
+                    <div id="datospersonalizacion">
+                        <ul>
+                            {% if personalizacio.genero == "nina" %}
+                                {% set g = "niña" %}
+                            {% else %}
+                                {% set g = "niño" %}
+                            {% endif %}
+                            <li><strong>Talla:</strong> {{ personalizacio.talla }} - {{ g }}</li>
+                            <li><strong>Tejido:</strong> {{ personalizacio.tejido.slug }}</li>
+                            <li><strong>Estampado:</strong> {{ personalizacio.articulo.estampado }}</li>
+                            <li><strong>Características:</strong> {{ personalizacio.caracteristicas }}</li>
+                            {%  set p = personalizacio.articulo.precio + personalizacio.precioAccesorios %}
+                            <li><strong>Precio total:</strong> {{ p }}€ ({{ personalizacio.articulo.precio }}€ + {{ personalizacio.precioAccesorios }}€)*</li>
+                            <li>*precio de accesorios añadido al artículo</li>
+                            {%  set totalprecio = totalprecio + p %}
+                        </ul>
+                    </div>
+                    <div id="enlacepedido">
+                        <div id="enlacepedido1">
+                            <a class="boton" href="{{ path('compra_pedido', { 'id': personalizacio.id }) }}">realizar pedido</a>
+                        </div>
+                        <div id="enlacepedido2">
+                            <form action="{{ path('compra_pendientes', { 'personalizacionid': personalizacio.id }) }}" method="post">
+                                <input class="boton" type="submit" name="pedidoselectscompra" value="eliminar del carrito" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if cont > 1 %}
+            <div id="contadorpendientes">
+                <p>Compras pendientes: <strong>{{  cont }}</strong></p>
+                <p>Total: <strong>{{ totalprecio }}€</strong></p>
+                <div id="enlacepedido3">
+                    <a class="boton" href="{{ path('compra_pedido', { 'id': "0" }) }}">realizar pedido</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    {% include ':includes:footer.html.twig' %}
+{% endblock %}

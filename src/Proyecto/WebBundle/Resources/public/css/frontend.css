@@ -45,6 +45,24 @@ h1 {
     font-size: 32px;
 }
 
+#menu1 input[type="submit"]
+{
+    padding: 0em 1.5em;
+    text-decoration: none;
+    font-weight: 300;
+    color: rgba(0,0,0,.8);
+    text-transform: uppercase;
+    font-size: 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#menu1 input[type="submit"]:hover
+{
+    font-weight: bold;
+}
+
 #contenido
 {
     position: absolute;
@@ -82,7 +100,7 @@ h1 {
 
 #menu1 li a, #menu1 li span
 {
-    padding: 0em 1.5em;
+    padding: 0.25em 1.5em;
     text-decoration: none;
     font-weight: 300;
     color: rgba(0,0,0,.8);
@@ -154,7 +172,7 @@ h1 {
 div.carrito-compra {
     position: fixed;
     right: 14em;
-    top: 1.2em;
+    top: 1.4em;
     z-index: 999;
 }
 

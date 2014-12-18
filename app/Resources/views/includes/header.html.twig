@@ -22,7 +22,9 @@
             <li><a href="{{ path('usuario_registrarse') }}">Registro</a></li>
         {%  else %}
             <li><a href="{{ path('usuario_cuenta') }}">Mi cuenta</a></li>
-            <li><a href="{{ path('usuario_cerrarsesion') }}">Cerrar sesión</a></li>
+            <li><form action="{{ path('usuario_cerrarsesion') }}" method="post">
+                <input class="aboton" type="submit" name="cerrarsesion" value="Cerrar sesión" />
+            </form></li>
         {%  endif %}
     </ul>
 </div>

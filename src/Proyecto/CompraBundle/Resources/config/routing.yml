@@ -7,5 +7,5 @@ compra_pendientes:
     defaults: { _controller: CompraBundle:Default:pendientes }
 
 compra_pedido:
-    path:     /pedido
+    path:     /pedido/{id}
     defaults: { _controller: CompraBundle:Default:pedido }

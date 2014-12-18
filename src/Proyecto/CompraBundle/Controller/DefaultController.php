@@ -14,8 +14,6 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        //CAMBIAR PARAMETRO PENDIENTE POR REALIZADA PERSONALIZACION AL ENVIAR FORM
-
         //buscar usuario online
         $online = 0;
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
@@ -79,13 +77,15 @@ class DefaultController extends Controller
         ));
     }
 
-    public function pedidoAction()
+    public function pedidoAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-
         //SIN HACER
-
+        //CAMBIAR PARAMETRO PENDIENTE POR REALIZADA PERSONALIZACION AL ENVIAR FORM
+        //comprobar que el id sea distinto de 0, si es igual a 0 es que se hace el pedido de todas las compras pendientes y guardar todas las compras (hacer for)
+        //si es distinto de 0: buscar la personalizacion por id para cambiar el pendiente a 0 y guardar la compra
+        //buscar usuario segun el id de la personalizacion (hacer metodo en repositry) o coger el online hecho debajo
 
         //buscar usuario online
         $online = 0;
@@ -107,7 +107,8 @@ class DefaultController extends Controller
         return $this->render('CompraBundle:Default:pedido.html.twig', array(
             'personalizacion' => $personalizacion,
             'num' => $num,
-            'online' => $online
+            'online' => $online,
+            'id' => $id
         ));
     }
 

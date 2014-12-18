@@ -41,8 +41,7 @@
                 </div>
                 <div id="enlacepedido">
                     <div id="enlacepedido1">
-                        <!-- PARAMETROS -->
-                        <a class="boton" href="{{ path('compra_pedido') }}">realizar pedido</a>
+                        <a class="boton" href="{{ path('compra_pedido', { 'id': personalizacio.id }) }}">realizar pedido</a>
                     </div>
                     <div id="enlacepedido2">
                         <form action="{{ path('compra_pendientes', { 'personalizacionid': personalizacio.id }) }}" method="post">
@@ -58,8 +57,7 @@
                 <p>Compras pendientes: <strong>{{  cont }}</strong></p>
                 <p>Total: <strong>{{ totalprecio }}€</strong></p>
                 <div id="enlacepedido3">
-                    <!-- PARAMETROS -->
-                    <a class="boton" href="{{ path('compra_pedido') }}">realizar pedido</a>
+                    <a class="boton" href="{{ path('compra_pedido', { 'id': "0" }) }}">realizar pedido</a>
                 </div>
             </div>
         {% endif %}
