@@ -34,7 +34,19 @@
 #enlacepedido
 {
     float: left;
-    padding-top: 2.5em;
+    padding-top: 1em;
+}
+
+#enlacepedido1
+{
+    padding: 10px;
+    background: #000;
+    border: 2px solid #999999;
+}
+
+#enlacepedido2
+{
+    padding-top: 1em;
 }
 
 #enlacepedido input[type="submit"]
@@ -45,7 +57,7 @@
 input.boton {
     padding: 10px;
     font-size: 0.85em;
-    width: 140px;
+    width: 149px;
     cursor: pointer;
     background: #000;
 }
@@ -55,6 +67,20 @@ input[type="submit"]:hover
     font-weight: bold;
 }
 
+a.boton {
+    padding: 10px;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 0.85em;
+    width: 145px;
+    cursor: pointer;
+    color: #FFF;
+}
+
+a:hover
+{
+    font-weight: bold;
+}
 
 
 

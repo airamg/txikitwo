@@ -40,4 +40,11 @@ class DefaultController extends Controller
         ));
     }
 
+    public function pedidoAction()
+    {
+
+
+        return $this->render('CompraBundle:Default:pedido.html.twig');
+    }
+
 }

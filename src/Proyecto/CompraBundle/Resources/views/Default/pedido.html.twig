@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Pedido - Txikitwo{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+    '@WebBundle/Resources/public/css/frontend.css'
+    '@CompraBundle/Resources/public/css/compra.css'
+    output='css/compra.css' %}
+    <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    {% include ':includes:header.html.twig' %}
+    <div id="contenido">
+
+    </div>
+    {% include ':includes:footer.html.twig' %}
+{% endblock %}

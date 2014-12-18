@@ -13,6 +13,9 @@
 {% block body %}
     {% include ':includes:header.html.twig' %}
     <div id="contenido">
+
+        <!-- CONTADOR PARA SABER CUANTAS COMPRAS PENDIENTES TIENE -->
+
         {% for personalizacio in personalizacion %}
             <div id="pedido-select">
                 <div id="imagenpersonalizada">
@@ -35,10 +38,18 @@
                     </ul>
                 </div>
                 <div id="enlacepedido">
-                    <!-- cambiar el input por un enlace normal con path conservando el estilo -->
-                    <input class="boton" type="submit" name="pedidoselectscompra" value="realizar pedido" />
+                    <div id="enlacepedido1">
+                        <a class="boton" href="{{ path('compra_pedido') }}">realizar pedido</a>
+                    </div>
+                    <div id="enlacepedido2">
+                        <!-- CAMBIAR A ENLACE A, PASAR PARAMETROS A INPUT CON ID DE PERSONALIZACION -->
+                        <input class="boton" type="submit" name="pedidoselectscompra" value="eliminar del carrito" />
+                    </div>
                 </div>
             </div>
+
+            <!-- NUEVO DIV PARA PEDIDO DE TODAS LAS COMPRAS PENDIENTES -->
+
         {% endfor %}
     </div>
     {% include ':includes:footer.html.twig' %}

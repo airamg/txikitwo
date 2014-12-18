@@ -1,3 +1,7 @@
 compra_homepage:
     path:     /
     defaults: { _controller: CompraBundle:Default:index }
+
+compra_pedido:
+    path:     /pedido
+    defaults: { _controller: CompraBundle:Default:pedido }
