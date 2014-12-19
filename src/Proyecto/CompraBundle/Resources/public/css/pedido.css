@@ -1,0 +1,137 @@
+#titulopedido
+{
+    margin-left: 24px;
+}
+
+#titulopedido p
+{
+    padding: 1.5em 1.5em;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgba(0,0,0,1);
+    font-size: 24px;
+}
+
+#contenidopedido
+{
+    position: absolute;
+    top: 4em;
+    width: auto;
+    float: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 8em;
+}
+
+#listapedido
+{
+    float: left;
+    width: 470px;
+    padding-right: 5em;
+}
+
+#datospersonalizacion1
+{
+    float: left;
+    width: 256px;
+    padding-bottom: 2.5em;
+    padding-top: 0.3em;
+}
+
+#datospersonalizacion1 ul
+{
+    padding-left: 0em;
+}
+
+#datospersonalizacion1 li {
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+}
+
+#datospedido
+{
+    padding-top: 1.5em;
+}
+
+#datosusuariopedido
+{
+    float: left;
+    width: 400px;
+    padding-left: 6em;
+    padding-top: 0em;
+    padding-bottom: 2em;
+    border-left: 2px solid #999999;
+}
+
+#enlacemodificardatosusuario
+{
+    width: 145px;
+    background: #000;
+    border: 2px solid #999999;
+}
+
+#enlacespedidofinal
+{
+    padding-top: 1em;
+}
+
+#enlacespedidofinal ul
+{
+    padding-left: 0em;
+}
+
+#enlacespedidofinal input.boton {
+    padding: 10px;
+    font-size: 0.85em;
+    width: 149px;
+    cursor: pointer;
+    color: #FFF;
+    background: #000;
+}
+
+#enlacespedidofinal input[type="submit"]:hover
+{
+    font-weight: bold;
+}
+
+#enlacespedidofinal1
+{
+    width: 145px;
+    background: #000;
+    border: 2px solid #999999;
+}
+
+#enlacespedidofinal ul
+{
+    display: inline-block;
+}
+
+#enlacespedidofinal li
+{
+    display: block;
+    float: left;
+    text-align: center;
+    padding-right: 2em;
+}
+
+a.boton {
+    padding-left: 0px;
+    padding-top: 5px;
+    text-align: center;
+    font-size: 0.85em;
+    cursor: pointer;
+    color: #FFF;
+}
+
+a:hover
+{
+    font-weight: bold;
+}
+
+p.dir
+{
+    font-size: 13px;
+}
+

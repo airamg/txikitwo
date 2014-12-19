@@ -3,20 +3,107 @@
 {% block title %}Pedido - Txikitwo{% endblock %}
 {% block stylesheets %}
     {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
-    '@WebBundle/Resources/public/css/frontend.css'
-    '@CompraBundle/Resources/public/css/compra.css'
-    output='css/compra.css' %}
+        '@WebBundle/Resources/public/css/frontend.css'
+        '@CompraBundle/Resources/public/css/compra.css'
+        '@CompraBundle/Resources/public/css/pedido.css'
+        output='css/pedido.css' %}
     <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
     {% endstylesheets %}
 {% endblock %}
 
 {% block body %}
     {% include ':includes:header.html.twig' %}
-    {% include ':includes:menuprincipal.html.twig' %}
-    <div id="contenido">
-        <!-- mostrar los datos del usuario, su direccion, para saber donde enviar -->
-        <!-- mostar solo nombre y caracteristicas articulo, foto ya no -->
-        <!-- crear boton de submit para finalizar pedido -->
+    <div id="contenidopedido">
+        {%  set cont = 0 %}
+        <div id="titulopedido">
+            <p>tu pedido</p>
+        </div>
+        <div id="listapedido">
+            {% if id == "0" %}
+                {% for personalizacio in personalizacion %}
+                    {%  set cont = cont + 1 %}
+                    <div id="pedido-select">
+                        <div id="imagenpersonalizada">
+                            <img alt="foto" src="{{ asset(directorio_imagenes ~ personalizacio.rutaFoto) }}">
+                        </div>
+                        <div id="datospersonalizacion1">
+                            <ul>
+                                {% if personalizacio.genero == "nina" %}
+                                    {% set g = "niña" %}
+                                {% else %}
+                                    {% set g = "niño" %}
+                                {% endif %}
+                                <li><strong>Talla:</strong> {{ personalizacio.talla }} - {{ g }}</li>
+                                <li><strong>Tejido:</strong> {{ personalizacio.tejido.slug }}</li>
+                                {% if personalizacio.articulo.estampado != "-" %}
+                                    <li><strong>Estampado:</strong> {{ personalizacio.articulo.estampado }}</li>
+                                {% endif %}
+                                <li><strong>Características:</strong> {{ personalizacio.caracteristicas }}</li>
+                                {%  set p = personalizacio.articulo.precio + personalizacio.precioAccesorios %}
+                                <li><strong>Precio:</strong> {{ p }}€</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div id="pedido-select">
+                    <div id="imagenpersonalizada">
+                        <img alt="foto" src="{{ asset(directorio_imagenes ~ foundpersonalizacion.rutaFoto) }}">
+                    </div>
+                    <div id="datospersonalizacion1">
+                        <ul>
+                            {% if foundpersonalizacion.genero == "nina" %}
+                                {% set g = "niña" %}
+                            {% else %}
+                                {% set g = "niño" %}
+                            {% endif %}
+                            <li><strong>Talla:</strong> {{ foundpersonalizacion.talla }} - {{ g }}</li>
+                            <li><strong>Tejido:</strong> {{ foundpersonalizacion.tejido.slug }}</li>
+                            {% if foundpersonalizacion.articulo.estampado != "-" %}
+                                <li><strong>Estampado:</strong> {{ personalizacio.articulo.estampado }}</li>
+                            {% endif %}
+                            <li><strong>Características:</strong> {{ foundpersonalizacion.caracteristicas }}</li>
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div id="datosusuariopedido">
+            <p><strong>Datos de envío:</strong></p>
+            <ul>
+                <li><p class="dir">{{ usuario.nombre }} {{ usuario.apellido1 }} {{ usuario.apellido2 }}</p></li>
+                <li><p class="dir">{{ usuario.direccion }}</p></li>
+                <li><p class="dir">{{ usuario.codigoPostal }}</p></li>
+                <li>
+                    <div id="enlacemodificardatosusuario">
+                        <a class="boton" href="{{ path('usuario_cuenta') }}">modificar datos</a>
+                    </div>
+                </li>
+            </ul>
+            <div id="datospedido">
+                <p><strong>Datos de compra:</strong></p>
+                {% if cont > 0 %}
+                    <p class="dir">Tu compra incluye: <strong>{{  cont }}</strong> artículos.</p>
+                {% else %}
+                    <p class="dir">Tu compra incluye: <strong>1</strong> artículo.</p>
+                {% endif %}
+                <p class="dir">A pagar: <strong>{{ precio }}€</strong></p>
+            </div>
+            <div id="enlacespedidofinal">
+                <ul>
+                    <li>
+                        <form action="{{ path('compra_pedido', { 'id': id, 'precio': precio }) }}" method="post">
+                            <input class="boton" type="submit" name="pedidoselectscompra" value="finalizar" />
+                        </form>
+                    </li>
+                    <li>
+                        <div id="enlacespedidofinal1"> <!-- falta estilo -->
+                            <a class="boton" href="{{ path('compra_homepage') }}">cancelar</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
     {% include ':includes:footer.html.twig' %}
 {% endblock %}

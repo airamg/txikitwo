@@ -35,14 +35,13 @@
                         <li><strong>Estampado:</strong> {{ personalizacio.articulo.estampado }}</li>
                         <li><strong>Características:</strong> {{ personalizacio.caracteristicas }}</li>
                         {%  set p = personalizacio.articulo.precio + personalizacio.precioAccesorios %}
-                        <li><strong>Precio total:</strong> {{ p }}€ ({{ personalizacio.articulo.precio }}€ + {{ personalizacio.precioAccesorios }}€)*</li>
-                        <li>*precio de accesorios añadido al artículo</li>
+                        <li><strong>Precio total:</strong> {{ p }}€ ({{ personalizacio.articulo.precio }}€ + {{ personalizacio.precioAccesorios }}€)</li>
                         {%  set totalprecio = totalprecio + p %}
                     </ul>
                 </div>
                 <div id="enlacepedido">
                     <div id="enlacepedido1">
-                        <a class="boton" href="{{ path('compra_pedido', { 'id': personalizacio.id }) }}">realizar pedido</a>
+                        <a class="boton" href="{{ path('compra_pedido', { 'id': personalizacio.id, 'precio': p }) }}">realizar pedido</a>
                     </div>
                     <div id="enlacepedido2">
                         <form action="{{ path('compra_pendientes', { 'personalizacionid': personalizacio.id }) }}" method="post">
@@ -53,14 +52,14 @@
             </div>
         {% endfor %}
         </div>
-            {% if cont > 1 %}
-            <div id="contadorpendientes">
-                <p>Compras pendientes: <strong>{{  cont }}</strong></p>
-                <p>Total: <strong>{{ totalprecio }}€</strong></p>
-                <div id="enlacepedido3">
-                    <a class="boton" href="{{ path('compra_pedido', { 'id': "0" }) }}">realizar pedido</a>
-                </div>
+        {% if cont > 1 %}
+        <div id="contadorpendientes">
+            <p>Compras pendientes: <strong>{{  cont }}</strong></p>
+            <p>Total: <strong>{{ totalprecio }}€</strong></p>
+            <div id="enlacepedido3">
+                <a class="boton" href="{{ path('compra_pedido', { 'id': "0", 'precio': totalprecio }) }}">realizar pedido</a>
             </div>
+        </div>
         {% endif %}
     </div>
     {% include ':includes:footer.html.twig' %}
