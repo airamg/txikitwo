@@ -12,6 +12,7 @@
 
 {% block body %}
    {% include ':includes:header.html.twig' %}
+    {% include ':includes:menuprincipal.html.twig' %}
     <div id="contenido">
         <div id="formularioiniciosesion">
             <form action="{{ path('usuario_iniciarsesion') }}" method="post" {{ form_enctype(formulario) }}>
