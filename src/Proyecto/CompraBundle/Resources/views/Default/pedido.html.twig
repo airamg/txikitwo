@@ -60,7 +60,7 @@
                             <li><strong>Talla:</strong> {{ foundpersonalizacion.talla }} - {{ g }}</li>
                             <li><strong>Tejido:</strong> {{ foundpersonalizacion.tejido.slug }}</li>
                             {% if foundpersonalizacion.articulo.estampado != "-" %}
-                                <li><strong>Estampado:</strong> {{ personalizacio.articulo.estampado }}</li>
+                                <li><strong>Estampado:</strong> {{ foundpersonalizacion.articulo.estampado }}</li>
                             {% endif %}
                             <li><strong>Características:</strong> {{ foundpersonalizacion.caracteristicas }}</li>
                         </ul>

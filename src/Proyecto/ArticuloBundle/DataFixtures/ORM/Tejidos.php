@@ -17,7 +17,7 @@ class Tejidos extends AbstractFixture
        $tejidos = array(
            'Lana',
            'Seda',
-           'Algodon',
+           'Algodón',
         );
 
         foreach ($tejidos as $nombre) {
@@ -33,8 +33,8 @@ class Tejidos extends AbstractFixture
                     $tejido->setSlug('seda');
                     $tejido->setPrecio(4.00);
                     break;
-                case 'Algodon':
-                    $tejido->setSlug('algodon');
+                case 'Algodón':
+                    $tejido->setSlug('algodón');
                     $tejido->setPrecio(3.00);
                     break;
             }

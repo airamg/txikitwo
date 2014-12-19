@@ -55,7 +55,7 @@ class Colores extends AbstractFixture
                     break;
                 case 'Marrón':
                     $color->setRutaFoto('almacen/color/marron.png');
-                    $color->setSlug('marron');
+                    $color->setSlug('marrón');
                     break;
             }
 

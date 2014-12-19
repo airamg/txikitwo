@@ -38,6 +38,12 @@ class Compra
     private $precio;
 
     /**
+     * @ORM\Column(type="decimal", scale=2)
+     * @Assert\Range(min = 0)
+     */
+    private $precioTotal;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="usuario", type="string", length=255)
@@ -111,6 +117,26 @@ class Compra
     public function getPrecio()
     {
         return $this->precio;
+    }
+
+    /**
+     * Set precioTotal
+     *
+     * @param decimal $precioTotal
+     */
+    public function setPrecioTotal($precioTotal)
+    {
+        $this->precioTotal = $precioTotal;
+    }
+
+    /**
+     * Get precioTotal
+     *
+     * @return decimal
+     */
+    public function getPrecioTotal()
+    {
+        return $this->precioTotal;
     }
 
     /**

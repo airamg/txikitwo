@@ -110,8 +110,10 @@ class DefaultController extends Controller
                     $em->flush();
                     //crear las compras correspondientes a cada personalizacion
                     $compra1 = new Compra();
-                    //guardo el precio total de la compra completa y no el individual de cada personalizacion
-                    $compra1->setPrecio($precio);
+                    $articulopers = $pendiente->getArticulo();
+                    $preciopers = $articulopers->getPrecio() + $pendiente->getPrecioAccesorios();
+                    $compra1->setPrecio($preciopers);
+                    $compra1->setPrecioTotal($precio);
                     $compra1->setUsuario($pendiente->getUsuario());
                     $compra1->setPersonalizacion($pendiente);
                     $em->persist($compra1);
@@ -126,6 +128,7 @@ class DefaultController extends Controller
                 //crear las compras correspondientes a cada personalizacion
                 $compra2 = new Compra();
                 $compra2->setPrecio($precio);
+                $compra2->setPrecioTotal($precio);
                 $compra2->setUsuario($foundpersonalizacion->getUsuario());
                 $compra2->setPersonalizacion($foundpersonalizacion);
                 $em->persist($compra2);

@@ -63,7 +63,7 @@ class Articulos extends AbstractFixture
         $articulo5->setRutaFoto('articulo/nina/falda.png');
         $articulo5->setPrecio(12.00);
         $articulo5->setDescripcion('Ropa informal');
-        $articulo5->setEstampado('lunares');
+        $articulo5->setEstampado('lunares, rayas');
         $articulo5->setComplemento('0');
 
         $articulo6 = new Articulo();
@@ -77,8 +77,8 @@ class Articulos extends AbstractFixture
         $articulo6->setComplemento('0');
 
         $articulo7 = new Articulo();
-        $articulo7->setNombre("Pantalon");
-        $articulo7->setSlug('pantalon');
+        $articulo7->setNombre("Pantalón");
+        $articulo7->setSlug('pantalón');
         $articulo7->setGenero('nina');
         $articulo7->setRutaFoto('articulo/nina/pantalon.png');
         $articulo7->setPrecio(19.00);
@@ -149,8 +149,8 @@ class Articulos extends AbstractFixture
         $articulo13->setComplemento('0');
 
         $articulo14 = new Articulo();
-        $articulo14->setNombre("Pantalon");
-        $articulo14->setSlug('pantalon');
+        $articulo14->setNombre("Pantalón");
+        $articulo14->setSlug('pantalón');
         $articulo14->setGenero('nino');
         $articulo14->setRutaFoto('articulo/nino/pantalon.png');
         $articulo14->setPrecio(19.00);
@@ -162,7 +162,7 @@ class Articulos extends AbstractFixture
         //complementos
         $complemento1 = new Articulo();
         $complemento1->setNombre("Calcetines");
-        $complemento1->setSlug('calcetin');
+        $complemento1->setSlug('calcetín');
         $complemento1->setGenero('ambos');
         $complemento1->setRutaFoto('articulo/complemento/calcetin.png');
         $complemento1->setPrecio(4.00);
