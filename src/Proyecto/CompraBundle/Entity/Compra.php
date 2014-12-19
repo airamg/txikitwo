@@ -32,6 +32,14 @@ class Compra
     private $fecha;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="usuario", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $usuario;
+
+    /**
      * @ORM\Column(type="decimal", scale=2)
      * @Assert\Range(min = 0)
      */
@@ -44,12 +52,19 @@ class Compra
     private $precioTotal;
 
     /**
+     * @var string numeroPedido
+     *
+     * @ORM\Column(name="numeroPedido", type="string", length=255)
+     */
+    private $numeroPedido;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="usuario", type="string", length=255)
+     * @ORM\Column(name="estado", type="string", length=255)
      * @Assert\NotBlank()
      */
-    private $usuario;
+    private $estado;
 
     /**
      * @var integer $personalizacion
@@ -63,6 +78,8 @@ class Compra
     public function __construct()
     {
         $this->fecha = new \DateTime();
+        $this->numeroPedido = rand(1,1000000);
+        $this->estado = "en proceso"; //enviado - completado
     }
 
 
@@ -97,6 +114,49 @@ class Compra
     public function getFecha()
     {
         return $this->fecha;
+    }
+
+    /**
+     * Set numeroPedido
+     *
+     * @param string $numeroPedido
+     */
+    public function setNumeroPedido($numeroPedido)
+    {
+        $this->numeroPedido = $numeroPedido;
+    }
+
+    /**
+     * Get numeroPedido
+     *
+     * @return string
+     */
+    public function getNumeroPedido()
+    {
+        return $this->numeroPedido;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param string $estado
+     * @return Compra
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return string
+     */
+    public function getEstado()
+    {
+        return $this->estado;
     }
 
     /**
