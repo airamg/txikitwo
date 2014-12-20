@@ -78,7 +78,6 @@ class Compra
     public function __construct()
     {
         $this->fecha = new \DateTime();
-        $this->numeroPedido = rand(1,1000000);
         $this->estado = "en proceso"; //enviado - completado
     }
 

@@ -176,7 +176,7 @@ class DefaultController extends Controller
         ));
     }
 
-    public function cuentaAction() //HACER
+    public function cuentaAction()
     {
         $em = $this->getDoctrine()->getManager();
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
@@ -191,8 +191,6 @@ class DefaultController extends Controller
                 $num = $num + 1;
             }
         }
-
-
 
         return $respuesta = $this->render('UsuarioBundle:Default:micuenta.html.twig', array(
             'num' => $num,
@@ -324,9 +322,10 @@ class DefaultController extends Controller
         ));
     }
 
-    public function pedidosAction() //HACER
+    public function pedidosAction()
     {
         $em = $this->getDoctrine()->getManager();
+
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
         $num = 0;
         $online = 0;
@@ -339,15 +338,18 @@ class DefaultController extends Controller
                 $num = $num + 1;
             }
         }
+
+        $personalizacion1 = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPersonalizacionesByUsuario($usuario->getEmail());
 
         return $respuesta = $this->render('UsuarioBundle:Default:listadopedidos.html.twig', array(
             'num' => $num,
             'online' => $online,
-            'usuario' => $usuario
+            'usuario' => $usuario,
+            'personalizacion' => $personalizacion1
         ));
     }
 
-    public function pedidosrealizadosAction() //HACER
+    public function pedidosrealizadosAction()
     {
         $em = $this->getDoctrine()->getManager();
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
@@ -362,15 +364,18 @@ class DefaultController extends Controller
                 $num = $num + 1;
             }
         }
+
+        $compra = $em->getRepository('CompraBundle:Compra')->findComprasByUsuario($usuario->getEmail());
 
         return $respuesta = $this->render('UsuarioBundle:Default:pedidosrealizados.html.twig', array(
             'num' => $num,
             'online' => $online,
-            'usuario' => $usuario
+            'usuario' => $usuario,
+            'compra' => $compra
         ));
     }
 
-    public function facturasAction() //HACER
+    public function facturasAction()
     {
         $em = $this->getDoctrine()->getManager();
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
@@ -386,10 +391,16 @@ class DefaultController extends Controller
             }
         }
 
+        $compra = $em->getRepository('CompraBundle:Compra')->findComprasByUsuario($usuario->getEmail());
+
+        //FALTA hacer que se pueda descargar en pdf la factura
+        //comprobar que en un misma factura salgan todos los que tenga el mismo numero de pedido o los de igual preciototal
+
         return $respuesta = $this->render('UsuarioBundle:Default:facturas.html.twig', array(
             'num' => $num,
             'online' => $online,
-            'usuario' => $usuario
+            'usuario' => $usuario,
+            'compra' => $compra
         ));
     }
 

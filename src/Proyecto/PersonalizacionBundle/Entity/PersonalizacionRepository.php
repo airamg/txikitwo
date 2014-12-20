@@ -49,4 +49,18 @@ class PersonalizacionRepository extends EntityRepository
 
         return $consulta->getOneOrNullResult();
     }
+
+    public function findPersonalizacionesByUsuario($usuario)
+    {
+        $em = $this->getEntityManager();
+
+        $consulta = $em->createQuery('
+            SELECT p
+            FROM PersonalizacionBundle:Personalizacion p
+            WHERE p.usuario = :usuario
+        ');
+        $consulta->setParameter('usuario', $usuario);
+
+        return $consulta->getResult();
+    }
 }

@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Pedidos realizados - Txikitwo{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+        '@WebBundle/Resources/public/css/frontend.css'
+        '@UsuarioBundle/Resources/public/css/registro.css'
+        '@UsuarioBundle/Resources/public/css/cuenta.css'
+        '@CompraBundle/Resources/public/css/compra.css'
+        output='css/pedidosrealizados.css' %}
+    <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    {% include ':includes:header.html.twig' %}
+    {% include ':includes:menucuenta.html.twig' %}
+    <div id="contenidocuenta">
+        <div id="menu">
+            <ul>
+                <li><a href="{{ path('usuario_pedidos') }}">mis pedidos</a></li>
+                <li><a href="{{ path('usuario_pedidosrealizados') }}">pedidos realizados</a></li>
+                <li><a href="{{ path('usuario_facturas') }}">facturas</a></li>
+            </ul>
+        </div>
+        <div id="mainpedidos">
+            {%  set cont = 0 %}
+            <div id="listapedidos">
+                {% for compr in compra %}
+                    {%  set cont = cont + 1 %}
+                    <div id="pedido-select">
+                        <div id="contpedidos">
+                            <p><strong>{{ cont }}</strong></p>
+                        </div>
+                        <div id="datos">
+                            <ul>
+                                {% if compr.personalizacion.genero == "nina" %}
+                                    {% set g = "niña" %}
+                                {% else %}
+                                    {% set g = "niño" %}
+                                {% endif %}
+                                <li><strong>Número de pedido:</strong> #{{ compr.numeroPedido }}</li>
+                                <li><strong>Fecha:</strong> {{ compr.fecha|date('d-m-Y') }}</li>
+                                <li><strong>Articulo:</strong> {{ compr.personalizacion.articulo }} {{ g }}, {{ compr.personalizacion.talla }}</li>
+                                <li><strong>Precio total:</strong> {{ compr.precio }}€</li>
+                                <li><strong>Estado:</strong> {{ compr.estado }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% include ':includes:footer.html.twig' %}
+{% endblock %}

@@ -29,11 +29,13 @@
             <p><strong>Estado: </strong>online</p>
             <ul>
                 <li><p><strong>Compras pendientes: </strong>{{ num }}</p></li>
+                {% if num > 0 %}
                 <li>
                     <div id="enlacescuenta1">
                         <a class="boton" href="{{ path('compra_homepage') }}">ver</a>
                     </div>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </div>

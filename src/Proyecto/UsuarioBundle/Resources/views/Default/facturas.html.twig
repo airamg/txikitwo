@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Mis facturas - Txikitwo{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+        '@WebBundle/Resources/public/css/frontend.css'
+        '@UsuarioBundle/Resources/public/css/registro.css'
+        '@UsuarioBundle/Resources/public/css/cuenta.css'
+        '@CompraBundle/Resources/public/css/compra.css'
+    output='css/facturas.css' %}
+    <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    {% include ':includes:header.html.twig' %}
+    {% include ':includes:menucuenta.html.twig' %}
+    <div id="contenidocuenta">
+        <div id="menu">
+            <ul>
+                <li><a href="{{ path('usuario_pedidos') }}">mis pedidos</a></li>
+                <li><a href="{{ path('usuario_pedidosrealizados') }}">pedidos realizados</a></li>
+                <li><a href="{{ path('usuario_facturas') }}">facturas</a></li>
+            </ul>
+        </div>
+        <div id="main">
+
+        </div>
+    </div>
+    {% include ':includes:footer.html.twig' %}
+{% endblock %}

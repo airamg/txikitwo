@@ -99,6 +99,7 @@ class DefaultController extends Controller
         }
         //buscar las personalizaciones correspondientes segun el id
         $foundpersonalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findById($id);
+        $numeroPedido = rand(1,1000000);
 
         if ($request->isMethod('POST')) {
             if($id == "0")
@@ -110,6 +111,7 @@ class DefaultController extends Controller
                     $em->flush();
                     //crear las compras correspondientes a cada personalizacion
                     $compra1 = new Compra();
+                    $compra1->setNumeroPedido($numeroPedido);
                     $articulopers = $pendiente->getArticulo();
                     $preciopers = $articulopers->getPrecio() + $pendiente->getPrecioAccesorios();
                     $compra1->setPrecio($preciopers);
@@ -127,6 +129,7 @@ class DefaultController extends Controller
                 $em->flush();
                 //crear las compras correspondientes a cada personalizacion
                 $compra2 = new Compra();
+                $compra2->setNumeroPedido($numeroPedido);
                 $compra2->setPrecio($precio);
                 $compra2->setPrecioTotal($precio);
                 $compra2->setUsuario($foundpersonalizacion->getUsuario());
