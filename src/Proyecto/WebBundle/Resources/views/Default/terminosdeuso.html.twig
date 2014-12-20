@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Términos de uso - Txikitwo{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+        '@WebBundle/Resources/public/css/frontend.css'
+        '@WebBundle/Resources/public/css/informacion.css'
+        output='css/terminosdeuso.css' %}
+    <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    {% include ':includes:header.html.twig' %}
+    {% include ':includes:menufooter.html.twig' %}
+    <div id="contenido">
+        PAGOS  <!-- seccion para pagos -->
+        ENVÍOS <!-- seccion para envios -->
+    </div>
+    {% include ':includes:footer.html.twig' %}
+{% endblock %}

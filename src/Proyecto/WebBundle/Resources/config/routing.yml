@@ -11,3 +11,15 @@ web_guiatallas:
 web_guiacompra:
     path:     /guiacompra
     defaults: { _controller: WebBundle:Default:guiacompra }
+
+web_contacto:
+    path:     /informacion/contacto
+    defaults: { _controller: WebBundle:Default:contacto }
+
+web_terminosdeuso:
+    path:     /informacion/terminosdeuso
+    defaults: { _controller: WebBundle:Default:terminosdeuso }
+
+web_privacidad:
+    path:     /informacion/privacidad
+    defaults: { _controller: WebBundle:Default:privacidad }
