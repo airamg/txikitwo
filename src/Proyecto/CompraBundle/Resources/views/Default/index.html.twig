@@ -32,8 +32,14 @@
                         {% endif %}
                         <li><strong>Talla:</strong> {{ personalizacio.talla }} - {{ g }}</li>
                         <li><strong>Tejido:</strong> {{ personalizacio.tejido.slug }}</li>
-                        <li><strong>Estampado:</strong> {{ personalizacio.articulo.estampado }}</li>
-                        <li><strong>Características:</strong> {{ personalizacio.caracteristicas }}</li>
+                        {% if personalizacio.articulo.estampado != "-" %}
+                            <li><strong>Estampado:</strong> {{ personalizacio.articulo.estampado }}</li>
+                        {% endif %}
+                        {% if personalizacio.caracteristicas != "-" %}
+                            <li><strong>Características:</strong> {{ personalizacio.caracteristicas }}</li>
+                        {% else %}
+                            <li><strong>Características:</strong> diseño original</li>
+                        {% endif %}
                         {%  set p = personalizacio.articulo.precio + personalizacio.precioAccesorios %}
                         <li><strong>Precio total:</strong> {{ p }}€ ({{ personalizacio.articulo.precio }}€ + {{ personalizacio.precioAccesorios }}€)</li>
                         {%  set totalprecio = totalprecio + p %}

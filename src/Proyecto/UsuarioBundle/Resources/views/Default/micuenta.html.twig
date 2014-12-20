@@ -15,7 +15,27 @@
     {% include ':includes:header.html.twig' %}
     {% include ':includes:menucuenta.html.twig' %}
     <div id="contenidocuenta">
-        {{ usuario }}
+        <div id="menu">
+            <ul>
+                <li><a href="{{ path('usuario_cuenta') }}">mi cuenta</a></li>
+                <li><a href="{{ path('usuario_password') }}">contraseña</a></li>
+                <li><a href="{{ path('usuario_direccion') }}">dirección</a></li>
+                <li><a href="{{ path('usuario_borrarcuenta') }}">eliminar cuenta</a></li>
+            </ul>
+        </div>
+        <div id="main">
+            <p><strong>Nombre: </strong>{{ usuario }}</p>
+            <p><strong>Email: </strong>{{ usuario.email }}</p>
+            <p><strong>Estado: </strong>online</p>
+            <ul>
+                <li><p><strong>Compras pendientes: </strong>{{ num }}</p></li>
+                <li>
+                    <div id="enlacescuenta1">
+                        <a class="boton" href="{{ path('compra_homepage') }}">ver</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
     {% include ':includes:footer.html.twig' %}
 {% endblock %}

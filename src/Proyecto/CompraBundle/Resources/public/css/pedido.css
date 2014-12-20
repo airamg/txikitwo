@@ -80,6 +80,15 @@
 #enlacespedidofinal ul
 {
     padding-left: 0em;
+    display: inline-block;
+}
+
+#enlacespedidofinal li
+{
+    display: block;
+    float: left;
+    text-align: center;
+    padding-right: 2em;
 }
 
 #enlacespedidofinal input.boton {
@@ -101,19 +110,6 @@
     width: 145px;
     background: #000;
     border: 2px solid #999999;
-}
-
-#enlacespedidofinal ul
-{
-    display: inline-block;
-}
-
-#enlacespedidofinal li
-{
-    display: block;
-    float: left;
-    text-align: center;
-    padding-right: 2em;
 }
 
 a.boton {

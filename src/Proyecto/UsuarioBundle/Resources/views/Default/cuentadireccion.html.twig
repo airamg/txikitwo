@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Dirección - Txikitwo{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+        '@WebBundle/Resources/public/css/frontend.css'
+        '@UsuarioBundle/Resources/public/css/registro.css'
+        '@UsuarioBundle/Resources/public/css/cuenta.css'
+        output='css/direccioncuenta.css' %}
+    <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    {% include ':includes:header.html.twig' %}
+    {% include ':includes:menucuenta.html.twig' %}
+    <div id="contenidocuenta">
+        <div id="menu">
+            <ul>
+                <li><a href="{{ path('usuario_cuenta') }}">mi cuenta</a></li>
+                <li><a href="{{ path('usuario_password') }}">contraseña</a></li>
+                <li><a href="{{ path('usuario_direccion') }}">dirección</a></li>
+                <li><a href="{{ path('usuario_borrarcuenta') }}">eliminar cuenta</a></li>
+            </ul>
+        </div>
+        <div id="main">
+            <p><strong>Dirección actual</strong></p>
+            <p>{{ usuario.direccion }}</p>
+            <p>{{ usuario.codigoPostal }}</p>
+            <form action="{{ path('usuario_direccion') }}" method="post" {{ form_enctype(formulario) }}>
+                <div id="formulariomodificacion">
+                    <p><strong>Nueva dirección</strong></p>
+                    <ul>
+                        <li>{{ form_widget(formulario.direccion) }}</li>
+                        <li>{{ form_widget(formulario.codigoPostal) }}</li>
+                    </ul>
+                    {{ form_rest(formulario) }}
+                </div>
+                <div id="enlacescuenta">
+                    <ul>
+                        <li>
+                            <input class="boton" type="submit" name="modificardireccion" value="modificar" />
+                        </li>
+                        <li>
+                            <div id="enlacescuenta1">
+                                <a class="boton" href="{{ path('usuario_cuenta') }}">cancelar</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% include ':includes:footer.html.twig' %}
+{% endblock %}

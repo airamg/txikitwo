@@ -176,7 +176,7 @@ class DefaultController extends Controller
         ));
     }
 
-    public function cuentaAction()
+    public function cuentaAction() //HACER
     {
         $em = $this->getDoctrine()->getManager();
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
@@ -192,7 +192,7 @@ class DefaultController extends Controller
             }
         }
 
-        //HACER
+
 
         return $respuesta = $this->render('UsuarioBundle:Default:micuenta.html.twig', array(
             'num' => $num,
@@ -201,9 +201,11 @@ class DefaultController extends Controller
         ));
     }
 
-    public function passwordAction() //HACER
+    public function passwordAction()
     {
+        $peticion = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
+
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
         $num = 0;
         $online = 0;
@@ -214,19 +216,46 @@ class DefaultController extends Controller
             $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
             foreach ($personalizacion as $pendiente) {
                 $num = $num + 1;
+            }
+        }
+
+        $formulario = $this->createFormBuilder()
+            ->add('passwordactual', 'password', array('attr' => array('placeholder' => 'Contraseña actual')))
+            ->add('password', 'repeated', array(
+                'type' => 'password',
+                'invalid_message' => 'Las dos contraseñas deben coincidir',
+                'first_options'   => array('label' => false, 'attr' => array('placeholder' => 'Nueva contraseña')),
+                'second_options'  => array('label' => false, 'attr' => array('placeholder' => 'Repite la nueva contraseña')),
+                'required'        => false
+            ))
+            ->getForm();
+        $formulario->handleRequest($peticion);
+
+        if ($formulario->isValid()) {
+            $passactual = $formulario->get('passwordactual')->getData();
+            $pass = $formulario->get('password')->getData();
+            if($passactual == $usuario->getPassword())
+            {
+                $usuario->setPassword($pass);
+                $em->persist($usuario);
+                $em->flush();
+                return $this->redirect($this->generateUrl('usuario_cuenta'));
             }
         }
 
         return $respuesta = $this->render('UsuarioBundle:Default:cuentapassword.html.twig', array(
             'num' => $num,
             'online' => $online,
-            'usuario' => $usuario
+            'usuario' => $usuario,
+            'formulario' => $formulario->createView()
         ));
     }
 
-    public function direccionAction() //HACER
+    public function direccionAction()
     {
+        $peticion = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
+
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
         $num = 0;
         $online = 0;
@@ -240,16 +269,35 @@ class DefaultController extends Controller
             }
         }
 
+        $formulario = $this->createFormBuilder()
+            ->add('direccion', 'textarea', array('attr' => array('placeholder' => 'Nueva dirección')))
+            ->add('codigoPostal', 'text', array('attr' => array('placeholder' => 'Nuevo código postal')))
+            ->getForm();
+        $formulario->handleRequest($peticion);
+
+        if ($formulario->isValid()) {
+            $direccion = $formulario->get('direccion')->getData();
+            $codigoPostal = $formulario->get('codigoPostal')->getData();
+            $usuario->setDireccion($direccion);
+            $usuario->setCodigoPostal($codigoPostal);
+            $em->persist($usuario);
+            $em->flush();
+            return $this->redirect($this->generateUrl('usuario_cuenta'));
+        }
+
         return $respuesta = $this->render('UsuarioBundle:Default:cuentadireccion.html.twig', array(
             'num' => $num,
             'online' => $online,
-            'usuario' => $usuario
+            'usuario' => $usuario,
+            'formulario' => $formulario->createView()
         ));
     }
 
-    public function borrarcuentaAction() //HACER
+    public function borrarcuentaAction()
     {
+        $request = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
+
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
         $num = 0;
         $online = 0;
@@ -261,6 +309,12 @@ class DefaultController extends Controller
             foreach ($personalizacion as $pendiente) {
                 $num = $num + 1;
             }
+        }
+
+        if ($request->isMethod('POST')) {
+            $em->remove($usuario);
+            $em->flush();
+            return $this->redirect($this->generateUrl('web_homepage'));
         }
 
         return $respuesta = $this->render('UsuarioBundle:Default:borrarcuenta.html.twig', array(

@@ -1,0 +1,46 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Eliminar cuenta - Txikitwo{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@WebBundle/Resources/public/css/homepage.css'
+        '@WebBundle/Resources/public/css/frontend.css'
+        '@UsuarioBundle/Resources/public/css/registro.css'
+        '@UsuarioBundle/Resources/public/css/cuenta.css'
+        output='css/borrarcuenta.css' %}
+    <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    {% include ':includes:header.html.twig' %}
+    {% include ':includes:menucuenta.html.twig' %}
+    <div id="contenidocuenta">
+        <div id="menu">
+            <ul>
+                <li><a href="{{ path('usuario_cuenta') }}">mi cuenta</a></li>
+                <li><a href="{{ path('usuario_password') }}">contraseña</a></li>
+                <li><a href="{{ path('usuario_direccion') }}">dirección</a></li>
+                <li><a href="{{ path('usuario_borrarcuenta') }}">eliminar cuenta</a></li>
+            </ul>
+        </div>
+        <div id="main">
+            <p><strong>¿Estás seguro/a de que quieres eliminar tu cuenta?</strong></p>
+            <p class="small">Esta operación supone la perdida completa de todos tus datos.</p>
+            <div id="enlacescuenta">
+                <ul>
+                    <li>
+                        <form action="{{ path('usuario_borrarcuenta') }}" method="post">
+                            <input class="boton" type="submit" name="borrarcuentausuario" value="sí" />
+                        </form>
+                    </li>
+                    <li>
+                        <div id="enlacescuenta1">
+                            <a class="boton" href="{{ path('usuario_cuenta') }}">no</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% include ':includes:footer.html.twig' %}
+{% endblock %}

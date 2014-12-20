@@ -38,7 +38,11 @@
                                 {% if personalizacio.articulo.estampado != "-" %}
                                     <li><strong>Estampado:</strong> {{ personalizacio.articulo.estampado }}</li>
                                 {% endif %}
-                                <li><strong>Características:</strong> {{ personalizacio.caracteristicas }}</li>
+                                {% if personalizacio.caracteristicas != "-" %}
+                                    <li><strong>Características:</strong> {{ personalizacio.caracteristicas }}</li>
+                                {% else %}
+                                    <li><strong>Características:</strong> diseño original</li>
+                                {% endif %}
                                 {%  set p = personalizacio.articulo.precio + personalizacio.precioAccesorios %}
                                 <li><strong>Precio:</strong> {{ p }}€</li>
                             </ul>
@@ -62,7 +66,11 @@
                             {% if foundpersonalizacion.articulo.estampado != "-" %}
                                 <li><strong>Estampado:</strong> {{ foundpersonalizacion.articulo.estampado }}</li>
                             {% endif %}
-                            <li><strong>Características:</strong> {{ foundpersonalizacion.caracteristicas }}</li>
+                            {% if foundpersonalizacion.caracteristicas != "-" %}
+                                <li><strong>Características:</strong> {{ foundpersonalizacion.caracteristicas }}</li>
+                            {% else %}
+                                <li><strong>Características:</strong> diseño original</li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
@@ -76,7 +84,7 @@
                 <li><p class="dir">{{ usuario.codigoPostal }}</p></li>
                 <li>
                     <div id="enlacemodificardatosusuario">
-                        <a class="boton" href="{{ path('usuario_cuenta') }}">modificar datos</a>
+                        <a class="boton" href="{{ path('usuario_direccion') }}">modificar datos</a>
                     </div>
                 </li>
             </ul>
@@ -97,7 +105,7 @@
                         </form>
                     </li>
                     <li>
-                        <div id="enlacespedidofinal1"> <!-- falta estilo -->
+                        <div id="enlacespedidofinal1">
                             <a class="boton" href="{{ path('compra_homepage') }}">cancelar</a>
                         </div>
                     </li>
