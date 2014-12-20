@@ -14,6 +14,31 @@ usuario_cuenta:
     path:     /micuenta
     defaults: { _controller: UsuarioBundle:Default:cuenta }
 
+usuario_password:
+    path:     /datospersonales/password
+    defaults: { _controller: UsuarioBundle:Default:password }
+
+usuario_direccion:
+    path:     /datospersonales/direccion
+    defaults: { _controller: UsuarioBundle:Default:direccion }
+
+usuario_borrarcuenta:
+    path:     /datospersonales/borrarcuenta
+    defaults: { _controller: UsuarioBundle:Default:borrarcuenta }
+
+usuario_pedidos:
+    path:     /mispedidos/listado
+    defaults: { _controller: UsuarioBundle:Default:pedidos }
+
+usuario_pedidosrealizados:
+    path:     /mispedidos/realizados
+    defaults: { _controller: UsuarioBundle:Default:pedidosrealizados }
+
+usuario_facturas:
+    path:     /mispedidos/facturas
+    defaults: { _controller: UsuarioBundle:Default:facturas }
+
 usuario_cerrarsesion:
     path:     /cerrarsesion
     defaults: { _controller: UsuarioBundle:Default:cerrarsesion }
+

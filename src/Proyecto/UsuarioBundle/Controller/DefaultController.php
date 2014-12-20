@@ -201,6 +201,144 @@ class DefaultController extends Controller
         ));
     }
 
+    public function passwordAction() //HACER
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
+        return $respuesta = $this->render('UsuarioBundle:Default:cuentapassword.html.twig', array(
+            'num' => $num,
+            'online' => $online,
+            'usuario' => $usuario
+        ));
+    }
+
+    public function direccionAction() //HACER
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
+        return $respuesta = $this->render('UsuarioBundle:Default:cuentadireccion.html.twig', array(
+            'num' => $num,
+            'online' => $online,
+            'usuario' => $usuario
+        ));
+    }
+
+    public function borrarcuentaAction() //HACER
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
+        return $respuesta = $this->render('UsuarioBundle:Default:borrarcuenta.html.twig', array(
+            'num' => $num,
+            'online' => $online,
+            'usuario' => $usuario
+        ));
+    }
+
+    public function pedidosAction() //HACER
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
+        return $respuesta = $this->render('UsuarioBundle:Default:listadopedidos.html.twig', array(
+            'num' => $num,
+            'online' => $online,
+            'usuario' => $usuario
+        ));
+    }
+
+    public function pedidosrealizadosAction() //HACER
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
+        return $respuesta = $this->render('UsuarioBundle:Default:pedidosrealizados.html.twig', array(
+            'num' => $num,
+            'online' => $online,
+            'usuario' => $usuario
+        ));
+    }
+
+    public function facturasAction() //HACER
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
+        return $respuesta = $this->render('UsuarioBundle:Default:facturas.html.twig', array(
+            'num' => $num,
+            'online' => $online,
+            'usuario' => $usuario
+        ));
+    }
+
     public function cerrarsesionAction()
     {
         $request = $this->getRequest();
