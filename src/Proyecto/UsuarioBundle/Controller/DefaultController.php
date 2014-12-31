@@ -328,6 +328,7 @@ class DefaultController extends Controller
 
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
         $num = 0;
+        $num1 = 0;
         $online = 0;
         if(!$usuario) {
             $num = 0;
@@ -340,12 +341,16 @@ class DefaultController extends Controller
         }
 
         $personalizacion1 = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPersonalizacionesByUsuario($usuario->getEmail());
+        foreach ($personalizacion1 as $pedidos) {
+            $num1 = $num1 + 1;
+        }
 
         return $respuesta = $this->render('UsuarioBundle:Default:listadopedidos.html.twig', array(
             'num' => $num,
             'online' => $online,
             'usuario' => $usuario,
-            'personalizacion' => $personalizacion1
+            'personalizacion' => $personalizacion1,
+            'num1' => $num1
         ));
     }
 
@@ -354,6 +359,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
         $num = 0;
+        $num1 = 0;
         $online = 0;
         if(!$usuario) {
             $num = 0;
@@ -366,12 +372,16 @@ class DefaultController extends Controller
         }
 
         $compra = $em->getRepository('CompraBundle:Compra')->findComprasByUsuario($usuario->getEmail());
+        foreach ($compra as $compras) {
+            $num1 = $num1 + 1;
+        }
 
         return $respuesta = $this->render('UsuarioBundle:Default:pedidosrealizados.html.twig', array(
             'num' => $num,
             'online' => $online,
             'usuario' => $usuario,
-            'compra' => $compra
+            'compra' => $compra,
+            'num1' => $num1
         ));
     }
 

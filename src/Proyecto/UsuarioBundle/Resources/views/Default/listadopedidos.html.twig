@@ -20,49 +20,54 @@
             <ul>
                 <li><a href="{{ path('usuario_pedidos') }}">mis pedidos</a></li>
                 <li><a href="{{ path('usuario_pedidosrealizados') }}">pedidos realizados</a></li>
-                <li><a href="{{ path('usuario_facturas') }}">facturas</a></li>
             </ul>
         </div>
         <div id="mainpedidos">
             {%  set cont = 0 %}
             <div id="listapedidos">
-                {% for personalizacio in personalizacion %}
-                    {%  set cont = cont + 1 %}
+                {% if num1 == 0 %}
                     <div id="pedido-select">
-                        <div id="contpedidos">
-                            <p><strong>{{ cont }}</strong></p>
-                        </div>
-                        <div id="imagenpersonalizada">
-                            <img alt="foto" src="{{ asset(directorio_imagenes ~ personalizacio.rutaFoto) }}">
-                        </div>
-                        <div id="datospersonalizacion">
-                            <ul>
-                                {% if personalizacio.genero == "nina" %}
-                                    {% set g = "niña" %}
-                                {% else %}
-                                    {% set g = "niño" %}
-                                {% endif %}
-                                <li><strong>Talla:</strong> {{ personalizacio.talla }} - {{ g }}</li>
-                                <li><strong>Tejido:</strong> {{ personalizacio.tejido.slug }}</li>
-                                {% if personalizacio.articulo.estampado != "-" %}
-                                    <li><strong>Estampado:</strong> {{ personalizacio.articulo.estampado }}</li>
-                                {% endif %}
-                                {% if personalizacio.caracteristicas != "-" %}
-                                    <li><strong>Características:</strong> {{ personalizacio.caracteristicas }}</li>
-                                {% else %}
-                                    <li><strong>Características:</strong> diseño original</li>
-                                {% endif %}
-                                {%  set p = personalizacio.articulo.precio + personalizacio.precioAccesorios %}
-                                <li><strong>Precio total:</strong> {{ p }}€</li>
-                                {% if personalizacio.pendiente == '1' %}
-                                    <li><strong>Estado:</strong> pendiente</li>
-                                {% else %}
-                                    <li><strong>Estado:</strong> en proceso</li>
-                                {% endif %}
-                            </ul>
-                        </div>
+                        <p><strong>No has realizado ningún pedido todavía.</strong></p>
                     </div>
-                {% endfor %}
+                {% else %}
+                    {% for personalizacio in personalizacion %}
+                        {%  set cont = cont + 1 %}
+                        <div id="pedido-select">
+                            <div id="contpedidos">
+                                <p><strong>{{ cont }}</strong></p>
+                            </div>
+                            <div id="imagenpersonalizada">
+                                <img alt="foto" src="{{ asset(directorio_imagenes ~ personalizacio.rutaFoto) }}">
+                            </div>
+                            <div id="datospersonalizacion">
+                                <ul>
+                                    {% if personalizacio.genero == "nina" %}
+                                        {% set g = "niña" %}
+                                    {% else %}
+                                        {% set g = "niño" %}
+                                    {% endif %}
+                                    <li><strong>Talla:</strong> {{ personalizacio.talla }} - {{ g }}</li>
+                                    <li><strong>Tejido:</strong> {{ personalizacio.tejido.slug }}</li>
+                                    {% if personalizacio.articulo.estampado != "-" %}
+                                        <li><strong>Estampado:</strong> {{ personalizacio.articulo.estampado }}</li>
+                                    {% endif %}
+                                    {% if personalizacio.caracteristicas != "-" %}
+                                        <li><strong>Características:</strong> {{ personalizacio.caracteristicas }}</li>
+                                    {% else %}
+                                        <li><strong>Características:</strong> diseño original</li>
+                                    {% endif %}
+                                    {%  set p = personalizacio.articulo.precio + personalizacio.precioAccesorios %}
+                                    <li><strong>Precio total:</strong> {{ p }}€</li>
+                                    {% if personalizacio.pendiente == '1' %}
+                                        <li class="rojo"><strong>Estado:</strong> pendiente</li>
+                                    {% else %}
+                                        <li class="rojo"><strong>Estado:</strong> en proceso</li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>

@@ -20,34 +20,41 @@
             <ul>
                 <li><a href="{{ path('usuario_pedidos') }}">mis pedidos</a></li>
                 <li><a href="{{ path('usuario_pedidosrealizados') }}">pedidos realizados</a></li>
-                <li><a href="{{ path('usuario_facturas') }}">facturas</a></li>
             </ul>
         </div>
         <div id="mainpedidos">
             {%  set cont = 0 %}
             <div id="listapedidos">
-                {% for compr in compra %}
-                    {%  set cont = cont + 1 %}
+               {% if num1 == 0 %}
                     <div id="pedido-select">
-                        <div id="contpedidos">
-                            <p><strong>{{ cont }}</strong></p>
-                        </div>
-                        <div id="datos">
-                            <ul>
-                                {% if compr.personalizacion.genero == "nina" %}
-                                    {% set g = "niña" %}
-                                {% else %}
-                                    {% set g = "niño" %}
-                                {% endif %}
-                                <li><strong>Número de pedido:</strong> #{{ compr.numeroPedido }}</li>
-                                <li><strong>Fecha:</strong> {{ compr.fecha|date('d-m-Y') }}</li>
-                                <li><strong>Articulo:</strong> {{ compr.personalizacion.articulo }} {{ g }}, {{ compr.personalizacion.talla }}</li>
-                                <li><strong>Precio total:</strong> {{ compr.precio }}€</li>
-                                <li><strong>Estado:</strong> {{ compr.estado }}</li>
-                            </ul>
-                        </div>
+                        <p><strong>No has realizado ningún pedido todavía.</strong></p>
                     </div>
-                {% endfor %}
+               {% else %}
+                   {% set numpedido = 0 %}
+                    {% for compr in compra %}
+                        {% if compr.numeroPedido != numpedido %}
+                            {% set numpedido = compr.numeroPedido %}
+                            {%  set cont = cont + 1 %}
+                            <div id="pedido-select">
+                                <div id="contpedidos">
+                                    <p><strong>{{ cont }}</strong></p>
+                                </div>
+                                <div id="datos">
+                                    <ul>
+                                        <li><strong>Número de pedido:</strong> #{{ compr.numeroPedido }}</li>
+                                        <li><strong>Fecha:</strong> {{ compr.fecha|date('d-m-Y') }}</li>
+                                        <li><strong>Precio total:</strong> {{ compr.precioTotal }}€</li>
+                                        <li><strong>Estado:</strong> {{ compr.estado }}</li>
+                                    </ul>
+                                    <div id="enlacepedido">
+                                        <a class="boton" href="{{ path('usuario_facturas') }}">ver factura</a>
+                                    </div>
+                                </div>
+                            </div>
+                       
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
