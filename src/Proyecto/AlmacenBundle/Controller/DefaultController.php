@@ -159,10 +159,10 @@ class DefaultController extends Controller
                 $busqueda = $em->getRepository('ArticuloBundle:Articulo')->findAllArticulosByNombre($parambusqueda);
             }
             elseif($parametro == "color") {
-                $busqueda = $em->getRepository('ArticuloBundle:Color')->findAllArticulosByColor($parambusqueda);
+                $busqueda = $em->getRepository('ArticuloBundle:Articulo')->findAllArticulosByColor($parambusqueda);
             }
             elseif($parametro == "estampado") {
-                $busqueda = $em->getRepository('ArticuloBundle:Estampado')->findAllArticulosByEstampado($parambusqueda);
+                $busqueda = $em->getRepository('ArticuloBundle:Articulo')->findAllArticulosByEstampado($parambusqueda);
             }
             else {
                 return $this->redirect($this->generateUrl('almacen_busqueda_error'));
@@ -185,7 +185,8 @@ class DefaultController extends Controller
             'num' => $num,
             'online' => $online,
             'formulario' => $formulario->createView(),
-            'busqueda' => $busqueda
+            'busqueda' => $busqueda,
+            'parametro' => $parametro
         ));
     }
 
