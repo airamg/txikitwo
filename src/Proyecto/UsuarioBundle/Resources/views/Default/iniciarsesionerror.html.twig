@@ -10,22 +10,48 @@
     {% endstylesheets %}
 {% endblock %}
 
+{% block javascripts %}
+    {% javascripts '@PersonalizacionBundle/Resources/public/js/*' output='js/personalizacion/personalizacion.js' %}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('input[type="checkbox"]').click(function(){
+                if($(this).attr("value")=="recordarpassword"){
+                    $(".recordarpassword").toggle();
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
 {% block body %}
     {% include ':includes:header.html.twig' %}
     {% include ':includes:menuprincipal.html.twig' %}
     <div id="contenido">
         <div id="formularioiniciosesion">
-            <form action="{{ path('usuario_iniciarsesion') }}" method="post" {{ form_enctype(formulario) }}>
-                <ul>
+            <ul>
+                <form action="{{ path('usuario_iniciarsesion') }}" method="post" {{ form_enctype(formulario) }}>
                     <li><p>tengo una cuenta</p></li>
                     <li><h3 class="error">email o contraseña no válidos</h3></li>
                     <li>{{ form_widget(formulario.email) }}</li>
                     <li>{{ form_widget(formulario.password) }}</li>
                     {{ form_rest(formulario) }}
                     <li><input class="boton" type="submit" name="login" value="entrar" /></li>
-                    <!-- falta recordar contraseña crear div -->
-                </ul>
-            </form>
+                    <li><input type="checkbox" name="check_list[]" value="recordarpassword"><label>¿Has olvidado la contraseña?</label></li>
+                </form>
+            </ul>
+            <ul>
+                <form action="{{ path('usuario_iniciarsesion_recordarpassword') }}" method="post" {{ form_enctype(formulario1) }}>
+                    <div class="recordarpassword">
+                        <li>{{ form_widget(formulario1.email) }}</li>
+                        <li>{{ form_widget(formulario1.password) }}</li>
+                        {{ form_rest(formulario1) }}
+                        <li><input class="boton" type="submit" name="recordarpassword" value="enviar" /></li>
+                    </div>
+                </form>
+            </ul>
         </div>
         <div id="formularioregistro">
             <form action="#" method="post">

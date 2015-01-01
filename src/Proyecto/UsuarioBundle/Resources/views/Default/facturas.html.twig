@@ -7,7 +7,8 @@
         '@UsuarioBundle/Resources/public/css/registro.css'
         '@UsuarioBundle/Resources/public/css/cuenta.css'
         '@CompraBundle/Resources/public/css/compra.css'
-    output='css/facturas.css' %}
+        '@UsuarioBundle/Resources/public/css/facturas.css'
+        output='css/facturas.css' %}
     <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
     {% endstylesheets %}
 {% endblock %}
@@ -23,7 +24,57 @@
             </ul>
         </div>
         <div id="main">
-
+            <div id="listapedidos">
+                {% set preciotot = 0 %}
+                {% set fechapedid = ' ' %}
+                <div id="pedido-select">
+                    {% set numpedido = 0 %}
+                    {% for compr in compra %}
+                        {% if compr.numeroPedido != numpedido %}
+                            {% set numpedido = compr.numeroPedido %}
+                            <p class="factura-grande">FACTURA TXIKITWO #{{ compr.numeroPedido }}</p>
+                        {% endif %}
+                        {% set preciotot = compr.precioTotal %}
+                        {% set fechapedid = compr.fecha|date('d-m-Y') %}
+                    {% endfor %}
+                    <p>{{ usuario }}</p>
+                    <ul>
+                        <li>{{ usuario.direccion }}</li>
+                        <li>{{ usuario.codigoPostal }}</li>
+                    </ul>
+                    <p><strong>Artículo(s)</strong></p>
+                </div>
+                {% for compr in compra %}
+                    <div id="pedido-select">
+                        <div id="imagenpersonalizada">
+                            <img alt="foto" src="{{ asset(directorio_imagenes ~ compr.personalizacion.rutaFoto) }}">
+                        </div>
+                        <div id="datospersonalizacion">
+                            <ul>
+                                {% set gener = ' ' %}
+                                {% if compr.personalizacion.genero == "nina" %}
+                                    {% set gener = "Niña" %}
+                                {% else %}
+                                    {% set gener = "Niño" %}
+                                {% endif %}
+                                <li><strong>Artículo: </strong>{{ compr.personalizacion.articulo }} - {{ gener }}</li>
+                                <li><strong>Talla: </strong>{{ compr.personalizacion.talla }}</li>
+                                <li><strong>Tejido: </strong>{{ compr.personalizacion.tejido }} </li>
+                                {% if compr.personalizacion.caracteristicas != "-" %}
+                                    <li><strong>Características:</strong> {{ compr.personalizacion.caracteristicas }}</li>
+                                {% else %}
+                                    <li><strong>Características:</strong> diseño original</li>
+                                {% endif %}
+                                <li><strong>Precio: </strong>{{ compr.precio }}€</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div id="pedido-select">
+                    <p class="pago-grande">Precio total: {{ preciotot }}€</p>
+                    <li><strong>Fecha:</strong> {{ fechapedid }}</li>
+                </div>
+            </div>
         </div>
     </div>
     {% include ':includes:footer.html.twig' %}

@@ -9,12 +9,12 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "abrigo" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-                            <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                            <li><input type="radio" name="check_list[]" value="botones"><label>Botones</label></li>
-                            <li><input type="radio" name="check_list[]" value="rosa"><label>Rosa</label></li>
-                            <li><input type="radio" name="check_list[]" value="azul"><label>Azul</label></li>
-                            <li><input type="radio" name="check_list[]" value="botones_rosa"><label>Botones + rosa</label></li>
-                            <li><input type="radio" name="check_list[]" value="botones_azul"><label>Botones + azul</label></li>
+                            <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                            <li><input type="radio" name="check_list[]" value="botones"><label>Añadir botones</label></li>
+                            <li><input type="radio" name="check_list[]" value="rosa"><label>Abrigo rosa</label></li>
+                            <li><input type="radio" name="check_list[]" value="azul"><label>Abrigo azul</label></li>
+                            <li><input type="radio" name="check_list[]" value="botones_rosa"><label>Abrigo rosa con botones</label></li>
+                            <li><input type="radio" name="check_list[]" value="botones_azul"><label>Abrigo azul con botones</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -35,10 +35,10 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "bata" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-                            <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                            <li><input type="radio" name="check_list[]" value="bolsillos"><label>Bolsillos</label></li>
-                            <li><input type="radio" name="check_list[]" value="rosa"><label>Rosa</label></li>
-                            <li><input type="radio" name="check_list[]" value="bolsillos_rosa"><label>Bolsillos + rosa</label></li>
+                            <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                            <li><input type="radio" name="check_list[]" value="bolsillos"><label>Añadir bolsillos</label></li>
+                            <li><input type="radio" name="check_list[]" value="rosa"><label>Bata rosa</label></li>
+                            <li><input type="radio" name="check_list[]" value="bolsillos_rosa"><label>Bata rosa con bolsillos</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -59,8 +59,8 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "camisa" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-                            <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                            <li><input type="radio" name="check_list[]" value="mangas"><label>Mangas</label></li>
+                            <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                            <li><input type="radio" name="check_list[]" value="mangas"><label>Cambiar mangas</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -81,10 +81,10 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "camiseta" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-                            <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                            <li><input type="radio" name="check_list[]" value="mangas"><label>Mangas</label></li>
-                            <li><input type="radio" name="check_list[]" value="rosa"><label>Rosa</label></li>
-                            <li><input type="radio" name="check_list[]" value="mangas_rosa"><label>Mangas + Rosa</label></li>
+                            <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                            <li><input type="radio" name="check_list[]" value="mangas"><label>Cambiar mangas</label></li>
+                            <li><input type="radio" name="check_list[]" value="rosa"><label>Camiseta rosa</label></li>
+                            <li><input type="radio" name="check_list[]" value="mangas_rosa"><label>Camiseta rosa con mangas</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -105,8 +105,8 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "falda" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-                            <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                            <li><input type="radio" name="check_list[]" value="lazos"><label>Lazos</label></li>
+                            <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                            <li><input type="radio" name="check_list[]" value="lazos"><label>Añadir lazo</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -127,8 +127,8 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "jersey" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-                            <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                            <li><input type="radio" name="check_list[]" value="mangas"><label>Mangas</label></li>
+                            <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                            <li><input type="radio" name="check_list[]" value="mangas"><label>Cambiar mangas</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -146,13 +146,13 @@
                 <p><strong>19.00€</strong></p>
             </div>
             <div id="opciones">
-                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "bata" }) }}" method="post" {{ form_enctype(formulario) }} >
+                <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "pantalon" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-                            <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                            <li><input type="radio" name="check_list[]" value="larguras"><label>Larguras</label></li>
-                            <li><input type="radio" name="check_list[]" value="verde"><label>Verde</label></li>
-                            <li><input type="radio" name="check_list[]" value="larguras_verde"><label>Larguras + verde</label></li>
+                            <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                            <li><input type="radio" name="check_list[]" value="larguras"><label>Cambiar largo del pantalón</label></li>
+                            <li><input type="radio" name="check_list[]" value="verde"><label>Pantalón verde</label></li>
+                            <li><input type="radio" name="check_list[]" value="larguras_verde"><label>Pantalón corto de color verde</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -173,10 +173,10 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "vestido" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-                            <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                            <li><input type="radio" name="check_list[]" value="mangas"><label>Mangas</label></li>
-                            <li><input type="radio" name="check_list[]" value="lazos"><label>Lazos</label></li>
-                            <li><input type="radio" name="check_list[]" value="mangas_lazos"><label>Mangas + lazos</label></li>
+                            <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                            <li><input type="radio" name="check_list[]" value="mangas"><label>Cambiar mangas</label></li>
+                            <li><input type="radio" name="check_list[]" value="lazos"><label>Añadir lazo</label></li>
+                            <li><input type="radio" name="check_list[]" value="mangas_lazos"><label>Vestido de manga corta con lazo</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -199,10 +199,10 @@
             <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "abrigo" }) }}" method="post" {{ form_enctype(formulario) }} >
                 <div id="formularioopciones">
                     <ul>
-                        <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                        <li><input type="radio" name="check_list[]" value="bolsillos"><label>Bolsillos</label></li>
-                        <li><input type="radio" name="check_list[]" value="verde"><label>Verde</label></li>
-                        <li><input type="radio" name="check_list[]" value="bolsillos_verde"><label>Bolsillos + verde</label></li>
+                        <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                        <li><input type="radio" name="check_list[]" value="bolsillos"><label>Añadir bolsillos</label></li>
+                        <li><input type="radio" name="check_list[]" value="verde"><label>Abrigo verde</label></li>
+                        <li><input type="radio" name="check_list[]" value="bolsillos_verde"><label>Abrigo verde con bolsillos</label></li>
                         <li>{{ form_widget(formulario.talla) }}</li>
                         <li>{{ form_widget(formulario.tejido) }}</li>
                         <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -223,8 +223,8 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "bata" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-                            <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                            <li><input type="radio" name="check_list[]" value="bolsillos"><label>Bolsillos</label></li>
+                            <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                            <li><input type="radio" name="check_list[]" value="bolsillos"><label>Añadir bolsillos</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -245,10 +245,10 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "camisa" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-                            <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                            <li><input type="radio" name="check_list[]" value="bolsillos"><label>Bolsillos</label></li>
-                            <li><input type="radio" name="check_list[]" value="mangas"><label>Mangas</label></li>
-                            <li><input type="radio" name="check_list[]" value="bolsillos_mangas"><label>Bolsillos + mangas</label></li>
+                            <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                            <li><input type="radio" name="check_list[]" value="bolsillos"><label>Añadir bolsillo</label></li>
+                            <li><input type="radio" name="check_list[]" value="mangas"><label>Cambiar mangas</label></li>
+                            <li><input type="radio" name="check_list[]" value="bolsillos_mangas"><label>Camisa sin mangas con bolsillo</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -269,10 +269,10 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "camiseta" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-                            <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                            <li><input type="radio" name="check_list[]" value="dibujos"><label>Dibujos</label></li>
-                            <li><input type="radio" name="check_list[]" value="azul"><label>Azul</label></li>
-                            <li><input type="radio" name="check_list[]" value="dibujos_azul"><label>Dibujos + azul</label></li>
+                            <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                            <li><input type="radio" name="check_list[]" value="dibujos"><label>Añadir dibujo abeja</label></li>
+                            <li><input type="radio" name="check_list[]" value="azul"><label>Camiseta azul</label></li>
+                            <li><input type="radio" name="check_list[]" value="dibujos_azul"><label>Camiseta azul con dibujo abeja</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -293,8 +293,8 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "jersey" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-                            <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                            <li><input type="radio" name="check_list[]" value="rojo"><label>Rojo</label></li>
+                            <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                            <li><input type="radio" name="check_list[]" value="rojo"><label>Jersey rojo</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -315,10 +315,10 @@
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "pantalon" }) }}" method="post" {{ form_enctype(formulario) }} >
                     <div id="formularioopciones">
                         <ul>
-                            <li><input type="radio" name="check_list[]" value="index"><label>Original</label></li>
-                            <li><input type="radio" name="check_list[]" value="larguras"><label>Larguras</label></li>
-                            <li><input type="radio" name="check_list[]" value="azul"><label>Azul</label></li>
-                            <li><input type="radio" name="check_list[]" value="larguras_azul"><label>Larguras + azul</label></li>
+                            <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
+                            <li><input type="radio" name="check_list[]" value="larguras"><label>Cambiar largo del pantalón</label></li>
+                            <li><input type="radio" name="check_list[]" value="azul"><label>Pantalón azul</label></li>
+                            <li><input type="radio" name="check_list[]" value="larguras_azul"><label>Pantalón corto de color azul</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>

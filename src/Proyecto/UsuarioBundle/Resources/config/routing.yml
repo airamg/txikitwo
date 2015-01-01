@@ -6,6 +6,18 @@ usuario_iniciarsesion_error:
     path:     /iniciarsesion/error
     defaults: { _controller: UsuarioBundle:Default:iniciarsesionerror }
 
+usuario_iniciarsesion_recordarpassword:
+    path:     /iniciarsesion/password/recordar
+    defaults: { _controller: UsuarioBundle:Default:recordarpassword }
+
+usuario_iniciarsesion_password:
+    path:     /iniciarsesion/password
+    defaults: { _controller: UsuarioBundle:Default:passwordbien }
+
+usuario_iniciarsesion_password_error:
+    path:     /iniciarsesion/password/error
+    defaults: { _controller: UsuarioBundle:Default:passworderror }
+
 usuario_registrarse:
     path:     /registro
     defaults: { _controller: UsuarioBundle:Default:registrarse }
@@ -35,7 +47,7 @@ usuario_pedidosrealizados:
     defaults: { _controller: UsuarioBundle:Default:pedidosrealizados }
 
 usuario_facturas:
-    path:     /mispedidos/facturas
+    path:     /mispedidos/facturas/{numpedido}
     defaults: { _controller: UsuarioBundle:Default:facturas }
 
 usuario_cerrarsesion:

@@ -1,8 +1,7 @@
 #mainfotos
 {
     float: left;
-    /* width: auto; */
-    width: 950px;
+    width: 800px;
     padding: 5px 5px;
     text-align: right;
 }
@@ -11,3 +10,12 @@
 {
     padding-bottom: 2em;
 }
+
+#enlacebusqueda
+{
+    width: 145px;
+    background: #000;
+    border: 2px solid #999999;
+    color: #FFF;
+}
+

@@ -184,6 +184,17 @@ h3.error {
     border: 1px solid #999999;
 }
 
+h3.bien {
+    padding: 10px;
+    margin-top: 5px;
+    color: #FFF;
+    font-size: 1em;
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    width: 403px;
+    background: #6b9311;
+    border: 1px solid #999999;
+}
+
 textarea
 {
     padding: 10px;
@@ -193,4 +204,9 @@ textarea
     cursor: pointer;
     height: 60px;
     width: 400px;
+}
+
+.recordarpassword
+{
+    display: none;
 }

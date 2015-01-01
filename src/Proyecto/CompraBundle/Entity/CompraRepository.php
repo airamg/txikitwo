@@ -19,4 +19,18 @@ class CompraRepository extends EntityRepository
 
         return $consulta->getResult();
     }
+
+    public function findComprasByNumPedido($numpedido)
+    {
+        $em = $this->getEntityManager();
+
+        $consulta = $em->createQuery('
+            SELECT c
+            FROM CompraBundle:Compra c
+            WHERE c.numeroPedido = :numeroPedido
+        ');
+        $consulta->setParameter('numeroPedido', $numpedido);
+
+        return $consulta->getResult();
+    }
 }

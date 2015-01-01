@@ -22,4 +22,46 @@ class ArticuloRepository extends EntityRepository
         return $consulta->getOneOrNullResult();
 
     }
+
+    public function findAllArticulosByNombre($nombrearticulo)
+    {
+        $em = $this->getEntityManager();
+
+        $consulta = $em->createQuery('
+            SELECT a
+            FROM ArticuloBundle:Articulo a
+            WHERE a.nombre = :nombreArtic
+        ');
+        $consulta->setParameter('nombreArtic', $nombrearticulo);
+
+        return $consulta->getResult();
+    }
+
+    public function findAllArticulosByColor($colorarticulo)
+    {
+        $em = $this->getEntityManager();
+
+        $consulta = $em->createQuery('
+            SELECT a
+            FROM ArticuloBundle:Articulo a
+            WHERE a.color = :colorArtic
+        ');
+        $consulta->setParameter('colorArtic', $colorarticulo);
+
+        return $consulta->getResult();
+    }
+
+    public function findAllArticulosByEstampado($estampadoarticulo)
+    {
+        $em = $this->getEntityManager();
+
+        $consulta = $em->createQuery('
+            SELECT a
+            FROM ArticuloBundle:Articulo a
+            WHERE a.estampado = :estampadoArtic
+        ');
+        $consulta->setParameter('estampadoArtic', $estampadoarticulo);
+
+        return $consulta->getResult();
+    }
 }

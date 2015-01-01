@@ -1,0 +1,23 @@
+#pedido-select
+{
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    width: 400px;
+}
+
+#pedido-select p.factura-grande
+{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#pedido-select p.pago-grande
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#datospersonalizacion
+{
+    width: 250px;
+}

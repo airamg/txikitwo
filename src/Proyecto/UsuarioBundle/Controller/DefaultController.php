@@ -62,8 +62,15 @@ class DefaultController extends Controller
             }
         }
 
+        $formulario1 = $this->createFormBuilder()
+            ->add('email', 'email', array('attr' => array('placeholder' => 'Email')))
+            ->add('password', 'password', array('attr' => array('placeholder' => 'Nueva contraseña')))
+            ->getForm();
+        $formulario1->handleRequest($peticion);
+
         return $this->render('UsuarioBundle:Default:iniciarsesion.html.twig', array(
             'formulario' => $formulario->createView(),
+            'formulario1' => $formulario1->createView(),
             'num' => $num,
             'online' => $online
         ));
@@ -385,7 +392,7 @@ class DefaultController extends Controller
         ));
     }
 
-    public function facturasAction()
+    public function facturasAction($numpedido)
     {
         $em = $this->getDoctrine()->getManager();
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
@@ -401,10 +408,7 @@ class DefaultController extends Controller
             }
         }
 
-        $compra = $em->getRepository('CompraBundle:Compra')->findComprasByUsuario($usuario->getEmail());
-
-        //FALTA hacer que se pueda descargar en pdf la factura
-        //comprobar que en un misma factura salgan todos los que tenga el mismo numero de pedido o los de igual preciototal
+        $compra = $em->getRepository('CompraBundle:Compra')->findComprasByNumPedido($numpedido);
 
         return $respuesta = $this->render('UsuarioBundle:Default:facturas.html.twig', array(
             'num' => $num,
@@ -431,4 +435,189 @@ class DefaultController extends Controller
 
         return $this->render('UsuarioBundle:Default:cerrarsesion.html.twig');
     }
+
+    public function recordarpasswordAction()
+    {
+        $peticion = $this->getRequest();
+        $em = $this->getDoctrine()->getManager();
+
+        $formulario1 = $this->createFormBuilder()
+            ->add('email', 'email', array('attr' => array('placeholder' => 'Email')))
+            ->add('password', 'password', array('attr' => array('placeholder' => 'Nueva contraseña')))
+            ->getForm();
+        $formulario1->handleRequest($peticion);
+
+        if ($formulario1->isValid()) {
+
+            $email = $formulario1->get('email')->getData();
+            $pass = $formulario1->get('password')->getData();
+
+            //comprobar que existe el email del usuario
+            $user1 = $em->getRepository('UsuarioBundle:Usuario')->findUserByEmail($email);
+            if(!$user1) {
+                return $this->redirect($this->generateUrl('usuario_iniciarsesion_password_error'));
+            } else {
+                $user1->setPassword($pass);
+                $em->persist($user1);
+                $em->flush();
+                return $this->redirect($this->generateUrl('usuario_iniciarsesion_password'));
+            }
+        }
+
+        $usuario1 = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario1) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario1->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
+        return $this->render('UsuarioBundle:Default:iniciarsesion.html.twig', array(
+            'formulario1' => $formulario1->createView(),
+            'num' => $num,
+            'online' => $online
+        ));
+    }
+
+    public function passwordbienAction()
+    {
+        $peticion = $this->getRequest();
+        $em = $this->getDoctrine()->getManager();
+
+        $formulario = $this->createFormBuilder()
+            ->add('email', 'email', array('attr' => array('placeholder' => 'Email')))
+            ->add('password', 'password', array('attr' => array('placeholder' => 'Contraseña')))
+            ->getForm();
+        $formulario->handleRequest($peticion);
+
+        if ($formulario->isValid()) {
+
+            $email = $formulario->get('email')->getData();
+            $pass = $formulario->get('password')->getData();
+
+            //comprobar que existe el email del usuario
+            $user1 = $em->getRepository('UsuarioBundle:Usuario')->findUserByEmail($email);
+            if(!$user1) {
+                return $this->redirect($this->generateUrl('usuario_iniciarsesion_error'));
+            } else {
+                //comprobar que la contraseña corresponde al email introducido
+                if($pass != $user1->getPassword()) {
+                    return $this->redirect($this->generateUrl('usuario_iniciarsesion_error'));
+                } else {
+                    $setpersonalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findWithoutUser();
+                    if($setpersonalizacion) {
+                        foreach($setpersonalizacion as $set) {
+                            $set->setUsuario($formulario->get('email')->getData());
+                            $em->persist($set);
+                            $em->flush();
+                        }
+                    }
+                    $user1->setOnline('1');
+                    $em->persist($user1);
+                    $em->flush();
+                    return $this->redirect($this->generateUrl('usuario_cuenta'));
+                }
+            }
+        }
+
+        $usuario1 = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario1) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario1->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
+        $formulario1 = $this->createFormBuilder()
+            ->add('email', 'email', array('attr' => array('placeholder' => 'Email')))
+            ->add('password', 'password', array('attr' => array('placeholder' => 'Nueva contraseña')))
+            ->getForm();
+        $formulario1->handleRequest($peticion);
+
+        return $this->render('UsuarioBundle:Default:iniciarsesionpassword.html.twig', array(
+            'formulario' => $formulario->createView(),
+            'formulario1' => $formulario1->createView(),
+            'num' => $num,
+            'online' => $online
+        ));
+    }
+
+    public function passworderrorAction()
+    {
+        $peticion = $this->getRequest();
+        $em = $this->getDoctrine()->getManager();
+
+        $formulario = $this->createFormBuilder()
+            ->add('email', 'email', array('attr' => array('placeholder' => 'Email')))
+            ->add('password', 'password', array('attr' => array('placeholder' => 'Contraseña')))
+            ->getForm();
+        $formulario->handleRequest($peticion);
+
+        if ($formulario->isValid()) {
+
+            $email = $formulario->get('email')->getData();
+            $pass = $formulario->get('password')->getData();
+
+            //comprobar que existe el email del usuario
+            $user1 = $em->getRepository('UsuarioBundle:Usuario')->findUserByEmail($email);
+            if(!$user1) {
+                return $this->redirect($this->generateUrl('usuario_iniciarsesion_error'));
+            } else {
+                //comprobar que la contraseña corresponde al email introducido
+                if($pass != $user1->getPassword()) {
+                    return $this->redirect($this->generateUrl('usuario_iniciarsesion_error'));
+                } else {
+                    $setpersonalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findWithoutUser();
+                    if($setpersonalizacion) {
+                        foreach($setpersonalizacion as $set) {
+                            $set->setUsuario($formulario->get('email')->getData());
+                            $em->persist($set);
+                            $em->flush();
+                        }
+                    }
+                    $user1->setOnline('1');
+                    $em->persist($user1);
+                    $em->flush();
+                    return $this->redirect($this->generateUrl('usuario_cuenta'));
+                }
+            }
+        }
+
+        $usuario1 = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario1) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario1->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
+        $formulario1 = $this->createFormBuilder()
+            ->add('email', 'email', array('attr' => array('placeholder' => 'Email')))
+            ->add('password', 'password', array('attr' => array('placeholder' => 'Nueva contraseña')))
+            ->getForm();
+        $formulario1->handleRequest($peticion);
+
+        return $this->render('UsuarioBundle:Default:iniciarsesionpassworderror.html.twig', array(
+            'formulario' => $formulario->createView(),
+            'formulario1' => $formulario1->createView(),
+            'num' => $num,
+            'online' => $online
+        ));
+    }
+
 }

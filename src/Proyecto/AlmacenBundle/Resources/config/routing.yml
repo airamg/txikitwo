@@ -1,3 +1,23 @@
 almacen_index:
     path:     /
     defaults: { _controller: AlmacenBundle:Default:index }
+
+almacen_colores:
+    path:     /colores
+    defaults: { _controller: AlmacenBundle:Default:colores }
+
+almacen_estampados:
+    path:     /estampados
+    defaults: { _controller: AlmacenBundle:Default:estampados }
+
+almacen_tejidos:
+    path:     /tejidos
+    defaults: { _controller: AlmacenBundle:Default:tejidos }
+
+almacen_busqueda:
+    path:     /busqueda/{parametro}
+    defaults: { _controller: AlmacenBundle:Default:busqueda }
+
+almacen_busqueda_error:
+    path:     /busqueda/error
+    defaults: { _controller: AlmacenBundle:Default:busquedaerror }

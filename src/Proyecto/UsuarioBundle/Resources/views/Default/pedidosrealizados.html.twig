@@ -47,11 +47,10 @@
                                         <li><strong>Estado:</strong> {{ compr.estado }}</li>
                                     </ul>
                                     <div id="enlacepedido">
-                                        <a class="boton" href="{{ path('usuario_facturas') }}">ver factura</a>
+                                        <a class="boton" href="{{ path('usuario_facturas', { 'numpedido': numpedido }) }}">ver factura</a>
                                     </div>
                                 </div>
                             </div>
-                       
                         {% endif %}
                     {% endfor %}
                 {% endif %}
