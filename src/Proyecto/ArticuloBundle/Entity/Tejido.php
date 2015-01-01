@@ -43,6 +43,11 @@ class Tejido
      */
     private $precio;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $rutaFoto;
+
 
     public function __toString()
     {
@@ -124,5 +129,28 @@ class Tejido
     public function getPrecio()
     {
         return $this->precio;
+    }
+
+    /**
+     * Set rutaFoto
+     *
+     * @param string $rutaFoto
+     * @return Tejido
+     */
+    public function setRutaFoto($rutaFoto)
+    {
+        $this->rutaFoto = $rutaFoto;
+
+        return $this;
+    }
+
+    /**
+     * Get rutaFoto
+     *
+     * @return string
+     */
+    public function getRutaFoto()
+    {
+        return $this->rutaFoto;
     }
 }

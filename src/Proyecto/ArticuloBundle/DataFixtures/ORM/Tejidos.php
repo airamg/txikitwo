@@ -28,14 +28,17 @@ class Tejidos extends AbstractFixture
                 case 'Lana':
                     $tejido->setSlug('lana');
                     $tejido->setPrecio(2.60);
+                    $tejido->setRutaFoto('almacen/tejido/lana.png');
                     break;
                 case 'Seda':
                     $tejido->setSlug('seda');
                     $tejido->setPrecio(4.00);
+                    $tejido->setRutaFoto('almacen/tejido/seda.png');
                     break;
                 case 'Algodón':
                     $tejido->setSlug('algodón');
                     $tejido->setPrecio(3.00);
+                    $tejido->setRutaFoto('almacen/tejido/algodon.png');
                     break;
             }
 

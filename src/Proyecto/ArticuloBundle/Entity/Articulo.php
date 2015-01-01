@@ -76,6 +76,14 @@ class Articulo
     /**
      * @var string
      *
+     * @ORM\Column(name="color", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $color;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="disponible", type="string", length=1)
      * @Assert\NotBlank()
      */
@@ -314,5 +322,29 @@ class Articulo
     {
         return $this->estampado;
     }
+
+    /**
+     * Set color
+     *
+     * @param string $color
+     * @return Articulo
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    /**
+     * Get color
+     *
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
 
 }
