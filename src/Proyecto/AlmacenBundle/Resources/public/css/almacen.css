@@ -62,3 +62,9 @@ input[type="submit"]:hover
 {
     font-weight: bold;
 }
+
+img.imgarticulo
+{
+    width: 200px;
+    height: 200px;
+}

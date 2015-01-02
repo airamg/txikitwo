@@ -107,7 +107,13 @@ class DefaultController extends Controller
 
     public function tejidosAction()
     {
+        $peticion = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
+
+        $formulario = $this->createFormBuilder()
+            ->add('busqueda', 'text', array('attr' => array('placeholder' => 'Encuentra tu tejido')))
+            ->getForm();
+        $formulario->handleRequest($peticion);
 
         //buscar todos los tejidos
         $tejidos = $em->getRepository('ArticuloBundle:Tejido')->findAll();
@@ -127,6 +133,7 @@ class DefaultController extends Controller
         return $respuesta = $this->render('AlmacenBundle:Default:tejidos.html.twig', array(
             'num' => $num,
             'online' => $online,
+            'formulario' => $formulario->createView(),
             'tejidos' => $tejidos
         ));
     }
@@ -142,6 +149,8 @@ class DefaultController extends Controller
             $placeholder = 'Encuentra tu color';
         } elseif($parametro == "estampado") {
             $placeholder = 'Encuentra tu estampado';
+        } elseif($parametro == "tejido") {
+            $placeholder = 'Encuentra tu tejido';
         } else {
             $placeholder = 'Introduce parámetros de búsqueda';
         }
@@ -157,12 +166,27 @@ class DefaultController extends Controller
             $parambusqueda = $formulario->get('busqueda')->getData();
             if($parametro == "articulo") {
                 $busqueda = $em->getRepository('ArticuloBundle:Articulo')->findAllArticulosByNombre($parambusqueda);
+                if(!$busqueda) {
+                    return $this->redirect($this->generateUrl('almacen_busqueda_error'));
+                }
             }
             elseif($parametro == "color") {
                 $busqueda = $em->getRepository('ArticuloBundle:Articulo')->findAllArticulosByColor($parambusqueda);
+                if(!$busqueda) {
+                    return $this->redirect($this->generateUrl('almacen_busqueda_error'));
+                }
             }
             elseif($parametro == "estampado") {
                 $busqueda = $em->getRepository('ArticuloBundle:Articulo')->findAllArticulosByEstampado($parambusqueda);
+                if(!$busqueda) {
+                    return $this->redirect($this->generateUrl('almacen_busqueda_error'));
+                }
+            }
+            elseif($parametro == "tejido") {
+                $busqueda = $em->getRepository('ArticuloBundle:Articulo')->findAllArticulosByTejido($parambusqueda);
+                if(!$busqueda) {
+                    return $this->redirect($this->generateUrl('almacen_busqueda_error'));
+                }
             }
             else {
                 return $this->redirect($this->generateUrl('almacen_busqueda_error'));

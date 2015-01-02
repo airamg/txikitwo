@@ -64,4 +64,18 @@ class ArticuloRepository extends EntityRepository
 
         return $consulta->getResult();
     }
+
+    public function findAllArticulosByTejido($tejidoarticulo)
+    {
+        $em = $this->getEntityManager();
+
+        $consulta = $em->createQuery('
+            SELECT a
+            FROM ArticuloBundle:Articulo a
+            WHERE a.tejido = :$tejidoArtic
+        ');
+        $consulta->setParameter('tejidoArtic', $tejidoarticulo);
+
+        return $consulta->getResult();
+    }
 }

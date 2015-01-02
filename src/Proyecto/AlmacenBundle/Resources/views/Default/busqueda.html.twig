@@ -6,7 +6,7 @@
     '@WebBundle/Resources/public/css/frontend.css'
     '@PersonalizacionBundle/Resources/public/css/personalizacion.css'
     '@AlmacenBundle/Resources/public/css/almacen.css'
-    output='css/almacen.css' %}
+    output='css/almacenbusqueda.css' %}
     <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
     {% endstylesheets %}
 {% endblock %}
@@ -25,17 +25,30 @@
         </div>
         <div id="mainfotos">
             <ul>
-                <div id="cuadrobusqueda">
-                    <form action="{{ path('almacen_busqueda', { 'parametro': parametro }) }}" method="post" {{ form_enctype(formulario) }} >
-                        {{ form_widget(formulario.busqueda) }}
-                        {{ form_rest(formulario) }}
-                        <input class="boton" type="submit" name="buscar" value="buscar" />
-                    </form>
-                </div>
-                {% for articulo in busqueda %}
-                    <div class="boxA">
-                        <h3>{{ articulo }}</h3>
+                <form action="{{ path('almacen_busqueda', { 'parametro': parametro }) }}" method="post" {{ form_enctype(formulario) }} >
+                    <div id="cuadrobusqueda">
+                        <ul>
+                            {% image output="images/almacen/search.png"
+                            '@AlmacenBundle/Resources/public/images/search.png'
+                            %}
+                            <li><img src="{{ asset_url }}" alt=""/></li>
+                            {% endimage %}
+                            <li>{{ form_widget(formulario.busqueda) }}</li>
+                            {{ form_rest(formulario) }}
+                            <input class="boton" type="submit" name="buscar" value="buscar" />
+                        </ul>
                     </div>
+                </form>
+                {% for articulo in busqueda %}
+                    {% if parametro == "articulo" %}
+                        <div class="boxA">
+                            <img class="imgarticulo" alt="foto" src="{{ asset(directorio_imagenes ~ articulo.rutaFoto) }}">
+                        </div>
+                    {% else %}
+                        <div class="boxA">
+                            <img alt="foto" src="{{ asset(directorio_imagenes ~ articulo.rutaFoto) }}">
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </ul>
         </div>

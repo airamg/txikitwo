@@ -41,7 +41,7 @@
                 </form>
                 {% for articulo in articulos %}
                     <div class="boxA">
-                        <h3>{{ articulo }}</h3>
+                        <img class="imgarticulo" alt="foto" src="{{ asset(directorio_imagenes ~ articulo.rutaFoto) }}">
                     </div>
                 {% endfor %}
             </ul>
