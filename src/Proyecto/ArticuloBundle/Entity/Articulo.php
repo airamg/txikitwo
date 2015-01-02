@@ -84,6 +84,14 @@ class Articulo
     /**
      * @var string
      *
+     * @ORM\Column(name="tejido", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $tejido;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="disponible", type="string", length=1)
      * @Assert\NotBlank()
      */
@@ -344,6 +352,29 @@ class Articulo
     public function getColor()
     {
         return $this->color;
+    }
+
+    /**
+     * Set tejido
+     *
+     * @param string $tejido
+     * @return Articulo
+     */
+    public function setTejido($tejido)
+    {
+        $this->tejido = $tejido;
+
+        return $this;
+    }
+
+    /**
+     * Get tejido
+     *
+     * @return string
+     */
+    public function getTejido()
+    {
+        return $this->tejido;
     }
 
 

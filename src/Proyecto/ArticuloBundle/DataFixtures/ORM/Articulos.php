@@ -25,6 +25,7 @@ class Articulos extends AbstractFixture
         $articulo1->setDescripcion('Ropa formal');
         $articulo1->setEstampado('-');
         $articulo1->setColor('blanco');
+        $articulo1->setTejido('algodon');
         $articulo1->setComplemento('0');
 
         $articulo2 = new Articulo();
@@ -36,6 +37,7 @@ class Articulos extends AbstractFixture
         $articulo2->setDescripcion('Ropa para el colegio');
         $articulo2->setEstampado('cuadros');
         $articulo2->setColor('verde');
+        $articulo2->setTejido('algodon');
         $articulo2->setComplemento('0');
 
         $articulo3 = new Articulo();
@@ -47,6 +49,7 @@ class Articulos extends AbstractFixture
         $articulo3->setDescripcion('Ropa formal');
         $articulo3->setEstampado('flores');
         $articulo3->setColor('rosa');
+        $articulo3->setTejido('seda');
         $articulo3->setComplemento('0');
 
         $articulo4 = new Articulo();
@@ -58,6 +61,7 @@ class Articulos extends AbstractFixture
         $articulo4->setDescripcion('Ropa informal');
         $articulo4->setEstampado('estrellas');
         $articulo4->setColor('azul');
+        $articulo4->setTejido('algodon');
         $articulo4->setComplemento('0');
 
         $articulo5 = new Articulo();
@@ -69,6 +73,7 @@ class Articulos extends AbstractFixture
         $articulo5->setDescripcion('Ropa informal');
         $articulo5->setEstampado('rayas');
         $articulo5->setColor('blanco');
+        $articulo5->setTejido('seda');
         $articulo5->setComplemento('0');
 
         $articulo6 = new Articulo();
@@ -80,6 +85,7 @@ class Articulos extends AbstractFixture
         $articulo6->setDescripcion('Ropa informal');
         $articulo6->setEstampado('rayas');
         $articulo6->setColor('naranja');
+        $articulo6->setTejido('lana');
         $articulo6->setComplemento('0');
 
         $articulo7 = new Articulo();
@@ -91,6 +97,7 @@ class Articulos extends AbstractFixture
         $articulo7->setDescripcion('Ropa informal');
         $articulo7->setEstampado('lunares');
         $articulo7->setColor('rosa');
+        $articulo7->setTejido('algodon');
         $articulo7->setComplemento('0');
 
         $articulo8 = new Articulo();
@@ -102,6 +109,7 @@ class Articulos extends AbstractFixture
         $articulo8->setDescripcion('Ropa formal');
         $articulo8->setEstampado('-');
         $articulo8->setColor('marron');
+        $articulo8->setTejido('algodon');
         $articulo8->setComplemento('0');
 
 
@@ -115,6 +123,7 @@ class Articulos extends AbstractFixture
         $articulo9->setDescripcion('Ropa formal');
         $articulo9->setEstampado('-');
         $articulo9->setColor('marron');
+        $articulo9->setTejido('algodon');
         $articulo9->setComplemento('0');
 
         $articulo10 = new Articulo();
@@ -126,6 +135,7 @@ class Articulos extends AbstractFixture
         $articulo10->setDescripcion('Ropa para el colegio');
         $articulo10->setEstampado('cuadros');
         $articulo10->setColor('verde');
+        $articulo10->setTejido('algodon');
         $articulo10->setComplemento('0');
 
         $articulo11 = new Articulo();
@@ -137,6 +147,7 @@ class Articulos extends AbstractFixture
         $articulo11->setDescripcion('Ropa formal');
         $articulo11->setEstampado('cuadros');
         $articulo11->setColor('azul');
+        $articulo11->setTejido('seda');
         $articulo11->setComplemento('0');
 
         $articulo12 = new Articulo();
@@ -148,6 +159,7 @@ class Articulos extends AbstractFixture
         $articulo12->setDescripcion('Ropa informal');
         $articulo12->setEstampado('dibujos');
         $articulo12->setColor('naranja');
+        $articulo12->setTejido('algodon');
         $articulo12->setComplemento('0');
 
         $articulo13 = new Articulo();
@@ -159,6 +171,7 @@ class Articulos extends AbstractFixture
         $articulo13->setDescripcion('Ropa informal');
         $articulo13->setEstampado('rayas');
         $articulo13->setColor('verde');
+        $articulo13->setTejido('lana');
         $articulo13->setComplemento('0');
 
         $articulo14 = new Articulo();
@@ -170,32 +183,8 @@ class Articulos extends AbstractFixture
         $articulo14->setDescripcion('Ropa informal');
         $articulo14->setEstampado('-');
         $articulo14->setColor('rojo');
+        $articulo14->setTejido('algodon');
         $articulo14->setComplemento('0');
-
-
-        //complementos
-        $complemento1 = new Articulo();
-        $complemento1->setNombre("Calcetines");
-        $complemento1->setSlug('calcetín');
-        $complemento1->setGenero('ambos');
-        $complemento1->setRutaFoto('articulo/complemento/calcetin.png');
-        $complemento1->setPrecio(4.00);
-        $complemento1->setDescripcion('Complemento');
-        $complemento1->setEstampado('-');
-        $complemento1->setColor('-');
-        $complemento1->setComplemento('1');
-
-        $complemento2 = new Articulo();
-        $complemento2->setNombre("Gorro");
-        $complemento2->setSlug('gorro');
-        $complemento2->setGenero('ambos');
-        $complemento2->setRutaFoto('articulo/complemento/gorro.png');
-        $complemento2->setPrecio(6.00);
-        $complemento2->setDescripcion('Complemento');
-        $complemento2->setEstampado('-');
-        $complemento2->setColor('-');
-        $complemento2->setComplemento('1');
-
 
         $manager->persist($articulo1);
         $manager->persist($articulo2);
@@ -211,8 +200,6 @@ class Articulos extends AbstractFixture
         $manager->persist($articulo12);
         $manager->persist($articulo13);
         $manager->persist($articulo14);
-        $manager->persist($complemento1);
-        $manager->persist($complemento2);
 
         $manager->flush();
 

@@ -11,6 +11,35 @@
     padding-bottom: 2em;
 }
 
+#cuadrobusqueda ul
+{
+    display: inline-block;
+}
+
+#cuadrobusqueda li
+{
+    display: block;
+    float: left;
+    padding-right: 10px;
+}
+
+#cuadrobusqueda img
+{
+    width: 30px;
+    height: 30px;
+    padding-top: 10px;
+}
+
+#cuadrobusqueda input[type="text"]
+{
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 250px;
+    padding-right: 10px;
+}
+
 #enlacebusqueda
 {
     width: 145px;
@@ -19,3 +48,17 @@
     color: #FFF;
 }
 
+input.boton {
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1em;
+    width: 100px;
+    cursor: pointer;
+    color: #FFF;
+    background: #000;
+}
+
+input[type="submit"]:hover
+{
+    font-weight: bold;
+}
