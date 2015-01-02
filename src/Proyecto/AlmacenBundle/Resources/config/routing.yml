@@ -17,7 +17,3 @@ almacen_tejidos:
 almacen_busqueda:
     path:     /busqueda/{parametro}
     defaults: { _controller: AlmacenBundle:Default:busqueda }
-
-almacen_busqueda_error:
-    path:     /busqueda/error
-    defaults: { _controller: AlmacenBundle:Default:busquedaerror }

@@ -23,35 +23,45 @@
                 <li><a href="{{ path('almacen_tejidos') }}">tejidos</a></li>
             </ul>
         </div>
-        <div id="mainfotos">
-            <ul>
-                <form action="{{ path('almacen_busqueda', { 'parametro': parametro }) }}" method="post" {{ form_enctype(formulario) }} >
-                    <div id="cuadrobusqueda">
-                        <ul>
-                            {% image output="images/almacen/search.png"
-                            '@AlmacenBundle/Resources/public/images/search.png'
-                            %}
-                            <li><img src="{{ asset_url }}" alt=""/></li>
-                            {% endimage %}
-                            <li>{{ form_widget(formulario.busqueda) }}</li>
-                            {{ form_rest(formulario) }}
-                            <input class="boton" type="submit" name="buscar" value="buscar" />
-                        </ul>
-                    </div>
-                </form>
-                {% for articulo in busqueda %}
-                    {% if parametro == "articulo" %}
+        {% if error == "si" %}
+            <div id="main">
+                <p><strong>No se han encontrado coincidencias</strong></p>
+                <p class="small">Inténtalo de nuevo.</p>
+                <div id="enlacescuenta">
+                    <ul>
+                        <li>
+                            <div id="enlacescuenta1">
+                                <a class="boton" href="{{ path('almacen_index') }}">volver al almacén</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+         {% else %}
+            <div id="mainfotos">
+                <ul>
+                    <form action="{{ path('almacen_busqueda', { 'parametro': parametro }) }}" method="post" {{ form_enctype(formulario) }} >
+                        <div id="cuadrobusqueda">
+                            <ul>
+                                {% image output="images/almacen/search.png"
+                                '@AlmacenBundle/Resources/public/images/search.png'
+                                %}
+                                <li><img src="{{ asset_url }}" alt=""/></li>
+                                {% endimage %}
+                                <li>{{ form_widget(formulario.busqueda) }}</li>
+                                {{ form_rest(formulario) }}
+                                <input class="boton" type="submit" name="buscar" value="buscar" />
+                            </ul>
+                        </div>
+                    </form>
+                    {% for articulo in busqueda %}
                         <div class="boxA">
                             <img class="imgarticulo" alt="foto" src="{{ asset(directorio_imagenes ~ articulo.rutaFoto) }}">
                         </div>
-                    {% else %}
-                        <div class="boxA">
-                            <img alt="foto" src="{{ asset(directorio_imagenes ~ articulo.rutaFoto) }}">
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
     </div>
     {% include ':includes:footer.html.twig' %}
 {% endblock %}

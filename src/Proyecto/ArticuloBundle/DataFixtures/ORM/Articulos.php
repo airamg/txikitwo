@@ -157,7 +157,7 @@ class Articulos extends AbstractFixture
         $articulo12->setRutaFoto('articulo/nino/camiseta.png');
         $articulo12->setPrecio(8.00);
         $articulo12->setDescripcion('Ropa informal');
-        $articulo12->setEstampado('dibujos');
+        $articulo12->setEstampado('-');
         $articulo12->setColor('naranja');
         $articulo12->setTejido('algodon');
         $articulo12->setComplemento('0');

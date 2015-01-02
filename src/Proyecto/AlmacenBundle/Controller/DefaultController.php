@@ -152,11 +152,10 @@ class DefaultController extends Controller
         } elseif($parametro == "tejido") {
             $placeholder = 'Encuentra tu tejido';
         } else {
-            $placeholder = 'Introduce parámetros de búsqueda';
+            $placeholder = ' ';
         }
 
-        $busqueda = ' ';
-
+        $error = "no";
         $formulario = $this->createFormBuilder()
             ->add('busqueda', 'text', array('attr' => array('placeholder' => $placeholder)))
             ->getForm();
@@ -167,30 +166,28 @@ class DefaultController extends Controller
             if($parametro == "articulo") {
                 $busqueda = $em->getRepository('ArticuloBundle:Articulo')->findAllArticulosByNombre($parambusqueda);
                 if(!$busqueda) {
-                    return $this->redirect($this->generateUrl('almacen_busqueda_error'));
+                    $error = "si";
                 }
             }
             elseif($parametro == "color") {
                 $busqueda = $em->getRepository('ArticuloBundle:Articulo')->findAllArticulosByColor($parambusqueda);
                 if(!$busqueda) {
-                    return $this->redirect($this->generateUrl('almacen_busqueda_error'));
+                    $error = "si";
                 }
             }
             elseif($parametro == "estampado") {
                 $busqueda = $em->getRepository('ArticuloBundle:Articulo')->findAllArticulosByEstampado($parambusqueda);
                 if(!$busqueda) {
-                    return $this->redirect($this->generateUrl('almacen_busqueda_error'));
+                    $error = "si";
                 }
             }
             elseif($parametro == "tejido") {
                 $busqueda = $em->getRepository('ArticuloBundle:Articulo')->findAllArticulosByTejido($parambusqueda);
                 if(!$busqueda) {
-                    return $this->redirect($this->generateUrl('almacen_busqueda_error'));
+                    $error = "si";
                 }
             }
-            else {
-                return $this->redirect($this->generateUrl('almacen_busqueda_error'));
-            }
+            else { }
         }
 
         $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
@@ -210,28 +207,8 @@ class DefaultController extends Controller
             'online' => $online,
             'formulario' => $formulario->createView(),
             'busqueda' => $busqueda,
-            'parametro' => $parametro
-        ));
-    }
-
-    public function busquedaerrorAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
-        $num = 0;
-        $online = 0;
-        if(!$usuario) {
-            $num = 0;
-        } else {
-            $online = 1;
-            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario->getEmail());
-            foreach ($personalizacion as $pendiente) {
-                $num = $num + 1;
-            }
-        }
-        return $respuesta = $this->render('AlmacenBundle:Default:busquedaerror.html.twig', array(
-            'num' => $num,
-            'online' => $online
+            'parametro' => $parametro,
+            'error' => $error
         ));
     }
 

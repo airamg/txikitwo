@@ -68,3 +68,84 @@ img.imgarticulo
     width: 200px;
     height: 200px;
 }
+
+#main
+{
+    float: left;
+    width: 450px;
+    padding-left: 6em;
+    text-align: left;
+}
+
+#main p strong
+{
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+#main p.small
+{
+    font-size: 12px;
+}
+
+#main ul
+{
+    padding-left: 0em;
+    display: inline-block;
+}
+
+#main li
+{
+    display: block;
+    float: left;
+    text-align: center;
+    padding-right: 2em;
+}
+
+#enlacescuenta ul
+{
+    padding-left: 0em;
+    display: inline-block;
+}
+
+#enlacescuenta li
+{
+    display: block;
+    float: left;
+    text-align: center;
+    padding-right: 2em;
+}
+
+#enlacescuenta
+{
+    display: block;
+    float: left;
+    text-align: center;
+    padding-right: 2em;
+}
+
+#enlacescuenta input.boton
+{
+    padding: 10px;
+    font-size: 0.85em;
+    width: 149px;
+    cursor: pointer;
+    color: #FFF;
+    background: #000;
+}
+
+#enlacescuenta input[type="submit"]:hover
+{
+    font-weight: bold;
+}
+
+#enlacescuenta1 a.boton {
+    padding-left: 25px;
+    text-align: center;
+    font-size: 0.85em;
+    cursor: pointer;
+    color: #FFF;
+    width: 120px;
+    background: #000;
+    border: 2px solid #999999;
+}

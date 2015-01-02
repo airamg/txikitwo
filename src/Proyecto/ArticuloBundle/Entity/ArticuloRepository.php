@@ -72,7 +72,7 @@ class ArticuloRepository extends EntityRepository
         $consulta = $em->createQuery('
             SELECT a
             FROM ArticuloBundle:Articulo a
-            WHERE a.tejido = :$tejidoArtic
+            WHERE a.tejido = :tejidoArtic
         ');
         $consulta->setParameter('tejidoArtic', $tejidoarticulo);
 
