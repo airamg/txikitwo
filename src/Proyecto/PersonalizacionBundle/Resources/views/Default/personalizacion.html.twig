@@ -17,18 +17,26 @@
         {% if name == "nina" %}
         <div id="menu">
             {% include ':includes:selectspersonalizacion_nina.html.twig' %}
-            <!-- incluir otro apartado para complementos: calcetines, leotardos, gorros -->
+        </div>
+        <div id="main">
+            {% image output="images/personalizacion/nina.png"
+            '@PersonalizacionBundle/Resources/public/images/nina.png'
+            %}
+            <img src="{{ asset_url }}" alt=""/>
+            {% endimage %}
         </div>
         {%  else %}
         <div id="menu">
             {% include ':includes:selectspersonalizacion_nino.html.twig' %}
-            <!-- incluir otro apartado para complementos: calcetines, leotardos, gorros -->
+        </div>
+        <div id="main">
+            {% image output="images/personalizacion/nino.png"
+            '@PersonalizacionBundle/Resources/public/images/nino.png'
+            %}
+            <img src="{{ asset_url }}" alt=""/>
+            {% endimage %}
         </div>
         {% endif %}
-        <div id="main">
-            <!-- INCLUIR MENU CON TODAS LAS FOTOS DE LOS ARTICULOS DISPONIBLES EN NIÑA Y NIÑO SEPARADO -->
-            <p>Texto de <strong>prueba</strong>.</p>
-        </div>
     </div>
     {% include ':includes:footer.html.twig' %}
 {% endblock %}
