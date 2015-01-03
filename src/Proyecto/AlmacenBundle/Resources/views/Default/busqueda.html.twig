@@ -56,7 +56,7 @@
                     </form>
                     {% for articulo in busqueda %}
                         <div class="boxA">
-                            <img class="imgarticulo" alt="foto" src="{{ asset(directorio_imagenes ~ articulo.rutaFoto) }}">
+                            <a href="{{ path('personalizacion_articulo', { 'genero': articulo.genero, 'articulo': articulo.slug }) }}"><img class="imgarticulo" alt="foto" src="{{ asset(directorio_imagenes ~ articulo.rutaFoto) }}"></a>
                         </div>
                     {% endfor %}
                 </ul>
