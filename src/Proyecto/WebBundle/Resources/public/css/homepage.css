@@ -16,3 +16,39 @@
     margin-right: 30px;
     margin-bottom: 20px;
 }
+
+#contenidoTop
+{
+    position: absolute;
+    top: 16em;
+    width: auto;
+    float: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 8em;
+}
+
+#contenedorprincipal
+{
+    padding-left: 7em;
+    padding-right: 7em;
+}
+
+#cuadrotallas img
+{
+    height: 15em;
+    width: 45em;
+}
+
+#description h2
+{
+    text-transform: uppercase;
+}
+
+.boxA img
+{
+    height: 15em;
+    width: 15em;
+}

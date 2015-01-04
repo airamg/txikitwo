@@ -13,30 +13,33 @@
     <!-- imagen de fondo -->
     {% include ':includes:header.html.twig' %}
     {% include ':includes:menuprincipal.html.twig' %}
-    <div id="contenido">
-        <div id="description">
-            <h2>Título descripción página</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-        </div>
-        <div id="pasos">
-            <h2>Pasos</h2>
-            <ul>
-                <div class="boxA">
-                    <h3>Paso 1</h3>
-                    <!-- incluir foto -->
-                    <p>Descripcion paso 1</p>
-                </div>
-                <div class="boxB">
-                    <h3>Paso 2</h3>
-                    <!-- incluir foto -->
-                    <p>Descripcion paso 2</p>
-                </div>
-                <div class="boxC">
-                    <h3>Paso 3</h3>
-                    <!-- incluir foto -->
-                    <p>Descripcion paso 3</p>
-                </div>
-            </ul>
+    <div id="contenidoTop">
+        <div id="contenedorprincipal">
+            <div id="pasos">
+                <ul>
+                    <div class="boxA">
+                        {% image output="images/web/paso1.png"
+                        '@WebBundle/Resources/public/images/paso1.png'
+                        %}
+                        <img src="{{ asset_url }}" alt=""/>
+                        {% endimage %}
+                    </div>
+                    <div class="boxA">
+                        {% image output="images/web/paso2.png"
+                        '@WebBundle/Resources/public/images/paso2.png'
+                        %}
+                        <img src="{{ asset_url }}" alt=""/>
+                        {% endimage %}
+                    </div>
+                    <div class="boxA">
+                        {% image output="images/web/paso3.png"
+                        '@WebBundle/Resources/public/images/paso3.png'
+                        %}
+                        <img src="{{ asset_url }}" alt=""/>
+                        {% endimage %}
+                    </div>
+                </ul>
+            </div>
         </div>
     </div>
     {% include ':includes:footer.html.twig' %}

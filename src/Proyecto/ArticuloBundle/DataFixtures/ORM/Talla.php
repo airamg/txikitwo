@@ -17,7 +17,8 @@ class Tallas extends AbstractFixture
         $tallas = array(
             '12-18 meses',
             '18-24 meses',
-            '2-3 años',
+            '2 años',
+            '3 años',
         );
 
         foreach ($tallas as $nombre) {
@@ -26,12 +27,15 @@ class Tallas extends AbstractFixture
 
             switch($nombre) {
                 case '12-18 meses':
-                    $talla->setSlug('1');
+                    $talla->setSlug('0');
                    break;
                 case '18-24 meses':
-                    $talla->setSlug('2');
+                    $talla->setSlug('1');
                    break;
-                case '2-3 años':
+                case '2 años':
+                    $talla->setSlug('2');
+                    break;
+                case '3 años':
                     $talla->setSlug('3');
                     break;
             }
