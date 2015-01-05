@@ -87,6 +87,15 @@
     color: #FFF;
 }
 
+#precio
+{
+    height: 35px;
+    padding-left: 0em;
+    text-align: left;
+    padding-top: 0em;
+    padding-bottom: 0em;
+}
+
 input.boton {
     padding: 10px;
     margin-top: 5px;

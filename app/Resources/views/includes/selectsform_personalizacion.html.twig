@@ -3,7 +3,27 @@
         <div class="options-selects">
             <div id="descripcion">
                 <p>ABRIGO</p>
-                <p><strong>30.00€</strong></p>
+                <div id="precio" class="index selects">
+                    <p><strong>30.00€</strong></p>
+                </div>
+                <div id="precio" class="botones selects">
+                    {% set p = 30.00 + 1.30 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="rosa selects">
+                    <p><strong>30.00€</strong></p>
+                </div>
+                <div id="precio" class="azul selects">
+                    <p><strong>30.00€</strong></p>
+                </div>
+                <div id="precio" class="botones_rosa selects">
+                    {% set p = 30.00 + 1.30 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="botones_azul selects">
+                    {% set p = 30.00 + 1.30 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "abrigo" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -29,7 +49,20 @@
         <div class="options-selects">
             <div id="descripcion">
                 <p>BATA</p>
-                <p><strong>18.00€</strong></p>
+                <div id="precio" class="index selects">
+                    <p><strong>18.00€</strong></p>
+                </div>
+                <div id="precio" class="bolsillos selects">
+                    {% set p = 18.00 + 2.50 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="rosa selects">
+                    <p><strong>18.00€</strong></p>
+                </div>
+                <div id="precio" class="bolsillos_rosa selects">
+                    {% set p = 18.00 + 2.50 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "bata" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -53,7 +86,13 @@
         <div class="options-selects">
             <div id="descripcion">
                 <p>CAMISA / BLUSA</p>
-                <p><strong>14.00€</strong></p>
+                <div id="precio" class="index selects">
+                    <p><strong>14.00€</strong></p>
+                </div>
+                <div id="precio" class="mangas selects">
+                    {% set p = 14.00 + 0.20 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "camisa" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -75,7 +114,20 @@
         <div class="options-selects">
             <div id="descripcion">
                 <p>CAMISETA</p>
-                <p><strong>9.00€</strong></p>
+                <div id="precio" class="index selects">
+                    <p><strong>9.00€</strong></p>
+                </div>
+                <div id="precio" class="mangas selects">
+                    {% set p = 9.00 + 0.20 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="rosa selects">
+                    <p><strong>9.00€</strong></p>
+                </div>
+                <div id="precio" class="mangas_rosa selects">
+                    {% set p = 9.00 + 0.20 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "camiseta" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -99,7 +151,13 @@
         <div class="options-selects">
             <div id="descripcion">
                 <p>FALDA</p>
-                <p><strong>12.00€</strong></p>
+                <div id="precio" class="index selects">
+                    <p><strong>12.00€</strong></p>
+                </div>
+                <div id="precio" class="lazos selects">
+                    {% set p = 12.00 + 2.00 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "falda" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -121,7 +179,13 @@
         <div class="options-selects">
             <div id="descripcion">
                 <p>JERSEY</p>
-                <p><strong>13.00€</strong></p>
+                <div id="precio" class="index selects">
+                    <p><strong>13.00€</strong></p>
+                </div>
+                <div id="precio" class="mangas selects">
+                    {% set p = 13.00 + 0.20 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "jersey" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -143,7 +207,20 @@
         <div class="options-selects">
             <div id="descripcion">
                 <p>PANTALON</p>
-                <p><strong>19.00€</strong></p>
+                <div id="precio" class="index selects">
+                    <p><strong>19.00€</strong></p>
+                </div>
+                <div id="precio" class="larguras selects">
+                    {% set p = 19.00 + 0.20 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="verde selects">
+                    <p><strong>19.00€</strong></p>
+                </div>
+                <div id="precio" class="larguras_verde selects">
+                    {% set p = 19.00 + 0.20 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "pantalon" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -167,7 +244,21 @@
         <div class="options-selects">
             <div id="descripcion">
                 <p>VESTIDO</p>
-                <p><strong>23.00€</strong></p>
+                <div id="precio" class="index selects">
+                    <p><strong>23.00€</strong></p>
+                </div>
+                <div id="precio" class="mangas selects">
+                    {% set p = 23.00 + 0.20 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="lazos selects">
+                    {% set p = 23.00 + 2.00 %}
+                    <p><strong>{{ p }}.00€</strong></p>
+                </div>
+                <div id="precio" class="mangas_lazos selects">
+                    {% set p = 23.00 + 2.00 + 0.20 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "vestido" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -193,7 +284,20 @@
     <div class="options-selects">
         <div id="descripcion">
             <p>ABRIGO</p>
-            <p><strong>31.00€</strong></p>
+            <div id="precio" class="index selects">
+                <p><strong>31.00€</strong></p>
+            </div>
+            <div id="precio" class="bolsillos selects">
+                {% set p = 31.00 + 2.50 %}
+                <p><strong>{{ p }}0€</strong></p>
+            </div>
+            <div id="precio" class="verde selects">
+                <p><strong>31.00€</strong></p>
+            </div>
+            <div id="precio" class="bolsillos_verde selects">
+                {% set p = 31.00 + 2.50 %}
+                <p><strong>{{ p }}0€</strong></p>
+            </div>
         </div>
         <div id="opciones">
             <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "abrigo" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -217,7 +321,13 @@
         <div class="options-selects">
             <div id="descripcion">
                 <p>BATA</p>
-                <p><strong>18.00€</strong></p>
+                <div id="precio" class="index selects">
+                    <p><strong>18.00€</strong></p>
+                </div>
+                <div id="precio" class="bolsillos selects">
+                    {% set p = 18.00 + 2.50 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "bata" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -239,7 +349,21 @@
         <div class="options-selects">
             <div id="descripcion">
                 <p>CAMISA</p>
-                <p><strong>14.00€</strong></p>
+                <div id="precio" class="index selects">
+                    <p><strong>14.00€</strong></p>
+                </div>
+                <div id="precio" class="bolsillos selects">
+                    {% set p = 14.00 + 2.50 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="mangas selects">
+                    {% set p = 14.00 + 0.20 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="bolsillos_mangas selects">
+                    {% set p = 14.00 + 2.50 + 0.20 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "camisa" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -263,7 +387,20 @@
         <div class="options-selects">
             <div id="descripcion">
                 <p>CAMISETA</p>
-                <p><strong>8.00€</strong></p>
+                <div id="precio" class="index selects">
+                    <p><strong>8.00€</strong></p>
+                </div>
+                <div id="precio" class="dibujos selects">
+                    {% set p = 8.00 + 0.50 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="azul selects">
+                    <p><strong>8.00€</strong></p>
+                </div>
+                <div id="precio" class="dibujos_azul selects">
+                    {% set p = 8.00 + 0.50 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "camiseta" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -287,7 +424,12 @@
         <div class="options-selects">
             <div id="descripcion">
                 <p>JERSEY</p>
-                <p><strong>13.00€</strong></p>
+                <div id="precio" class="index selects">
+                    <p><strong>13.00€</strong></p>
+                </div>
+                <div id="precio" class="rojo selects">
+                    <p><strong>13.00€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "jersey" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -309,7 +451,20 @@
         <div class="options-selects">
             <div id="descripcion">
                 <p>PANTALON</p>
-                <p><strong>19.00€</strong></p>
+                <div id="precio" class="index selects">
+                    <p><strong>19.00€</strong></p>
+                </div>
+                <div id="precio" class="larguras selects">
+                    {% set p = 19.00 + 0.20 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="azul selects">
+                    <p><strong>19.00€</strong></p>
+                </div>
+                <div id="precio" class="larguras_azul selects">
+                    {% set p = 19.00 + 0.20 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "pantalon" }) }}" method="post" {{ form_enctype(formulario) }} >
