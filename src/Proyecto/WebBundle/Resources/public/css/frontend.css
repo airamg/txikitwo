@@ -1,3 +1,16 @@
+#header {
+    width: 100%;
+    height: 200px;
+    background-color: #c1e1c9;
+    box-shadow: 0 1px 1px #686868;
+}
+
+#header img.header
+{
+    height: 200px;
+    width: 500px;
+}
+
 body {
     margin: 0;
 }
@@ -121,9 +134,10 @@ h1 {
 #menu2
 {
     position: absolute;
-    top: 5em;
+    top: 3.5em;
     right: 0;
     padding-right: 20px;
+    padding-left: 1.5em;
 }
 
 #menu2 ul
@@ -136,6 +150,7 @@ h1 {
     display: block;
     float: left;
     text-align: center;
+    height: 3em;
 }
 
 #menu2 li a, #menu2 li span
@@ -168,7 +183,6 @@ h1 {
     position: fixed;
     width: 100%;
     padding-left: 0.35em;
-    background-color: #FFF;
 }
 
 #footer ul
@@ -178,14 +192,12 @@ h1 {
     position: fixed;
     width: 100%;
     padding-left: 0em;
-    background-color: #FFF;
 }
 
 #footer li
 {
     display: block;
     text-align: center;
-    background-color: #FFF;
 }
 
 #footer li a
@@ -195,7 +207,6 @@ h1 {
     font-weight: 300;
     color: rgba(0,0,0,.8);
     font-size: 12px;
-    background-color: #FFF;
 }
 
 #footer a:hover
@@ -208,7 +219,7 @@ div.carrito-compra {
     position: fixed;
     right: 14em;
     top: 1.4em;
-    z-index: 999;
+    z-index: 1000;
 }
 
 div.carrito-compra div img {

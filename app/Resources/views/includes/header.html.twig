@@ -1,29 +1,37 @@
-{% image output="images/web/carrito.png"
- '@WebBundle/Resources/public/images/carrito.png'
+{% image output="images/web/header.png"
+'@WebBundle/Resources/public/images/header.png'
 %}
-<div class="carrito-compra">
-    <div class="first"><img src="{{ asset_url }}" alt=""/></div>
-    <div class="second">
-        <ul>
-            <li>Total: {{ num }} artículo(s)</li>
-            {% if (num > 0) and (online == 1) %}
-                <li><a href="{{ path('compra_homepage') }}">pedido</a></li>
-            {% endif %}
-        </ul>
-    </div>
-</div>
-{% endimage %}
+    <div id="header">
+        <img class="header" src="{{ asset_url }}" alt=""/>
 
-<div id="menu1">
-    <ul>
-        {% if online == 0 %}
-            <li><a href="{{ path('usuario_iniciarsesion') }}">Iniciar sesión</a></li>
-            <li><a href="{{ path('usuario_registrarse') }}">Registro</a></li>
-        {%  else %}
-            <li><a href="{{ path('usuario_cuenta') }}">Mi cuenta</a></li>
-            <li><form action="{{ path('usuario_cerrarsesion') }}" method="post">
-                <input class="aboton" type="submit" name="cerrarsesion" value="Cerrar sesión" />
-            </form></li>
-        {%  endif %}
-    </ul>
-</div>
+        {% image output="images/web/carrito.png"
+        '@WebBundle/Resources/public/images/carrito.png'
+        %}
+        <div class="carrito-compra">
+            <div class="first"><img src="{{ asset_url }}" alt=""/></div>
+                <div class="second">
+                    <ul>
+                        <li>Total: {{ num }} artículo(s)</li>
+                        {% if (num > 0) and (online == 1) %}
+                            <li><a href="{{ path('compra_homepage') }}">pedido</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        {% endimage %}
+        <div id="menu1">
+            <ul>
+                {% if online == 0 %}
+                    <li><a href="{{ path('usuario_iniciarsesion') }}">Iniciar sesión</a></li>
+                    <li><a href="{{ path('usuario_registrarse') }}">Registro</a></li>
+                {%  else %}
+                    <li><a href="{{ path('usuario_cuenta') }}">Mi cuenta</a></li>
+                    <li><form action="{{ path('usuario_cerrarsesion') }}" method="post">
+                            <input class="aboton" type="submit" name="cerrarsesion" value="Cerrar sesión" />
+                        </form></li>
+                {%  endif %}
+            </ul>
+        </div>
+
+    </div>
+{% endimage %}
