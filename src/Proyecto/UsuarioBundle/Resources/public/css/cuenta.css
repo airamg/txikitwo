@@ -232,3 +232,9 @@
     font-size: 14px;
     color: #6b9311;
 }
+
+@media only screen and (max-width: 938px) {
+    #mainpedidos {
+        padding-left: 0em;
+    }
+}

@@ -125,3 +125,19 @@ input[type="submit"]:hover
 .botones_rosa, .botones_azul, .bolsillos_rosa, .mangas_rosa, .larguras_verde, .mangas_lazos, .bolsillos_verde, .bolsillos_mangas, .dibujos_azul, .larguras_azul {
     display: none;
 }
+
+@media only screen and (max-width: 906px) {
+    .index {
+        padding-left: 0em;
+        height: 300px;
+    }
+    .selects img
+    {
+        width: 300px;
+        height: 300px;
+        padding: 5px 5px;
+    }
+    #menu {
+        padding-bottom: 1em;
+    }
+}

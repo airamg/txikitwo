@@ -38,7 +38,7 @@
     float: left;
     width: 256px;
     padding-bottom: 2.5em;
-    padding-top: 0.3em;
+    padding-top: 1.7em;
 }
 
 #datospersonalizacion1 ul
@@ -132,3 +132,11 @@ p.dir
     font-size: 13px;
 }
 
+@media only screen and (max-width: 1143px) {
+    #datosusuariopedido
+    {
+        border-left: none;
+        padding-top: 2em;
+        border-top: 2px solid #999999;
+    }
+}

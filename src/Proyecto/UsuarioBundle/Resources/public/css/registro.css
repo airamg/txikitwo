@@ -210,3 +210,13 @@ textarea
 {
     display: none;
 }
+
+@media only screen and (max-width: 1240px) {
+    #formularioiniciosesion
+    {
+        border-right: none;
+    }
+    #formularioregistro a {
+        width: 405px;
+    }
+}
