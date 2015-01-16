@@ -59,11 +59,11 @@
                                     {%  set p = personalizacio.articulo.precio + personalizacio.precioAccesorios %}
                                     <li><strong>Precio total:</strong> {{ p }}€</li>
                                     {% if personalizacio.pendiente == '1' and personalizacio.mastarde == '1'%}
-                                        <li class="rojo"><strong>Estado:</strong> guardado para más tarde</li>
+                                        <li class="naranja"><strong>Estado:</strong> guardado para más tarde</li>
                                     {% elseif personalizacio.pendiente == '1' %}
                                         <li class="rojo"><strong>Estado:</strong> pendiente</li>
                                     {% else %}
-                                        <li class="rojo"><strong>Estado:</strong> en proceso</li>
+                                        <li class="verde"><strong>Estado:</strong> en proceso</li>
                                     {% endif %}
                                 </ul>
                             </div>

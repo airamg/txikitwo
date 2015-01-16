@@ -142,6 +142,15 @@ class DefaultController extends Controller
         $numeroPedido = rand(1,1000000);
 
         if ($request->isMethod('POST')) {
+            //buscar las personalizaciones guardadas como comprar mas tarde
+            $mastardepersonalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findMastarde();
+            if($mastardepersonalizacion) {
+                foreach ($mastardepersonalizacion as $mastarde) {
+                    $mastarde->setMastarde(0);
+                    $em->persist($mastarde);
+                    $em->flush();
+                }
+            }
             if($id == "0")
             {
                 //cambiar personalizaciones pendientes
@@ -178,7 +187,7 @@ class DefaultController extends Controller
                 $em->flush();
             }
 
-            return $this->redirect($this->generateUrl('web_homepage'));
+            return $this->redirect($this->generateUrl('usuario_pedidosrealizados'));
         }
 
         return $this->render('CompraBundle:Default:pedido.html.twig', array(

@@ -22,6 +22,20 @@ class PersonalizacionRepository extends EntityRepository
         return $consulta->getResult();
     }
 
+    public function findMastarde()
+    {
+        $em = $this->getEntityManager();
+
+        $consulta = $em->createQuery('
+            SELECT p
+            FROM PersonalizacionBundle:Personalizacion p
+            WHERE p.mastarde = :mastarde
+        ');
+        $consulta->setParameter('mastarde', "1");
+
+        return $consulta->getResult();
+    }
+
     public function findWithoutUser()
     {
         $em = $this->getEntityManager();

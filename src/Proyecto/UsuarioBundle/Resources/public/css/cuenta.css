@@ -220,3 +220,15 @@
     font-size: 14px;
     color: #FF0000;
 }
+
+#datospersonalizacion li.naranja{
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #ffcc00;
+}
+
+#datospersonalizacion li.verde{
+    font-family: "HelveticaNeueLTCom-Roman", 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #6b9311;
+}
