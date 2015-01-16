@@ -55,6 +55,7 @@ class DefaultController extends Controller
 
         $personalizacion = new Personalizacion();
         $personalizacion->setPendiente(1);
+        $personalizacion->setMastarde(0);
         $personalizacion->setGenero($genero);
         //buscar articulo por nombre y genero
         $articulo1 = $em->getRepository('ArticuloBundle:Articulo')->findBySlugAndGenero($articulo, $genero);
@@ -82,7 +83,11 @@ class DefaultController extends Controller
                             $personalizacion->setRutaFoto('articulo/'.$genero.'/'.$articulo.'.png');
                         } else {
                             $caract = explode("_", $selected);
-                            $personalizacion->setCaracteristicas($caract[0].', '.$caract[1]);
+                            if($caract[0] == "larguras") {
+                                $personalizacion->setCaracteristicas('corto, '.$caract[1]);
+                            } else {
+                                $personalizacion->setCaracteristicas($caract[0].', '.$caract[1]);
+                            }
                             //calcular precio de los accesorios seleccionados
                             if(($caract[0] == "bolsillos") && ($caract[1] == "mangas")) {
                                 $precio = 2.50 + 0.20;
@@ -107,7 +112,11 @@ class DefaultController extends Controller
                             $personalizacion->setCaracteristicas('-');
                             $personalizacion->setRutaFoto('articulo/'.$genero.'/'.$articulo.'.png');
                         } else {
-                            $personalizacion->setCaracteristicas($selected);
+                            if($selected == "larguras") {
+                                $personalizacion->setCaracteristicas('corto');
+                            } else {
+                                $personalizacion->setCaracteristicas($selected);
+                            }
                             //calcular precio de los accesorios seleccionados
                             if($selected == "bolsillos") {
                                 $precio = 2.50;

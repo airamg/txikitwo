@@ -37,6 +37,14 @@ class Personalizacion
     private $pendiente;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="mastarde", type="string", length=1)
+     * @Assert\NotBlank()
+     */
+    private $mastarde;
+
+    /**
      * @var integer $articulo
      *
      * @ORM\ManyToOne(targetEntity="Proyecto\ArticuloBundle\Entity\Articulo", inversedBy="personalizaciones")
@@ -145,6 +153,29 @@ class Personalizacion
     public function getPendiente()
     {
         return $this->pendiente;
+    }
+
+    /**
+     * Set mastarde
+     *
+     * @param string $mastarde
+     * @return Personalizacion
+     */
+    public function setMastarde($mastarde)
+    {
+        $this->mastarde = $mastarde;
+
+        return $this;
+    }
+
+    /**
+     * Get mastarde
+     *
+     * @return string
+     */
+    public function getMastarde()
+    {
+        return $this->mastarde;
     }
 
     /**

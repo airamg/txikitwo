@@ -3,8 +3,12 @@ compra_homepage:
     defaults: { _controller: CompraBundle:Default:index }
 
 compra_pendientes:
-    path:     /{personalizacionid}
+    path:     /pendientes/{personalizacionid}
     defaults: { _controller: CompraBundle:Default:pendientes }
+
+compra_mastarde:
+    path:     /mastarde/{personalizacionid}
+    defaults: { _controller: CompraBundle:Default:mastarde }
 
 compra_pedido:
     path:     /pedido/{id}/{precio}

@@ -13,9 +13,10 @@ class PersonalizacionRepository extends EntityRepository
         $consulta = $em->createQuery('
             SELECT p
             FROM PersonalizacionBundle:Personalizacion p
-            WHERE p.pendiente = :pendiente AND p.usuario = :email
+            WHERE p.pendiente = :pendiente AND p.mastarde = :mastarde AND p.usuario = :email
         ');
         $consulta->setParameter('pendiente', "1");
+        $consulta->setParameter('mastarde', "0");
         $consulta->setParameter('email', $email);
 
         return $consulta->getResult();

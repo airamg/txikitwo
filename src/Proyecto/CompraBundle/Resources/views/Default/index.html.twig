@@ -54,6 +54,11 @@
                             <input class="boton" type="submit" name="pedidoselectscompra" value="eliminar del carrito" />
                         </form>
                      </div>
+                    <div id="enlacepedidomastarde">
+                        <form action="{{ path('compra_mastarde', { 'personalizacionid': personalizacio.id }) }}" method="post">
+                            <input class="boton" type="submit" name="pedidoselectscompramastarde" value="comprar más tarde" />
+                        </form>
+                    </div>
                 </div>
             </div>
         {% endfor %}
@@ -66,6 +71,8 @@
                 <a class="boton" href="{{ path('compra_pedido', { 'id': "0", 'precio': totalprecio }) }}">realizar pedido</a>
             </div>
         </div>
+        {% elseif cont == 0 %}
+            <p><strong>No tiene compras pendientes.</strong></p>
         {% endif %}
     </div>
     {% include ':includes:footer.html.twig' %}

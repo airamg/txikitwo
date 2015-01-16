@@ -21,6 +21,7 @@ class Accesorios extends AbstractFixture
             'Mangas',
             'Lazos',
             'Dibujos',
+            'Nombres'
         );
 
         foreach ($accesorios as $nombre) {
@@ -51,6 +52,10 @@ class Accesorios extends AbstractFixture
                 case 'Dibujos':
                     $accesorio->setSlug('dibujos');
                     $accesorio->setPrecio(0.50);
+                    break;
+                case 'Nombres':
+                    $accesorio->setSlug('nombres');
+                    $accesorio->setPrecio(1.10);
                     break;
             }
 
