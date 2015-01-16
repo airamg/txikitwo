@@ -63,6 +63,22 @@
                     {% set p = 18.00 + 2.50 %}
                     <p><strong>{{ p }}0€</strong></p>
                 </div>
+                <div id="precio" class="nombres selects">
+                    {% set p = 18.00 + 1.10 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="bolsillos_nombres selects">
+                    {% set p = 18.00 + 2.50 + 1.10 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="nombres_rosa selects">
+                    {% set p = 18.00 + 1.10 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="bolsillos_nombres_rosa selects">
+                    {% set p = 18.00 + 2.50 + 1.10 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nina", 'articulo': "bata" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -72,6 +88,11 @@
                             <li><input type="radio" name="check_list[]" value="bolsillos"><label>Añadir bolsillos</label></li>
                             <li><input type="radio" name="check_list[]" value="rosa"><label>Bata rosa</label></li>
                             <li><input type="radio" name="check_list[]" value="bolsillos_rosa"><label>Bata rosa con bolsillos</label></li>
+                            <li><input type="radio" name="check_list[]" value="nombres"><label>Añadir nombre</label></li>
+                            <li><input type="text" name="nombre" placeholder="tu nombre"></li>
+                            <li><input type="radio" name="check_list[]" value="bolsillos_nombres"><label>Bata con bolsillos y nombre</label></li>
+                            <li><input type="radio" name="check_list[]" value="nombres_rosa"><label>Bata rosa con nombre</label></li>
+                            <li><input type="radio" name="check_list[]" value="bolsillos_nombres_rosa"><label>Bata rosa con bolsillos y nombre</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>
@@ -328,6 +349,14 @@
                     {% set p = 18.00 + 2.50 %}
                     <p><strong>{{ p }}0€</strong></p>
                 </div>
+                <div id="precio" class="nombres selects">
+                    {% set p = 18.00 + 1.10 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
+                <div id="precio" class="bolsillos_nombres selects">
+                    {% set p = 18.00 + 2.50 + 1.10 %}
+                    <p><strong>{{ p }}0€</strong></p>
+                </div>
             </div>
             <div id="opciones">
                 <form action="{{ path('personalizacion_articulo', { 'genero': "nino", 'articulo': "bata" }) }}" method="post" {{ form_enctype(formulario) }} >
@@ -335,6 +364,9 @@
                         <ul>
                             <li><input type="radio" name="check_list[]" value="index"><label>Diseño original</label></li>
                             <li><input type="radio" name="check_list[]" value="bolsillos"><label>Añadir bolsillos</label></li>
+                            <li><input type="radio" name="check_list[]" value="nombres"><label>Añadir nombre</label></li>
+                            <li><input type="text" name="nombre" placeholder="tu nombre"></li>
+                            <li><input type="radio" name="check_list[]" value="bolsillos_nombres"><label>Bata con bolsillos y nombre</label></li>
                             <li>{{ form_widget(formulario.talla) }}</li>
                             <li>{{ form_widget(formulario.tejido) }}</li>
                             <li><input class="boton" type="submit" name="personalizacioncarrito" value="añadir al carrito" /></li>

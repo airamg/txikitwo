@@ -110,11 +110,19 @@ input[type="submit"]:hover
     font-weight: bold;
 }
 
+input[type="text"] {
+    padding: 7px;
+    margin-top: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 125px;
+}
+
 .index {
     display: block;
 }
 
-.botones, .bolsillos, .larguras, .mangas, .lazos, .dibujos {
+.botones, .bolsillos, .larguras, .mangas, .lazos, .dibujos, .nombres {
     display: none;
 }
 
@@ -122,7 +130,7 @@ input[type="submit"]:hover
     display: none;
 }
 
-.botones_rosa, .botones_azul, .bolsillos_rosa, .mangas_rosa, .larguras_verde, .mangas_lazos, .bolsillos_verde, .bolsillos_mangas, .dibujos_azul, .larguras_azul {
+.botones_rosa, .botones_azul, .bolsillos_rosa, .mangas_rosa, .larguras_verde, .mangas_lazos, .bolsillos_verde, .bolsillos_mangas, .dibujos_azul, .larguras_azul, .nombres, .bolsillos_nombres, .nombres_rosa, .bolsillos_nombres_rosa {
     display: none;
 }
 
