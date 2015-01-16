@@ -433,7 +433,23 @@ class DefaultController extends Controller
             }
         }
 
-        return $this->render('UsuarioBundle:Default:cerrarsesion.html.twig');
+        $usuario1 = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
+        $num = 0;
+        $online = 0;
+        if(!$usuario1) {
+            $num = 0;
+        } else {
+            $online = 1;
+            $personalizacion = $em->getRepository('PersonalizacionBundle:Personalizacion')->findPendientesByEmailUsuario($usuario1->getEmail());
+            foreach ($personalizacion as $pendiente) {
+                $num = $num + 1;
+            }
+        }
+
+        return $this->render('UsuarioBundle:Default:cerrarsesion.html.twig', array(
+            'num' => $num,
+            'online' => $online
+        ));
     }
 
     public function recordarpasswordAction()

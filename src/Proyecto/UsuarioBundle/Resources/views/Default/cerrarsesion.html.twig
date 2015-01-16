@@ -11,8 +11,10 @@
 {% endblock %}
 
 {% block body %}
+    {% include ':includes:header.html.twig' %}
+    {% include ':includes:menucuenta.html.twig' %}
     <div id="contenido">
-        Inténtalo de nuevo.
+        <p><strong>No se ha podido realizar tu petición. Inténtalo de nuevo.</strong></p>
     </div>
     {% include ':includes:footer.html.twig' %}
 {% endblock %}
