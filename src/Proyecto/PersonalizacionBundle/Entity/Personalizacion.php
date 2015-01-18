@@ -98,6 +98,14 @@ class Personalizacion
      */
     private $precioAccesorios;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $nombre;
+
 
     /**
      * Get id
@@ -317,6 +325,29 @@ class Personalizacion
     public function getPrecioAccesorios()
     {
         return $this->precioAccesorios;
+    }
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     * @return Personalizacion
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
     }
 
 }

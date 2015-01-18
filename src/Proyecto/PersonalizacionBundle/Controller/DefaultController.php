@@ -68,7 +68,6 @@ class DefaultController extends Controller
         $formulario->handleRequest($peticion);
 
         if ($formulario->isValid()) {
-
             $select = $articulo;
             $precio = 0;
             if(!empty($_POST['check_list'])) {
@@ -85,6 +84,12 @@ class DefaultController extends Controller
                             $caract = explode("_", $selected);
                             if($caract[0] == "larguras") {
                                 $personalizacion->setCaracteristicas('corto, '.$caract[1]);
+                            } elseif($caract[0] == "nombres") {
+                                $nombre = $formulario->get('nombre')->getData();
+                                $personalizacion->setCaracteristicas('nombre (' .$nombre.'), '.$caract[1]);
+                            } elseif($caract[1] == "nombres") {
+                                $nombre = $formulario->get('nombre')->getData();
+                                $personalizacion->setCaracteristicas($caract[0].', nombre ('.$nombre.')');
                             } else {
                                 $personalizacion->setCaracteristicas($caract[0].', '.$caract[1]);
                             }
@@ -93,12 +98,16 @@ class DefaultController extends Controller
                                 $precio = 2.50 + 0.20;
                             } elseif (($caract[0] == "mangas") && ($caract[1] == "lazos")) {
                                 $precio = 0.20 + 2.00;
+                            } elseif (($caract[0] == "bolsillos") && ($caract[1] == "nombres")) {
+                                $precio = 2.50 + 1.10;
                             } elseif ($caract[0] == "lazos") {
                                 $precio = 2.00;
                             } elseif ($caract[0] == "bolsillos") {
                                 $precio = 2.50;
                             } elseif ($caract[0] == "mangas") {
                                 $precio = 0.20;
+                            } elseif ($caract[0] == "nombres") {
+                                $precio = 1.10;
                             } else {
                                 $precio = 0.00;
                             }
@@ -114,6 +123,9 @@ class DefaultController extends Controller
                         } else {
                             if($selected == "larguras") {
                                 $personalizacion->setCaracteristicas('corto');
+                            } elseif($selected == "nombres") {
+                                $nombre = $formulario->get('nombre')->getData();
+                                $personalizacion->setCaracteristicas('nombre (' .$nombre.')');
                             } else {
                                 $personalizacion->setCaracteristicas($selected);
                             }
@@ -128,6 +140,8 @@ class DefaultController extends Controller
                                 $precio = 2.00;
                             } elseif ($selected == "dibujos") {
                                 $precio = 0.50;
+                            } elseif ($selected == "nombres") {
+                                $precio = 1.10;
                             } else {
                                 $precio = 0.00;
                             }
@@ -139,7 +153,6 @@ class DefaultController extends Controller
             } else {
                 $personalizacion->setRutaFoto('articulo/'.$genero.'/'.$articulo.'.png');
             }
-
             //comprobar que usuario ha iniciado sesion
             $usuario = $em->getRepository('UsuarioBundle:Usuario')->findUserOnline();
             if(!$usuario) {

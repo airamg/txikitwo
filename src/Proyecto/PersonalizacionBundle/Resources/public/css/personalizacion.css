@@ -149,3 +149,7 @@ input[type="text"] {
         padding-bottom: 1em;
     }
 }
+
+#blank {
+    display: none;
+}

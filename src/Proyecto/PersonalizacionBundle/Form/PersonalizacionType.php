@@ -26,6 +26,7 @@ class PersonalizacionType extends AbstractType
                             ->orderBy('c.nombre', 'ASC');
                     },
             ))
+            ->add('nombre', 'text', array('attr' => array('value' => 'tu nombre')))
         ;
     }
 
