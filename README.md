@@ -10,6 +10,13 @@ Descargar y seguir las instrucciones en http://getcomposer.org/ o ejecutar estos
     curl -s http://getcomposer.org/installer | php
 	php composer.phar
 
+Comprobar que está lista la configuración de los archivos: 
+	- hosts - windows/system32/drivers/etc/
+	- httpd-vhosts.conf - xampp/apache/conf/extra/
+	- php.ini - xampp/php/ - php_fileinfo.dll y php_intl.dll
+
+Ahora podemos crear el proyecto:
+	
     php composer.phar create-project symfony/framework-standard-edition <pathNombreProyecto> 2.5.5
 
 Si usamos XAMPP, el path debe ser: C:/xampp/htdocs/NombreProyecto
@@ -26,6 +33,42 @@ Desde la carpeta de nuestro proyecto:
 Desde el navegador:
 	
 	txikitwo.local/app_dev.php
+
+
+3) Empezando a desarrollar
+---------------------
+
+Base de datos: 
+    
+	php app/console doctrine:database:create
+	php app/console doctrine:schema:create
+	php app/console doctrine:fixtures:load
+
+Crear los bundles (ejemplo: --namespace=Proyecto/WebBundle --bundle-name=WebBundle):
+	
+	php app/console generate:bundle
+
+Crear las entidades (ejemplo: --shortcutname: NombreBundle:NombreEntidad):
+
+	php app/console doctrine:generate:entity 
+	php app/console generate:doctrine:entities NombreBundle (generación get y set)
+
+Cargar los estilos:
+	
+	php app/console cache:clear --env=dev
+	php app/console assets:install
+	php app/console assetic:dump
+	
+Cambios en repositorio:
+
+	git init 
+	git remote add origin <urlgitrepositorio>
+	git add . / git add --all
+	git commit -m "descripción"
+	git push origin <nombrerama>
+	git status 
+	git pull 
+	git merge <nombrerama>
 
 
 CONTENIDO
@@ -47,23 +90,6 @@ Bundles principales del proyecto:
 
   * **BackendBundle** 
 
-Bundles por defecto de configuración:
+Bundles configurados pero no utilizados en este proyecto:
 
-  * [**DoctrineBundle**][1] - Adds support for the Doctrine ORM
-
-  * [**AsseticBundle**][2] - Adds support for Assetic, an asset processing
-    library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][3] (in dev/test env) - Adds code generation
-    capabilities
-	
-	
-[1]:  http://symfony.com/doc/2.5/book/doctrine.html
-[2]: http://symfony.com/doc/2.5/cookbook/assetic/asset_management.html
-[3]: http://symfony.com/doc/2.5/bundles/SensioGeneratorBundle/index.html
+  * **BackendBundle**
