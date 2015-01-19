@@ -88,8 +88,6 @@ Bundles principales del proyecto:
 
   * **WebBundle**
 
-  * **BackendBundle** 
-
 Bundles configurados pero no utilizados en este proyecto:
 
   * **BackendBundle**
